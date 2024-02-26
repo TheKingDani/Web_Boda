@@ -1,0 +1,658 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbInvitacionBodaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblAcompanantes">
+    <Key>
+      <PropertyRef Name="idAcompanate" />
+    </Key>
+    <Property Name="idAcompanate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idInvitado" Type="Int32" />
+    <Property Name="acompanante" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="confirmado" Type="Boolean" />
+    <Property Name="mesa" Type="Int32" />
+    <NavigationProperty Name="tblInvitados" Relationship="Self.FK__tblAcompa__idInv__239E4DCF" FromRole="tblAcompanantes" ToRole="tblInvitados" />
+  </EntityType>
+  <EntityType Name="tblBebidas">
+    <Key>
+      <PropertyRef Name="idBebida" />
+    </Key>
+    <Property Name="idBebida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bebida" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblBebidasNovios" Relationship="Self.FK_tblBebidasNovios_TotblBebidas" FromRole="tblBebidas" ToRole="tblBebidasNovios" />
+  </EntityType>
+  <EntityType Name="tblBebidasInvitado">
+    <Key>
+      <PropertyRef Name="idBebidaInvitado" />
+    </Key>
+    <Property Name="idBebidaInvitado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idBebidaNovios" Type="Int32" />
+    <Property Name="idInvitado" Type="Int32" />
+    <NavigationProperty Name="tblBebidasNovios" Relationship="Self.FK_tblBebidasInvitado_TotblBebidasNovios" FromRole="tblBebidasInvitado" ToRole="tblBebidasNovios" />
+    <NavigationProperty Name="tblInvitados" Relationship="Self.FK_tblBebidasInvitado_TotblInvitados" FromRole="tblBebidasInvitado" ToRole="tblInvitados" />
+  </EntityType>
+  <EntityType Name="tblBebidasNovios">
+    <Key>
+      <PropertyRef Name="idBebidaNovios" />
+    </Key>
+    <Property Name="idBebidaNovios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idBebida" Type="Int32" />
+    <Property Name="idNovios" Type="Int32" />
+    <NavigationProperty Name="tblBebidas" Relationship="Self.FK_tblBebidasNovios_TotblBebidas" FromRole="tblBebidasNovios" ToRole="tblBebidas" />
+    <NavigationProperty Name="tblBebidasInvitado" Relationship="Self.FK_tblBebidasInvitado_TotblBebidasNovios" FromRole="tblBebidasNovios" ToRole="tblBebidasInvitado" />
+    <NavigationProperty Name="tblNovios" Relationship="Self.FK_tblBebidasNovios_TotblNovios" FromRole="tblBebidasNovios" ToRole="tblNovios" />
+  </EntityType>
+  <EntityType Name="tblBioNovios">
+    <Key>
+      <PropertyRef Name="idBioNovio" />
+    </Key>
+    <Property Name="idBioNovio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idGenero" Type="Int32" />
+    <Property Name="biografia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="idNovios" Type="Int32" />
+    <NavigationProperty Name="tblNovios" Relationship="Self.FK_tblBioNovios_TotblNovios" FromRole="tblBioNovios" ToRole="tblNovios" />
+  </EntityType>
+  <EntityType Name="tblConfiguracion">
+    <Key>
+      <PropertyRef Name="idConfiguracion" />
+    </Key>
+    <Property Name="idConfiguracion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idNovios" Type="Int32" />
+    <Property Name="requiereAutenticacion" Type="Boolean" />
+    <Property Name="dominioExterno" Type="Boolean" />
+    <NavigationProperty Name="tblNovios" Relationship="Self.FK_tblConfiguracion_TotblNovios" FromRole="tblConfiguracion" ToRole="tblNovios" />
+  </EntityType>
+  <EntityType Name="tblCuentasCorreo">
+    <Key>
+      <PropertyRef Name="idCuentaCorreo" />
+    </Key>
+    <Property Name="idCuentaCorreo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idNovios" Type="Int32" />
+    <Property Name="smtpServidor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="usuario" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="port" Type="Int32" />
+    <NavigationProperty Name="tblNovios" Relationship="Self.FK_tblCuentasCorreo_TotblNovios" FromRole="tblCuentasCorreo" ToRole="tblNovios" />
+  </EntityType>
+  <EntityType Name="tblEnviosDiarios">
+    <Key>
+      <PropertyRef Name="idEnvio" />
+    </Key>
+    <Property Name="idEnvio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCuenta" Type="Int32" />
+    <Property Name="cantidad" Type="Int32" />
+    <Property Name="fecha" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblHistoriaNovios">
+    <Key>
+      <PropertyRef Name="idNoviosHistoria" />
+    </Key>
+    <Property Name="idNoviosHistoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fechaConocieron" Type="DateTime" Precision="3" />
+    <Property Name="conocieron" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="imgConocieron" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="idNovios" Type="Int32" />
+    <Property Name="fechaPropuesta" Type="DateTime" Precision="3" />
+    <Property Name="propuesta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="imgPropuesta" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="fechaPrimeraCita" Type="DateTime" Precision="3" />
+    <Property Name="primeraCita" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="imgPrimeraCita" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="fechaPedida" Type="DateTime" Precision="3" />
+    <Property Name="pedida" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="imgPedida" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="fechaNovios" Type="DateTime" Precision="3" />
+    <Property Name="novios" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="imgNovios" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblNovios" Relationship="Self.FK_tblHistoriaNovios_TotblNovios" FromRole="tblHistoriaNovios" ToRole="tblNovios" />
+  </EntityType>
+  <EntityType Name="tblIdioma">
+    <Key>
+      <PropertyRef Name="idIdioma" />
+    </Key>
+    <Property Name="idIdioma" Type="Int32" Nullable="false" />
+    <Property Name="idioma" Type="String" MaxLength="244" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblIntentosIngreso">
+    <Key>
+      <PropertyRef Name="idIntentoIngreso" />
+    </Key>
+    <Property Name="idIntentoIngreso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaHora" Type="DateTime" Precision="3" />
+    <Property Name="ingreso" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tblInvitados">
+    <Key>
+      <PropertyRef Name="idInvitado" />
+    </Key>
+    <Property Name="idInvitado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="apodo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="244" FixedLength="false" Unicode="false" />
+    <Property Name="aPaterno" Type="String" MaxLength="244" FixedLength="false" Unicode="false" />
+    <Property Name="aMaterno" Type="String" MaxLength="244" FixedLength="false" Unicode="false" />
+    <Property Name="boletos" Type="Int32" />
+    <Property Name="idGenero" Type="Int32" />
+    <Property Name="boletosConfirmados" Type="Int32" />
+    <Property Name="correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idTipoInvitado" Type="Int32" />
+    <Property Name="vienePor" Type="Int32" />
+    <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idTipoMenu" Type="Int32" />
+    <Property Name="accedio" Type="DateTime" Precision="3" />
+    <Property Name="llegoWeb" Type="DateTime" Precision="3" />
+    <Property Name="contrasena" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="invitacionEnviada" Type="Boolean" />
+    <Property Name="soloMisa" Type="Boolean" />
+    <Property Name="asistira" Type="Boolean" />
+    <Property Name="qrEnviado" Type="Boolean" />
+    <Property Name="qrConfirmado" Type="Boolean" />
+    <Property Name="asistioBoda" Type="Boolean" />
+    <Property Name="mesa" Type="Int32" />
+    <Property Name="idNovios" Type="Int32" />
+    <Property Name="mensaje" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="regalo" Type="Boolean" />
+    <Property Name="mensajeRegalo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="idIdioma" Type="Int32" />
+    <NavigationProperty Name="tblAcompanantes" Relationship="Self.FK__tblAcompa__idInv__239E4DCF" FromRole="tblInvitados" ToRole="tblAcompanantes" />
+    <NavigationProperty Name="tblBebidasInvitado" Relationship="Self.FK_tblBebidasInvitado_TotblInvitados" FromRole="tblInvitados" ToRole="tblBebidasInvitado" />
+    <NavigationProperty Name="tblTipoInvitado" Relationship="Self.FK__tblInvita__idTip__24927208" FromRole="tblInvitados" ToRole="tblTipoInvitado" />
+    <NavigationProperty Name="tblNovios" Relationship="Self.FK_tblInvitados_ToTtblNovios" FromRole="tblInvitados" ToRole="tblNovios" />
+  </EntityType>
+  <EntityType Name="tblItinerario">
+    <Key>
+      <PropertyRef Name="idItinerario" />
+    </Key>
+    <Property Name="idItinerario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idNovio" Type="Int32" Nullable="false" />
+    <Property Name="diaHora" Type="DateTime" Precision="3" />
+    <Property Name="actividad" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblMensajesWA">
+    <Key>
+      <PropertyRef Name="idMensajeWA" />
+    </Key>
+    <Property Name="idMensajeWA" Type="Int32" Nullable="false" />
+    <Property Name="idTipoInvitado" Type="Int32" />
+    <Property Name="idIdioma" Type="Int32" />
+    <Property Name="mensajeInicial" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="mensajeMesaRegalos" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="mensajeDiaD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblMesasNovios">
+    <Key>
+      <PropertyRef Name="idMesaNovio" />
+    </Key>
+    <Property Name="idMesaNovio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idMesaRegalo" Type="Int32" />
+    <Property Name="numero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idNovios" Type="Int32" />
+    <NavigationProperty Name="tblMesasRegalos" Relationship="Self.FK_tblMesasNovios_TotblMesasRegalos" FromRole="tblMesasNovios" ToRole="tblMesasRegalos" />
+    <NavigationProperty Name="tblNovios" Relationship="Self.FK_tblMesasNovios_TotblNovios" FromRole="tblMesasNovios" ToRole="tblNovios" />
+  </EntityType>
+  <EntityType Name="tblMesasRegalos">
+    <Key>
+      <PropertyRef Name="idMesaRegalo" />
+    </Key>
+    <Property Name="idMesaRegalo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="url" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblMesasNovios" Relationship="Self.FK_tblMesasNovios_TotblMesasRegalos" FromRole="tblMesasRegalos" ToRole="tblMesasNovios" />
+  </EntityType>
+  <EntityType Name="tblNovios">
+    <Key>
+      <PropertyRef Name="idNovios" />
+    </Key>
+    <Property Name="idNovios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreNovia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="aPNovia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="aMNovia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nombreNovio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="aPNovio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="aMNovio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="dominio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="padrinoNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="padrinoApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="madrinaNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="madrinaApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="misaLugar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="misaHora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="misaFecha" Type="DateTime" Precision="0" />
+    <Property Name="recepcionLugar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="recepcionHora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="recepcionFecha" Type="DateTime" Precision="0" />
+    <Property Name="fiestaLugar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="fiestaHora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fiestaFecha" Type="DateTime" Precision="0" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="correoRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="telRegistro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idPlantilla" Type="Int32" />
+    <Property Name="activo" Type="Boolean" />
+    <Property Name="papaNovioNombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="mamaNovioNombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="papaNoviaNombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="mamaNoviaNombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="facebookNovio" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="facebookNovia" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="twitterNovio" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="twitterNovia" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="instagramNovio" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="instagramNovia" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="validacionCorreo" Type="Boolean" />
+    <Property Name="misaLatitud" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="misaLongitud" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="recepcionLatitud" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="recepcionLongitud" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fiestaLatitud" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="fiestaLongitud" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="dominioExterno" Type="Boolean" />
+    <NavigationProperty Name="tblBebidasNovios" Relationship="Self.FK_tblBebidasNovios_TotblNovios" FromRole="tblNovios" ToRole="tblBebidasNovios" />
+    <NavigationProperty Name="tblBioNovios" Relationship="Self.FK_tblBioNovios_TotblNovios" FromRole="tblNovios" ToRole="tblBioNovios" />
+    <NavigationProperty Name="tblConfiguracion" Relationship="Self.FK_tblConfiguracion_TotblNovios" FromRole="tblNovios" ToRole="tblConfiguracion" />
+    <NavigationProperty Name="tblCuentasCorreo" Relationship="Self.FK_tblCuentasCorreo_TotblNovios" FromRole="tblNovios" ToRole="tblCuentasCorreo" />
+    <NavigationProperty Name="tblHistoriaNovios" Relationship="Self.FK_tblHistoriaNovios_TotblNovios" FromRole="tblNovios" ToRole="tblHistoriaNovios" />
+    <NavigationProperty Name="tblInvitados" Relationship="Self.FK_tblInvitados_ToTtblNovios" FromRole="tblNovios" ToRole="tblInvitados" />
+    <NavigationProperty Name="tblMesasNovios" Relationship="Self.FK_tblMesasNovios_TotblNovios" FromRole="tblNovios" ToRole="tblMesasNovios" />
+    <NavigationProperty Name="tblPlantillasNovios" Relationship="Self.FK_tblPlantillasNovios_TotblNovios" FromRole="tblNovios" ToRole="tblPlantillasNovios" />
+    <NavigationProperty Name="tblTipoInvitado" Relationship="Self.FK_tblTipoInvitado_TotblNovios" FromRole="tblNovios" ToRole="tblTipoInvitado" />
+    <NavigationProperty Name="tblWPNovios" Relationship="dbInvitacionBodaModel.FK__tblWPNovi__idNov__17C286CF" FromRole="tblNovios" ToRole="tblWPNovios" />
+  </EntityType>
+  <EntityType Name="tblPlantillaBoletos">
+    <Key>
+      <PropertyRef Name="idPM_boletos" />
+    </Key>
+    <Property Name="idPM_boletos" Type="Int32" Nullable="false" />
+    <Property Name="plantillaBoleto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ancho" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="alto" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="tblPlantillas">
+    <Key>
+      <PropertyRef Name="idPlantilla" />
+    </Key>
+    <Property Name="idPlantilla" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblPlantillasNovios">
+    <Key>
+      <PropertyRef Name="idPlantillasNovios" />
+    </Key>
+    <Property Name="idPlantillasNovios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idNovios" Type="Int32" />
+    <Property Name="idPM_invitacion" Type="Int32" />
+    <Property Name="idPW_invitacion" Type="Int32" />
+    <Property Name="idPWA_invitacion" Type="Int32" />
+    <Property Name="idPM_boletos" Type="Int32" />
+    <Property Name="idPWA_boletos" Type="Int32" />
+    <Property Name="idPM_urgente" Type="Int32" />
+    <Property Name="idPWA_urgente" Type="Int32" />
+    <Property Name="idPM_diaD" Type="Int32" />
+    <Property Name="idPWA_diaD" Type="Int32" />
+    <NavigationProperty Name="tblNovios" Relationship="Self.FK_tblPlantillasNovios_TotblNovios" FromRole="tblPlantillasNovios" ToRole="tblNovios" />
+  </EntityType>
+  <EntityType Name="tblTipoInvitado">
+    <Key>
+      <PropertyRef Name="idTipoInvitado" />
+    </Key>
+    <Property Name="idTipoInvitado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoInvitado" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="tituloCorreo" Type="String" MaxLength="220" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="archivoBienvenida" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idNoviosTI" Type="Int32" />
+    <NavigationProperty Name="tblInvitados" Relationship="Self.FK__tblInvita__idTip__24927208" FromRole="tblTipoInvitado" ToRole="tblInvitados" />
+    <NavigationProperty Name="tblNovios" Relationship="Self.FK_tblTipoInvitado_TotblNovios" FromRole="tblTipoInvitado" ToRole="tblNovios" />
+  </EntityType>
+  <Association Name="FK__tblAcompa__idInv__239E4DCF">
+    <End Role="tblInvitados" Type="Self.tblInvitados" Multiplicity="0..1" />
+    <End Role="tblAcompanantes" Type="Self.tblAcompanantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblInvitados">
+        <PropertyRef Name="idInvitado" />
+      </Principal>
+      <Dependent Role="tblAcompanantes">
+        <PropertyRef Name="idInvitado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBebidasNovios_TotblBebidas">
+    <End Role="tblBebidas" Type="Self.tblBebidas" Multiplicity="0..1" />
+    <End Role="tblBebidasNovios" Type="Self.tblBebidasNovios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBebidas">
+        <PropertyRef Name="idBebida" />
+      </Principal>
+      <Dependent Role="tblBebidasNovios">
+        <PropertyRef Name="idBebida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBebidasInvitado_TotblBebidasNovios">
+    <End Role="tblBebidasNovios" Type="Self.tblBebidasNovios" Multiplicity="0..1" />
+    <End Role="tblBebidasInvitado" Type="Self.tblBebidasInvitado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBebidasNovios">
+        <PropertyRef Name="idBebidaNovios" />
+      </Principal>
+      <Dependent Role="tblBebidasInvitado">
+        <PropertyRef Name="idBebidaNovios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBebidasInvitado_TotblInvitados">
+    <End Role="tblInvitados" Type="Self.tblInvitados" Multiplicity="0..1" />
+    <End Role="tblBebidasInvitado" Type="Self.tblBebidasInvitado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblInvitados">
+        <PropertyRef Name="idInvitado" />
+      </Principal>
+      <Dependent Role="tblBebidasInvitado">
+        <PropertyRef Name="idInvitado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBebidasNovios_TotblNovios">
+    <End Role="tblNovios" Type="Self.tblNovios" Multiplicity="0..1" />
+    <End Role="tblBebidasNovios" Type="Self.tblBebidasNovios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNovios">
+        <PropertyRef Name="idNovios" />
+      </Principal>
+      <Dependent Role="tblBebidasNovios">
+        <PropertyRef Name="idNovios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBioNovios_TotblNovios">
+    <End Role="tblNovios" Type="Self.tblNovios" Multiplicity="0..1" />
+    <End Role="tblBioNovios" Type="Self.tblBioNovios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNovios">
+        <PropertyRef Name="idNovios" />
+      </Principal>
+      <Dependent Role="tblBioNovios">
+        <PropertyRef Name="idNovios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblConfiguracion_TotblNovios">
+    <End Role="tblNovios" Type="Self.tblNovios" Multiplicity="0..1" />
+    <End Role="tblConfiguracion" Type="Self.tblConfiguracion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNovios">
+        <PropertyRef Name="idNovios" />
+      </Principal>
+      <Dependent Role="tblConfiguracion">
+        <PropertyRef Name="idNovios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblCuentasCorreo_TotblNovios">
+    <End Role="tblNovios" Type="Self.tblNovios" Multiplicity="0..1" />
+    <End Role="tblCuentasCorreo" Type="Self.tblCuentasCorreo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNovios">
+        <PropertyRef Name="idNovios" />
+      </Principal>
+      <Dependent Role="tblCuentasCorreo">
+        <PropertyRef Name="idNovios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblHistoriaNovios_TotblNovios">
+    <End Role="tblNovios" Type="Self.tblNovios" Multiplicity="0..1" />
+    <End Role="tblHistoriaNovios" Type="Self.tblHistoriaNovios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNovios">
+        <PropertyRef Name="idNovios" />
+      </Principal>
+      <Dependent Role="tblHistoriaNovios">
+        <PropertyRef Name="idNovios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblInvita__idTip__24927208">
+    <End Role="tblTipoInvitado" Type="Self.tblTipoInvitado" Multiplicity="0..1" />
+    <End Role="tblInvitados" Type="Self.tblInvitados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblTipoInvitado">
+        <PropertyRef Name="idTipoInvitado" />
+      </Principal>
+      <Dependent Role="tblInvitados">
+        <PropertyRef Name="idTipoInvitado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblInvitados_ToTtblNovios">
+    <End Role="tblNovios" Type="Self.tblNovios" Multiplicity="0..1" />
+    <End Role="tblInvitados" Type="Self.tblInvitados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNovios">
+        <PropertyRef Name="idNovios" />
+      </Principal>
+      <Dependent Role="tblInvitados">
+        <PropertyRef Name="idNovios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMesasNovios_TotblMesasRegalos">
+    <End Role="tblMesasRegalos" Type="Self.tblMesasRegalos" Multiplicity="0..1" />
+    <End Role="tblMesasNovios" Type="Self.tblMesasNovios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMesasRegalos">
+        <PropertyRef Name="idMesaRegalo" />
+      </Principal>
+      <Dependent Role="tblMesasNovios">
+        <PropertyRef Name="idMesaRegalo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblMesasNovios_TotblNovios">
+    <End Role="tblNovios" Type="Self.tblNovios" Multiplicity="0..1" />
+    <End Role="tblMesasNovios" Type="Self.tblMesasNovios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNovios">
+        <PropertyRef Name="idNovios" />
+      </Principal>
+      <Dependent Role="tblMesasNovios">
+        <PropertyRef Name="idNovios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPlantillasNovios_TotblNovios">
+    <End Role="tblNovios" Type="Self.tblNovios" Multiplicity="0..1" />
+    <End Role="tblPlantillasNovios" Type="Self.tblPlantillasNovios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNovios">
+        <PropertyRef Name="idNovios" />
+      </Principal>
+      <Dependent Role="tblPlantillasNovios">
+        <PropertyRef Name="idNovios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblTipoInvitado_TotblNovios">
+    <End Role="tblNovios" Type="Self.tblNovios" Multiplicity="0..1" />
+    <End Role="tblTipoInvitado" Type="Self.tblTipoInvitado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNovios">
+        <PropertyRef Name="idNovios" />
+      </Principal>
+      <Dependent Role="tblTipoInvitado">
+        <PropertyRef Name="idNoviosTI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbInvitacionBodaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAcompanantes" EntityType="Self.tblAcompanantes" />
+    <EntitySet Name="tblBebidas" EntityType="Self.tblBebidas" />
+    <EntitySet Name="tblBebidasInvitado" EntityType="Self.tblBebidasInvitado" />
+    <EntitySet Name="tblBebidasNovios" EntityType="Self.tblBebidasNovios" />
+    <EntitySet Name="tblBioNovios" EntityType="Self.tblBioNovios" />
+    <EntitySet Name="tblConfiguracion" EntityType="Self.tblConfiguracion" />
+    <EntitySet Name="tblCuentasCorreo" EntityType="Self.tblCuentasCorreo" />
+    <EntitySet Name="tblEnviosDiarios" EntityType="Self.tblEnviosDiarios" />
+    <EntitySet Name="tblHistoriaNovios" EntityType="Self.tblHistoriaNovios" />
+    <EntitySet Name="tblIdioma" EntityType="Self.tblIdioma" />
+    <EntitySet Name="tblIntentosIngreso" EntityType="Self.tblIntentosIngreso" />
+    <EntitySet Name="tblInvitados" EntityType="Self.tblInvitados" />
+    <EntitySet Name="tblItinerario" EntityType="Self.tblItinerario" />
+    <EntitySet Name="tblMensajesWA" EntityType="Self.tblMensajesWA" />
+    <EntitySet Name="tblMesasNovios" EntityType="Self.tblMesasNovios" />
+    <EntitySet Name="tblMesasRegalos" EntityType="Self.tblMesasRegalos" />
+    <EntitySet Name="tblNovios" EntityType="Self.tblNovios" />
+    <EntitySet Name="tblPlantillaBoletos" EntityType="Self.tblPlantillaBoletos" />
+    <EntitySet Name="tblPlantillas" EntityType="Self.tblPlantillas" />
+    <EntitySet Name="tblPlantillasNovios" EntityType="Self.tblPlantillasNovios" />
+    <EntitySet Name="tblTipoInvitado" EntityType="Self.tblTipoInvitado" />
+    <AssociationSet Name="FK__tblAcompa__idInv__239E4DCF" Association="Self.FK__tblAcompa__idInv__239E4DCF">
+      <End Role="tblInvitados" EntitySet="tblInvitados" />
+      <End Role="tblAcompanantes" EntitySet="tblAcompanantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBebidasNovios_TotblBebidas" Association="Self.FK_tblBebidasNovios_TotblBebidas">
+      <End Role="tblBebidas" EntitySet="tblBebidas" />
+      <End Role="tblBebidasNovios" EntitySet="tblBebidasNovios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBebidasInvitado_TotblBebidasNovios" Association="Self.FK_tblBebidasInvitado_TotblBebidasNovios">
+      <End Role="tblBebidasNovios" EntitySet="tblBebidasNovios" />
+      <End Role="tblBebidasInvitado" EntitySet="tblBebidasInvitado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBebidasInvitado_TotblInvitados" Association="Self.FK_tblBebidasInvitado_TotblInvitados">
+      <End Role="tblInvitados" EntitySet="tblInvitados" />
+      <End Role="tblBebidasInvitado" EntitySet="tblBebidasInvitado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBebidasNovios_TotblNovios" Association="Self.FK_tblBebidasNovios_TotblNovios">
+      <End Role="tblNovios" EntitySet="tblNovios" />
+      <End Role="tblBebidasNovios" EntitySet="tblBebidasNovios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBioNovios_TotblNovios" Association="Self.FK_tblBioNovios_TotblNovios">
+      <End Role="tblNovios" EntitySet="tblNovios" />
+      <End Role="tblBioNovios" EntitySet="tblBioNovios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblConfiguracion_TotblNovios" Association="Self.FK_tblConfiguracion_TotblNovios">
+      <End Role="tblNovios" EntitySet="tblNovios" />
+      <End Role="tblConfiguracion" EntitySet="tblConfiguracion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblCuentasCorreo_TotblNovios" Association="Self.FK_tblCuentasCorreo_TotblNovios">
+      <End Role="tblNovios" EntitySet="tblNovios" />
+      <End Role="tblCuentasCorreo" EntitySet="tblCuentasCorreo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblHistoriaNovios_TotblNovios" Association="Self.FK_tblHistoriaNovios_TotblNovios">
+      <End Role="tblNovios" EntitySet="tblNovios" />
+      <End Role="tblHistoriaNovios" EntitySet="tblHistoriaNovios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblInvita__idTip__24927208" Association="Self.FK__tblInvita__idTip__24927208">
+      <End Role="tblTipoInvitado" EntitySet="tblTipoInvitado" />
+      <End Role="tblInvitados" EntitySet="tblInvitados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblInvitados_ToTtblNovios" Association="Self.FK_tblInvitados_ToTtblNovios">
+      <End Role="tblNovios" EntitySet="tblNovios" />
+      <End Role="tblInvitados" EntitySet="tblInvitados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMesasNovios_TotblMesasRegalos" Association="Self.FK_tblMesasNovios_TotblMesasRegalos">
+      <End Role="tblMesasRegalos" EntitySet="tblMesasRegalos" />
+      <End Role="tblMesasNovios" EntitySet="tblMesasNovios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblMesasNovios_TotblNovios" Association="Self.FK_tblMesasNovios_TotblNovios">
+      <End Role="tblNovios" EntitySet="tblNovios" />
+      <End Role="tblMesasNovios" EntitySet="tblMesasNovios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPlantillasNovios_TotblNovios" Association="Self.FK_tblPlantillasNovios_TotblNovios">
+      <End Role="tblNovios" EntitySet="tblNovios" />
+      <End Role="tblPlantillasNovios" EntitySet="tblPlantillasNovios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblTipoInvitado_TotblNovios" Association="Self.FK_tblTipoInvitado_TotblNovios">
+      <End Role="tblNovios" EntitySet="tblNovios" />
+      <End Role="tblTipoInvitado" EntitySet="tblTipoInvitado" />
+    </AssociationSet>
+    <EntitySet Name="tblEmpresas" EntityType="dbInvitacionBodaModel.tblEmpresas" />
+    <EntitySet Name="tblWeddingPlanners" EntityType="dbInvitacionBodaModel.tblWeddingPlanners" />
+    <EntitySet Name="tblWPNovios" EntityType="dbInvitacionBodaModel.tblWPNovios" />
+    <AssociationSet Name="FK__tblWeddin__idEmp__13F1F5EB" Association="dbInvitacionBodaModel.FK__tblWeddin__idEmp__13F1F5EB">
+      <End Role="tblEmpresas" EntitySet="tblEmpresas" />
+      <End Role="tblWeddingPlanners" EntitySet="tblWeddingPlanners" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblWPNovi__idWed__16CE6296" Association="dbInvitacionBodaModel.FK__tblWPNovi__idWed__16CE6296">
+      <End Role="tblWeddingPlanners" EntitySet="tblWeddingPlanners" />
+      <End Role="tblWPNovios" EntitySet="tblWPNovios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblWPNovi__idNov__17C286CF" Association="dbInvitacionBodaModel.FK__tblWPNovi__idNov__17C286CF">
+      <End Role="tblNovios" EntitySet="tblNovios" />
+      <End Role="tblWPNovios" EntitySet="tblWPNovios" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tblEmpresas">
+    <Key>
+      <PropertyRef Name="idEmpresa" />
+    </Key>
+    <Property Name="idEmpresa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreEmpresa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblWeddingPlanners" Relationship="dbInvitacionBodaModel.FK__tblWeddin__idEmp__13F1F5EB" FromRole="tblEmpresas" ToRole="tblWeddingPlanners" />
+  </EntityType>
+  <EntityType Name="tblWeddingPlanners">
+    <Key>
+      <PropertyRef Name="idWeddingPlanner" />
+    </Key>
+    <Property Name="idWeddingPlanner" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="apellidoPaterno" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="apellidoMaterno" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="correoElectronico1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="correoElectronico2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+    <Property Name="idEmpresa" Type="Int32" />
+    <NavigationProperty Name="tblEmpresas" Relationship="dbInvitacionBodaModel.FK__tblWeddin__idEmp__13F1F5EB" FromRole="tblWeddingPlanners" ToRole="tblEmpresas" />
+    <NavigationProperty Name="tblWPNovios" Relationship="dbInvitacionBodaModel.FK__tblWPNovi__idWed__16CE6296" FromRole="tblWeddingPlanners" ToRole="tblWPNovios" />
+  </EntityType>
+  <EntityType Name="tblWPNovios">
+    <Key>
+      <PropertyRef Name="idWPNovios" />
+    </Key>
+    <Property Name="idWPNovios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idWeddingPlanner" Type="Int32" />
+    <Property Name="idNovios" Type="Int32" />
+    <NavigationProperty Name="tblWeddingPlanners" Relationship="dbInvitacionBodaModel.FK__tblWPNovi__idWed__16CE6296" FromRole="tblWPNovios" ToRole="tblWeddingPlanners" />
+    <NavigationProperty Name="tblNovios" Relationship="dbInvitacionBodaModel.FK__tblWPNovi__idNov__17C286CF" FromRole="tblWPNovios" ToRole="tblNovios" />
+  </EntityType>
+  <Association Name="FK__tblWeddin__idEmp__13F1F5EB">
+    <End Type="dbInvitacionBodaModel.tblEmpresas" Role="tblEmpresas" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblWeddingPlanners" Role="tblWeddingPlanners" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmpresas">
+        <PropertyRef Name="idEmpresa" />
+      </Principal>
+      <Dependent Role="tblWeddingPlanners">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblWPNovi__idWed__16CE6296">
+    <End Type="dbInvitacionBodaModel.tblWeddingPlanners" Role="tblWeddingPlanners" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblWPNovios" Role="tblWPNovios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblWeddingPlanners">
+        <PropertyRef Name="idWeddingPlanner" />
+      </Principal>
+      <Dependent Role="tblWPNovios">
+        <PropertyRef Name="idWeddingPlanner" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblWPNovi__idNov__17C286CF">
+    <End Type="dbInvitacionBodaModel.tblNovios" Role="tblNovios" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblWPNovios" Role="tblWPNovios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNovios">
+        <PropertyRef Name="idNovios" />
+      </Principal>
+      <Dependent Role="tblWPNovios">
+        <PropertyRef Name="idNovios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

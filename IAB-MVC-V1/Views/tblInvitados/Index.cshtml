@@ -1,0 +1,189 @@
+﻿@model IEnumerable<IAB_MVC_V1.Models.tblInvitados>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.apodo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aPaterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aMaterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.boletos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idGenero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.boletosConfirmados)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vienePor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idTipoMenu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.accedio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.llegoWeb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contrasena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.invitacionEnviada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.soloMisa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.asistira)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.qrEnviado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.qrConfirmado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.asistioBoda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mesa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mensaje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.regalo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mensajeRegalo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idIdioma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblTipoInvitado.tipoInvitado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblNovios.nombreNovia)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.apodo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aPaterno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aMaterno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.boletos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idGenero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.boletosConfirmados)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vienePor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idTipoMenu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accedio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.llegoWeb)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contrasena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.invitacionEnviada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.soloMisa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.asistira)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.qrEnviado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.qrConfirmado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.asistioBoda)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mesa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mensaje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.regalo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mensajeRegalo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idIdioma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblTipoInvitado.tipoInvitado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblNovios.nombreNovia)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idInvitado }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idInvitado }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idInvitado })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,234 @@
+﻿@model IAB_MVC_V1.Models.tblInvitados
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblInvitados</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.apodo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apodo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aPaterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aPaterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aMaterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aMaterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.boletos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.boletos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idGenero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idGenero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.boletosConfirmados)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.boletosConfirmados)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vienePor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vienePor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idTipoMenu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idTipoMenu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.accedio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accedio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.llegoWeb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.llegoWeb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contrasena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contrasena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.invitacionEnviada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.invitacionEnviada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.soloMisa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soloMisa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.asistira)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.asistira)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.qrEnviado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.qrEnviado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.qrConfirmado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.qrConfirmado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.asistioBoda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.asistioBoda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mesa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mesa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mensaje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mensaje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.regalo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.regalo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mensajeRegalo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mensajeRegalo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idIdioma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idIdioma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblTipoInvitado.tipoInvitado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblTipoInvitado.tipoInvitado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblNovios.nombreNovia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblNovios.nombreNovia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idInvitado }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

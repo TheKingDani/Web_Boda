@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6e2a62bdf57542c4910ce330353d2313" Name="Diagram1" ZoomLevel="63">
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblAcompanantes" Width="1.5" PointX="7.5" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblBebidas" Width="1.5" PointX="3.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblBebidasInvitado" Width="1.5" PointX="8.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblBebidasNovios" Width="1.5" PointX="6" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblBioNovios" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblConfiguracion" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblCuentasCorreo" Width="1.5" PointX="3" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblEnviosDiarios" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblHistoriaNovios" Width="1.5" PointX="3" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblIdioma" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblIntentosIngreso" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblInvitados" Width="1.5" PointX="5.25" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblItinerario" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblMensajesWA" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblMesasNovios" Width="1.5" PointX="6" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblMesasRegalos" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblNovios" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblPlantillaBoletos" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblPlantillas" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblPlantillasNovios" Width="1.5" PointX="3" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblTipoInvitado" Width="1.5" PointX="3" PointY="41.125" IsExpanded="true" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK__tblAcompa__idInv__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK_tblBebidasNovios_TotblBebidas" ManuallyRouted="false" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK_tblBebidasInvitado_TotblBebidasNovios" ManuallyRouted="false" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK_tblBebidasInvitado_TotblInvitados" ManuallyRouted="false" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK_tblBebidasNovios_TotblNovios" ManuallyRouted="false" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK_tblBioNovios_TotblNovios" ManuallyRouted="false" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK_tblConfiguracion_TotblNovios" ManuallyRouted="false" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK_tblCuentasCorreo_TotblNovios" ManuallyRouted="false" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK_tblHistoriaNovios_TotblNovios" ManuallyRouted="false" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK__tblInvita__idTip__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK_tblInvitados_ToTtblNovios" ManuallyRouted="false" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK_tblMesasNovios_TotblMesasRegalos" ManuallyRouted="false" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK_tblMesasNovios_TotblNovios" ManuallyRouted="false" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK_tblPlantillasNovios_TotblNovios" ManuallyRouted="false" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK_tblTipoInvitado_TotblNovios" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblEmpresas" Width="1.5" PointX="1.5" PointY="45.875" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblWeddingPlanners" Width="1.5" PointX="3.75" PointY="44.875" />
+        <EntityTypeShape EntityType="dbInvitacionBodaModel.tblWPNovios" Width="1.5" PointX="6" PointY="21.625" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK__tblWeddin__idEmp__13F1F5EB" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK__tblWPNovi__idWed__16CE6296" />
+        <AssociationConnector Association="dbInvitacionBodaModel.FK__tblWPNovi__idNov__17C286CF" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
