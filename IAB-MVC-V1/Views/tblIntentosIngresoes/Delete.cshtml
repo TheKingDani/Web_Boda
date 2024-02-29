@@ -1,0 +1,56 @@
+﻿@model IAB_MVC_V1.Models.tblIntentosIngreso
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Estás Seguro de que quieres eliminar este ingreso?</h3>
+<div>
+    <h4>Ingresos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Usuario
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario)
+        </dd>
+
+        <dt>
+            Contraseña
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pass)
+        </dd>
+
+        <dt>
+           Fecha y Hora
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaHora)
+        </dd>
+
+        <dt>
+            Ingreso
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ingreso)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

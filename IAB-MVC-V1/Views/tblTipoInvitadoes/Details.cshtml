@@ -1,0 +1,58 @@
+﻿@model IAB_MVC_V1.Models.tblTipoInvitado
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Invitaciones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tipo de Invitado
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipoInvitado)
+        </dd>
+
+        <dt>
+            Titulo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tituloCorreo)
+        </dd>
+
+        <dt>
+          Descripción
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            Bienvenida
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.archivoBienvenida)
+        </dd>
+
+        <dt>
+            Novia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblNovios.nombreNovia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idTipoInvitado }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

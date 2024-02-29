@@ -1,0 +1,45 @@
+﻿@model IEnumerable<IAB_MVC_V1.Models.tblItinerario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Itinerario</h2>
+
+<p>
+    @Html.ActionLink("Registrar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID del Novio
+        </th>
+        <th>
+            Día y Hora
+        </th>
+        <th>
+            Actividad
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idNovio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.diaHora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.actividad)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idItinerario }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idItinerario }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idItinerario })
+        </td>
+    </tr>
+}
+
+</table>

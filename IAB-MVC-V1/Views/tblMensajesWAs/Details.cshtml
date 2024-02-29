@@ -1,0 +1,58 @@
+﻿@model IAB_MVC_V1.Models.tblMensajesWA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Mensajes WA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+          ID Tipo Invitado
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idTipoInvitado)
+        </dd>
+
+        <dt>
+            ID Idioma
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idIdioma)
+        </dd>
+
+        <dt>
+            Mensaje Inicial
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mensajeInicial)
+        </dd>
+
+        <dt>
+            Mensaje de Mesa de Regalos
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mensajeMesaRegalos)
+        </dd>
+
+        <dt>
+            Mensaje Día D
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mensajeDiaD)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idMensajeWA }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

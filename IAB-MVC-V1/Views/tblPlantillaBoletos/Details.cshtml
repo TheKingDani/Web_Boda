@@ -1,0 +1,42 @@
+﻿@model IAB_MVC_V1.Models.tblPlantillaBoletos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Plantilla de Boletos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Plantilla de Boleto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plantillaBoleto)
+        </dd>
+
+        <dt>
+          Ancho
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ancho)
+        </dd>
+
+        <dt>
+            Alto
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.alto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idPM_boletos }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

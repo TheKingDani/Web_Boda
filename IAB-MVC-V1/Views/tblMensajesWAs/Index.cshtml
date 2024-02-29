@@ -1,0 +1,59 @@
+﻿@model IEnumerable<IAB_MVC_V1.Models.tblMensajesWA>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Mensajes</h2>
+
+
+<p>
+    @Html.ActionLink("Crear", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID Tipo Invitado
+        </th>
+        <th>
+            ID Idioma
+        </th>
+        <th>
+          Mensaje Inicial
+        </th>
+        <th>
+            Mensaje Mesa de Regalos
+        </th>
+        <th>
+         Mensaje
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idTipoInvitado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idIdioma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mensajeInicial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mensajeMesaRegalos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mensajeDiaD)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idMensajeWA }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idMensajeWA }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idMensajeWA })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,370 @@
+﻿@model IAB_MVC_V1.Models.tblNovios
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Novios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Novia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreNovia)
+        </dd>
+
+        <dt>
+            APaterno
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aPNovia)
+        </dd>
+
+        <dt>
+            AMaterno
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aMNovia)
+        </dd>
+
+        <dt>
+            Novio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreNovio)
+        </dd>
+
+        <dt>
+            APaterno
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aPNovio)
+        </dd>
+
+        <dt>
+          AMaterno
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aMNovio)
+        </dd>
+
+        <dt>
+            Registro
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaRegistro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dominio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dominio)
+        </dd>
+
+        <dt>
+            Padrino
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.padrinoNombre)
+        </dd>
+
+        <dt>
+            Apellido
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.padrinoApellido)
+        </dd>
+
+        <dt>
+            Madrina
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.madrinaNombre)
+        </dd>
+
+        <dt>
+            Apellido
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.madrinaApellido)
+        </dd>
+
+        <dt>
+           Misa
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.misaLugar)
+        </dd>
+
+        <dt>
+            Hora
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.misaHora)
+        </dd>
+
+        <dt>
+            Fecha
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.misaFecha)
+        </dd>
+
+        <dt>
+            Recepción
+        </dt>
+
+        <dd>
+            Lugar
+        </dd>
+
+        <dt>
+           Hora
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recepcionHora)
+        </dd>
+
+        <dt>
+            Fecha
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recepcionFecha)
+        </dd>
+
+        <dt>
+            Fiesta
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fiestaLugar)
+        </dd>
+
+        <dt>
+            Hora
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fiestaHora)
+        </dd>
+
+        <dt>
+            Fecha
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fiestaFecha)
+        </dd>
+
+        <dt>
+            Contraseña
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correoRegistro)
+        </dd>
+
+        <dt>
+            Telefono
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telRegistro)
+        </dd>
+
+        <dt>
+          Plantilla
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idPlantilla)
+        </dd>
+
+        <dt>
+            Activo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.activo)
+        </dd>
+
+        <dt>
+           Papá del Novio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.papaNovioNombre)
+        </dd>
+
+        <dt>
+           Mamá del Novio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mamaNovioNombre)
+        </dd>
+
+        <dt>
+            Papá de la Novia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.papaNoviaNombre)
+        </dd>
+
+        <dt>
+          Mamá de la Novia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mamaNoviaNombre)
+        </dd>
+
+        <dt>
+            Facebook del Novio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.facebookNovio)
+        </dd>
+
+        <dt>
+            Facebook de la Novia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.facebookNovia)
+        </dd>
+
+        <dt>
+            Twitter del Novio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.twitterNovio)
+        </dd>
+
+        <dt>
+            Twitter de la Novia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.twitterNovia)
+        </dd>
+
+        <dt>
+            Instagram del Novio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.instagramNovio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.instagramNovia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.instagramNovia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.validacionCorreo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.validacionCorreo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.misaLatitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.misaLatitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.misaLongitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.misaLongitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recepcionLatitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recepcionLatitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.recepcionLongitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.recepcionLongitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fiestaLatitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fiestaLatitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fiestaLongitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fiestaLongitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dominioExterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dominioExterno)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idNovios }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

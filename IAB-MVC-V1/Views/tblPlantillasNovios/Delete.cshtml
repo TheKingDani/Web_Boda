@@ -1,0 +1,104 @@
+﻿@model IAB_MVC_V1.Models.tblPlantillasNovios
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Estás seguro de querer eliminar esta plantilla?</h3>
+<div>
+    <h4>Plantillas Novios </h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idPM_invitacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idPM_invitacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idPW_invitacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idPW_invitacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idPWA_invitacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idPWA_invitacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idPM_boletos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idPM_boletos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idPWA_boletos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idPWA_boletos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idPM_urgente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idPM_urgente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idPWA_urgente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idPWA_urgente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idPM_diaD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idPM_diaD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idPWA_diaD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idPWA_diaD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblNovios.nombreNovia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblNovios.nombreNovia)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

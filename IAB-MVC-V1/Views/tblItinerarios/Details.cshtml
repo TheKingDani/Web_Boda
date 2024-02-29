@@ -1,0 +1,42 @@
+﻿@model IAB_MVC_V1.Models.tblItinerario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Itinerario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            ID Novio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idNovio)
+        </dd>
+
+        <dt>
+            Día y Hora
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diaHora)
+        </dd>
+
+        <dt>
+            Actividad
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actividad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.idItinerario }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

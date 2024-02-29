@@ -1,0 +1,51 @@
+﻿@model IEnumerable<IAB_MVC_V1.Models.tblAcompanantes>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Acompañantes</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.acompanante)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.confirmado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mesa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblInvitados.apodo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.acompanante)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.confirmado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mesa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblInvitados.apodo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idAcompanate }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idAcompanate }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idAcompanate })
+        </td>
+    </tr>
+}
+
+</table>

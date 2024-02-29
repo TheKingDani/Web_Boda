@@ -1,0 +1,48 @@
+﻿@model IAB_MVC_V1.Models.tblItinerario
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Estás seguro de eliminar el Itinerario?</h3>
+<div>
+    <h4>Itinerario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+         ID Novio
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idNovio)
+        </dd>
+
+        <dt>
+            Día y Hora
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diaHora)
+        </dd>
+
+        <dt>
+            Actividad
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actividad)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

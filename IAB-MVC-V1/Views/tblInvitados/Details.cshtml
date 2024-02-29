@@ -1,0 +1,234 @@
+﻿@model IAB_MVC_V1.Models.tblInvitados
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Invitados</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Apodo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apodo)
+        </dd>
+
+        <dt>
+            Nombre
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            APaterno
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aPaterno)
+        </dd>
+
+        <dt>
+            AMaterno
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aMaterno)
+        </dd>
+
+        <dt>
+            Boletos
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.boletos)
+        </dd>
+
+        <dt>
+            Género 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idGenero)
+        </dd>
+
+        <dt>
+           Boletos Confirmados
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.boletosConfirmados)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            Viene Por
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vienePor)
+        </dd>
+
+        <dt>
+            Teléfono 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+           Menú
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idTipoMenu)
+        </dd>
+
+        <dt>
+            Ingreso
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.accedio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.llegoWeb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.llegoWeb)
+        </dd>
+
+        <dt>
+            Contraseña
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contrasena)
+        </dd>
+
+        <dt>
+            Invitación Enviada
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.invitacionEnviada)
+        </dd>
+
+        <dt>
+            Misa
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soloMisa)
+        </dd>
+
+        <dt>
+          Asistirá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.asistira)
+        </dd>
+
+        <dt>
+            QREnviado
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.qrEnviado)
+        </dd>
+
+        <dt>
+            QRConfirmado
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.qrConfirmado)
+        </dd>
+
+        <dt>
+            Asistió
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.asistioBoda)
+        </dd>
+
+        <dt>
+            Mesa
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mesa)
+        </dd>
+
+        <dt>
+            Mensaje
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mensaje)
+        </dd>
+
+        <dt>
+            Regalo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.regalo)
+        </dd>
+
+        <dt>
+            Mensaje de Regalo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mensajeRegalo)
+        </dd>
+
+        <dt>
+            Idioma
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idIdioma)
+        </dd>
+
+        <dt>
+            Tipo de Invitado
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblTipoInvitado.tipoInvitado)
+        </dd>
+
+        <dt>
+            Novia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblNovios.nombreNovia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idInvitado }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>

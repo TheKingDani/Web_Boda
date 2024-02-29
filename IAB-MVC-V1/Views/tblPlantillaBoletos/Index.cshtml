@@ -1,0 +1,45 @@
+﻿@model IEnumerable<IAB_MVC_V1.Models.tblPlantillaBoletos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Plantilla de Boletos</h2>
+
+<p>
+    @Html.ActionLink("Crear", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Plantilla Boleto
+        </th>
+        <th>
+           Ancho
+        </th>
+        <th>
+           Alto
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.plantillaBoleto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ancho)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.alto)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idPM_boletos }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idPM_boletos }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idPM_boletos })
+        </td>
+    </tr>
+}
+
+</table>
