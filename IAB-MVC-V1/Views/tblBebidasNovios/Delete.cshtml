@@ -1,22 +1,30 @@
-﻿@model IAB_MVC_V1.Models.tblBebidas
+﻿@model IAB_MVC_V1.Models.tblBebidasNovios
 
 @{
-    ViewBag.Title = "Elimnar";
+    ViewBag.Title = "Eliminar";
 }
 
 <h2>Eliminar</h2>
 
-<h3>¿Estas seguro de eliminar la bebida?</h3>
+<h3>¿Esta seguro de eliminar?</h3>
 <div>
-    <h4>Bebidas</h4>
+    <h4>Bebidas Novios</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.bebida)
+            Bebida
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.bebida)
+            @Html.DisplayFor(model => model.tblBebidas.bebida)
+        </dd>
+
+        <dt>
+            Nombre Novia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblNovios.nombreNovia)
         </dd>
 
     </dl>

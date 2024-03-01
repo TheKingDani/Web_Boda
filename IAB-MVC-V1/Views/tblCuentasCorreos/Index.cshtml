@@ -1,0 +1,58 @@
+﻿@model IEnumerable<IAB_MVC_V1.Models.tblCuentasCorreo>
+
+@{
+    ViewBag.Title = "Cuentas Correo";
+}
+
+<h2>Cuentas Correo</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            smtp Servidor
+        </th>
+        <th>
+            Usuario
+        </th>
+        <th>
+            Contraseña
+        </th>
+        <th>
+            Puerto
+        </th>
+        <th>
+            Nombre Novia
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.smtpServidor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.port)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblNovios.nombreNovia)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idCuentaCorreo }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idCuentaCorreo }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idCuentaCorreo })
+            </td>
+        </tr>
+    }
+
+</table>

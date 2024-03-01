@@ -1,4 +1,4 @@
-﻿@model IAB_MVC_V1.Models.tblBebidas
+﻿@model IAB_MVC_V1.Models.tblIdioma
 
 @{
     ViewBag.Title = "Detalles";
@@ -7,20 +7,20 @@
 <h2>Detalles</h2>
 
 <div>
-    <h4>Bebidas</h4>
+    <h4>Idioma</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Bebida
+            Idioma
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.bebida)
+            @Html.DisplayFor(model => model.idioma)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.idBebida }) |
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idIdioma }) |
     @Html.ActionLink("Regresar a la lista", "Index")
 </p>

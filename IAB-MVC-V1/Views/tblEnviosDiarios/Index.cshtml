@@ -1,0 +1,46 @@
+﻿@model IEnumerable<IAB_MVC_V1.Models.tblEnviosDiarios>
+
+@{
+    ViewBag.Title = "Envios Diario";
+}
+
+<h2>Envios Diario</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Cuenta
+        </th>
+        <th>
+            Cantidad
+        </th>
+        <th>
+            Fecha
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idCuenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idEnvio }) |
+                @Html.ActionLink("Detaller", "Details", new { id = item.idEnvio }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idEnvio })
+            </td>
+        </tr>
+    }
+
+</table>

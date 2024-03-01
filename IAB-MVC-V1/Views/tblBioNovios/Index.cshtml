@@ -1,0 +1,46 @@
+﻿@model IEnumerable<IAB_MVC_V1.Models.tblBioNovios>
+
+@{
+    ViewBag.Title = "Bio Novios";
+}
+
+<h2>Bio Novios</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Genero
+        </th>
+        <th>
+            Bbiografia
+        </th>
+        <th>
+            Nombre Novia
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idGenero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.biografia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblNovios.nombreNovia)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idBioNovio }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idBioNovio }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idBioNovio })
+            </td>
+        </tr>
+    }
+
+</table>

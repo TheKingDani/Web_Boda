@@ -1,0 +1,33 @@
+﻿@model IEnumerable<IAB_MVC_V1.Models.tblIdioma>
+
+@{
+    ViewBag.Title = "Idioma";
+}
+
+<h2>Idioma</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo idioma", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Idioma
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idioma)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idIdioma }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idIdioma }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idIdioma })
+        </td>
+    </tr>
+}
+
+</table>

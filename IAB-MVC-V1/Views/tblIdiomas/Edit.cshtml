@@ -1,4 +1,4 @@
-﻿@model IAB_MVC_V1.Models.tblBebidas
+﻿@model IAB_MVC_V1.Models.tblIdioma
 
 @{
     ViewBag.Title = "Editar";
@@ -10,19 +10,18 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
-        <h4>Bebidas</h4>
+        <h4>Idioma</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.idBebida)
+        @Html.HiddenFor(model => model.idIdioma)
 
         <div class="form-group">
-
-            <div class="col-md-10">
-                <span>Bebida</span>
-                @Html.EditorFor(model => model.bebida, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.bebida, "", new { @class = "text-danger" })
+            
+                <span>Idioma</span>
+                @Html.EditorFor(model => model.idioma, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.idioma, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -31,7 +30,7 @@
                 <input type="submit" value="Guardar" class="btn btn-default" />
             </div>
         </div>
-    </div>
+  
 }
 
 <div>

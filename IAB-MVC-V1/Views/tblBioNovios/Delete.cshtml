@@ -1,0 +1,49 @@
+﻿@model IAB_MVC_V1.Models.tblBioNovios
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Estas seguro de eliminar?</h3>
+<div>
+    <h4>Bio Novios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Genero
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idGenero)
+        </dd>
+
+        <dt>
+            Biografia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.biografia)
+        </dd>
+
+        <dt>
+            Nombre Novia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblNovios.nombreNovia)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar a la lista", "Index")
+        </div>
+    }
+</div>

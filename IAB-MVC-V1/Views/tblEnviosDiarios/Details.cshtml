@@ -1,0 +1,42 @@
+﻿@model IAB_MVC_V1.Models.tblEnviosDiarios
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Envios Diarios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Cuenta
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idCuenta)
+        </dd>
+
+        <dt>
+            Cantidad
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            Fecha
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idEnvio }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

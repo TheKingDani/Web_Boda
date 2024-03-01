@@ -1,0 +1,46 @@
+﻿@model IEnumerable<IAB_MVC_V1.Models.tblConfiguracion>
+
+@{
+    ViewBag.Title = "Configuracion";
+}
+
+<h2>Configuracion</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Requiere Autenticacion
+        </th>
+        <th>
+            Dominio Externo
+        </th>
+        <th>
+            Nombre Novia
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.requiereAutenticacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dominioExterno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblNovios.nombreNovia)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idConfiguracion }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idConfiguracion }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idConfiguracion })
+            </td>
+        </tr>
+    }
+
+</table>

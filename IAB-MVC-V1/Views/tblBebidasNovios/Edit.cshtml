@@ -1,4 +1,4 @@
-﻿@model IAB_MVC_V1.Models.tblBebidas
+﻿@model IAB_MVC_V1.Models.tblBebidasNovios
 
 @{
     ViewBag.Title = "Editar";
@@ -12,17 +12,26 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Bebidas</h4>
+        <h4>Bebidas Novios</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.idBebida)
+        @Html.HiddenFor(model => model.idBebidaNovios)
 
         <div class="form-group">
 
             <div class="col-md-10">
                 <span>Bebida</span>
-                @Html.EditorFor(model => model.bebida, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.bebida, "", new { @class = "text-danger" })
+                @Html.DropDownList("idBebida", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idBebida, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                <span>Novios</span>
+                @Html.DropDownList("idNovios", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.idNovios, "", new { @class = "text-danger" })
             </div>
         </div>
 

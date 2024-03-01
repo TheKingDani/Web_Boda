@@ -1,0 +1,42 @@
+﻿@model IAB_MVC_V1.Models.tblConfiguracion
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Configuracion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Requiere Autenticacion
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.requiereAutenticacion)
+        </dd>
+
+        <dt>
+            Dominio Externo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dominioExterno)
+        </dd>
+
+        <dt>
+            Nombre Novia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblNovios.nombreNovia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.idConfiguracion }) |
+    @Html.ActionLink("Regresar  a la lista", "Index")
+</p>

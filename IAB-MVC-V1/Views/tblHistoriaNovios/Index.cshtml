@@ -1,0 +1,125 @@
+﻿@model IEnumerable<IAB_MVC_V1.Models.tblHistoriaNovios>
+
+@{
+    ViewBag.Title = "Historia Novios";
+}
+
+<h2>Historia Novios</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Fecha que se conocieron
+        </th>
+        <th>
+            Conocieron
+        </th>
+        <th>
+            Imagen donde se conocieron
+        </th>
+        <th>
+            Fecha de propuesta
+        </th>
+        <th>
+            Propuesta
+        </th>
+        <th>
+            Imagen de propuesta
+        </th>
+        <th>
+            Fecha de la primera cita
+        </th>
+        <th>
+            Pimera cita
+        </th>
+        <th>
+            Imagen de la primera cita
+        </th>
+        <th>
+            Fecha de pedida
+        </th>
+        <th>
+            Pedida
+        </th>
+        <th>
+            Imagen de pedida
+        </th>
+        <th>
+            Fecha de novios
+        </th>
+        <th>
+            Novios
+        </th>
+        <th>
+            Imagen de novios
+        </th>
+        <th>
+            Nombre de la novia
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaConocieron)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.conocieron)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imgConocieron)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaPropuesta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.propuesta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imgPropuesta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaPrimeraCita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.primeraCita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imgPrimeraCita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaPedida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pedida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imgPedida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaNovios)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.novios)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.imgNovios)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblNovios.nombreNovia)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idNoviosHistoria }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idNoviosHistoria }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idNoviosHistoria })
+            </td>
+        </tr>
+    }
+
+</table>
+
