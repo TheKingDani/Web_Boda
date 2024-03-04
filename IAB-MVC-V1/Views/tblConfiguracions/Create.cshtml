@@ -1,10 +1,10 @@
 ﻿@model IAB_MVC_V1.Models.tblConfiguracion
 
 @{
-    ViewBag.Title = "Crear";
+    ViewBag.Title = "Registrar novia";
 }
 
-<h2>Crear</h2>
+<h2>Registrar novia</h2>
 
 
 @using (Html.BeginForm())
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Configuracion</h4>
+        <h4>Configuración</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

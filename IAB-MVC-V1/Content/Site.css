@@ -22,3 +22,66 @@ select,
 textarea {
     max-width: 280px;
 }
+/*---------------------------------------------------------------
+2. HEADINGS
+---------------------------------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #2b2d2e;
+    font-family: Poppins;
+}
+
+    h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    h6 a {
+        color: #2b2d2e;
+    }
+
+h1 {
+    font-size: 36px;
+    line-height: 45px;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 45px;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 28px;
+    line-height: 35px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 22px;
+    line-height: 32px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+h6 {
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}

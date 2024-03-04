@@ -1,7 +1,7 @@
 ﻿@model IAB_MVC_V1.Models.tblEnviosDiarios
 
 @{
-    ViewBag.Title = "Editar";
+    ViewBag.Title = "Editar envíos";
 }
 
 <h2>Editar</h2>
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Envios Diarios</h4>
+        <h4>Envíos</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.idEnvio)

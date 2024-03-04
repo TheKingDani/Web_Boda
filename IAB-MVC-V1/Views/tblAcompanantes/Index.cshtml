@@ -1,27 +1,27 @@
 ﻿@model IEnumerable<IAB_MVC_V1.Models.tblAcompanantes>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Registro de Acompañantes";
 }
 
 <h2>Acompañantes</h2>
 
 <p>
-    @Html.ActionLink("Crear Nuevo", "Create")
+    @Html.ActionLink("Registrar Acompañante", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.acompanante)
+            Acompañante
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.confirmado)
+            Confirmado
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.mesa)
+            Mesa
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tblInvitados.apodo)
+           Apodo
         </th>
         <th></th>
     </tr>

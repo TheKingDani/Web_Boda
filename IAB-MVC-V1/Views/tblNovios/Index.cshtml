@@ -9,274 +9,177 @@
 <p>
     @Html.ActionLink("Registrar", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            Novia
-        </th>
-        <th>
-            APaterno
-        </th>
-        <th>
-            AMaterno
-        </th>
-        <th>
-            Novio
-        </th>
-        <th>
-            APaterno
-        </th>
-        <th>
-            AMaterno
-        </th>
-        <th>
-            Registro
-        </th>
-        <th>
-            Dominio
-        </th>
-        <th>
-            Padrino
-        </th>
-        <th>
-            Apellido
-        </th>
-        <th>
-            Madrina
-        </th>
-        <th>
-            Apellido
-        </th>
-        <th>
-            Misa
-        </th>
-        <th>
-            Hora
-        </th>
-        <th>
-            Fecha
-        </th>
-        <th>
-            Recepción 
-        </th>
-        <th>
-            Hora
-        </th>
-        <th>
-            Fecha
-        </th>
-        <th>
-            Fiesta
-        </th>
-        <th>
-            Hora
-        </th>
-        <th>
-            Fecha
-        </th>
-        <th>
-            Contraseña
-        </th>
-        <th>
-            Email
-        </th>
-        <th>
-            Telefono
-        </th>
-        <th>
-            Plantilla
-        </th>
-        <th>
-            Activo
-        </th>
-        <th>
-            Papá del Novio
-        </th>
-        <th>
-            Mamá del Novio
-        </th>
-        <th>
-            Papá de la Novia
-        </th>
-        <th>
-            Mamá de la Novia
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.facebookNovio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.facebookNovia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.twitterNovio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.twitterNovia)
-        </th>
-        
-       
-        <th>
-            @Html.DisplayNameFor(model => model.validacionCorreo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.misaLatitud)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.misaLongitud)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.recepcionLatitud)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.recepcionLongitud)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fiestaLatitud)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fiestaLongitud)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.dominioExterno)
-        </th>
-        <th></th>
-    </tr>
+<div style="overflow-x:auto;">
+    <table class="table">
+        <tr>
+            <th>
+                Novia
+            </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombreNovia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.aPNovia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.aMNovia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombreNovio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.aPNovio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.aMNovio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fechaRegistro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dominio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.padrinoNombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.padrinoApellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.madrinaNombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.madrinaApellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.misaLugar)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.misaHora)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.misaFecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.recepcionLugar)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.recepcionHora)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.recepcionFecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fiestaLugar)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fiestaHora)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fiestaFecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.correoRegistro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telRegistro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idPlantilla)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.activo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.papaNovioNombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.mamaNovioNombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.papaNoviaNombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.mamaNoviaNombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.facebookNovio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.facebookNovia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.twitterNovio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.twitterNovia)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.validacionCorreo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.misaLatitud)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.misaLongitud)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.recepcionLatitud)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.recepcionLongitud)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fiestaLatitud)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fiestaLongitud)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dominioExterno)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.idNovios }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.idNovios }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.idNovios })
-        </td>
-    </tr>
-}
+            <th>
+                Novio
+            </th>
 
-</table>
+            <th>
+                Registro
+            </th>
+            <th>
+                Dominio
+            </th>
+            <th>
+                Padrinos
+            </th>
+
+            <th>
+                 Misa
+            </th>
+
+            <th>
+                Recepción
+            </th>
+
+            <th>
+                Fiesta
+            </th>
+
+            <th>
+                Email y contraseña
+            </th>
+          
+            <th>
+                Teléfono
+            </th>
+            <th>
+                Plantilla
+            </th>
+            <th>
+                Activo
+            </th>
+            <th>
+                Papás del Novio
+            </th>
+            
+            <th>
+                Papás de la Novia
+            </th>
+            
+            <th>
+               Validacion Correo
+            </th>
+            <th>
+                Misa latitud y longitud
+            </th>
+            <th>
+                Recepcion latitud y longitud
+            </th>
+            <th>
+                FiestaLatitud y longitud
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dominioExterno)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombreNovia)
+                    @Html.DisplayFor(modelItem => item.aPNovia)  
+                    @Html.DisplayFor(modelItem => item.aMNovia)
+
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombreNovio) 
+                    @Html.DisplayFor(modelItem => item.aPNovio)  
+                    @Html.DisplayFor(modelItem => item.aMNovio)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.fechaRegistro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dominio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.padrinoNombre)   
+                  <span>y</span>
+                    @Html.DisplayFor(modelItem => item.madrinaNombre) 
+                   
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.misaLugar) 
+                    @Html.DisplayFor(modelItem => item.misaHora)   
+                    @Html.DisplayFor(modelItem => item.misaFecha)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.recepcionLugar) 
+                    @Html.DisplayFor(modelItem => item.recepcionHora)   
+                    @Html.DisplayFor(modelItem => item.recepcionFecha)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.fiestaLugar) 
+                    @Html.Raw(" ") @Html.DisplayFor(modelItem => item.fiestaHora) 
+                    @Html.DisplayFor(modelItem => item.fiestaFecha)
+                </td>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.password)
+                    @Html.DisplayFor(modelItem => item.correoRegistro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telRegistro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idPlantilla)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.activo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.papaNovioNombre)
+                    @Html.DisplayFor(modelItem => item.mamaNovioNombre)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.papaNoviaNombre)
+                    @Html.DisplayFor(modelItem => item.mamaNoviaNombre)
+                </td>
+               
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.validacionCorreo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.misaLatitud)
+                    @Html.DisplayFor(modelItem => item.misaLongitud)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.recepcionLatitud)
+                    @Html.DisplayFor(modelItem => item.recepcionLongitud)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fiestaLatitud)
+                    @Html.DisplayFor(modelItem => item.fiestaLongitud)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dominioExterno)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.idNovios }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.idNovios }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idNovios })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

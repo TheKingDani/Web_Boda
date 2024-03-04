@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Configuracion</h4>
+        <h4>Configuración</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.idConfiguracion)
@@ -28,7 +28,7 @@
     <div class="form-group">
 
         <div class="col-md-10">
-            <span>Requiere Autenticacion</span>
+            <span>Requiere Autenticación</span>
             <div class="checkbox">
                 @Html.EditorFor(model => model.requiereAutenticacion)
                 @Html.ValidationMessageFor(model => model.requiereAutenticacion, "", new { @class = "text-danger" })
