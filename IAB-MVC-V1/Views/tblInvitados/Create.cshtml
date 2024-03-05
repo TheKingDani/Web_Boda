@@ -4,7 +4,7 @@
     ViewBag.Title = "R Invitados";
 }
 
-<h2>Registrar</h2>
+<h2>Registrar invitado</h2>
 
 
 @using (Html.BeginForm()) 
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Invitados</h4>
+        <h4>Invitado</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.aPaterno,"APaterno", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.aPaterno,"A. Paterno", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.aPaterno, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.aPaterno, "", new { @class = "text-danger" })
@@ -40,7 +40,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.aMaterno, "AMaterno",htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.aMaterno, "A. Materno",htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.aMaterno, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.aMaterno, "", new { @class = "text-danger" })
@@ -64,8 +64,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.boletosConfirmados,"Boletos Confirmados", htmlAttributes: new { @class = "control-label col-md-2" })
+     @Html.LabelFor(model => model.boletosConfirmados,"Boletos confirmados", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+                
                 @Html.EditorFor(model => model.boletosConfirmados, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.boletosConfirmados, "", new { @class = "text-danger" })
             </div>
@@ -80,7 +81,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.idTipoInvitado, "Tipo de Invitado", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.idTipoInvitado, "Tipo de invitado", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("idTipoInvitado", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.idTipoInvitado, "", new { @class = "text-danger" })
@@ -88,7 +89,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.vienePor, "Viene Por",htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.vienePor, "Viene por",htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.vienePor, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.vienePor, "", new { @class = "text-danger" })
@@ -120,8 +121,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.llegoWeb, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.llegoWeb, "Llego web", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
+
                 @Html.EditorFor(model => model.llegoWeb, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.llegoWeb, "", new { @class = "text-danger" })
             </div>
@@ -136,7 +138,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.invitacionEnviada, "Invitación Enviada", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.invitacionEnviada, "Invitación enviada", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.invitacionEnviada)
@@ -166,7 +168,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.qrEnviado, "QREnviado", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.qrEnviado, "QR enviado", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.qrEnviado)
@@ -176,7 +178,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.qrConfirmado, "QRConfirmado", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.qrConfirmado, "QR confirmado", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.qrConfirmado)
@@ -230,7 +232,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.mensajeRegalo, "Mensaje de Regalo", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.mensajeRegalo, "Mensaje de regalo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.mensajeRegalo, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.mensajeRegalo, "", new { @class = "text-danger" })
