@@ -4,184 +4,301 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Invitados</h2>
+<h2>Mis Invitados</h2>
 
 <p>
-    @Html.ActionLink("Registrar", "Create")
+    <a class="btn btn-sm gradient" href="//localhost:44369/tblInvitados/Create">Registrar</a>
 </p>
 
+
+
+
+
 <div style="overflow-x:auto;">
+    <div>
+        <div class="section-full bg-white plan-tools-bx">
+            <div class="container">
 
-    <table class="table">
-        <tr>
-            <th>
-                Apodo
-            </th>
-            <th>
-                Nombre completo
-            </th>
-            
-            <th>
-                Boletos
-            </th>
-            <th>
-                Género
-            </th>
-            <th>
-                Boletos confirmados
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Viene Por
-            </th>
-            <th>
-                Teléfono
-            </th>
-            <th>
-                Menú
-            </th>
-            <th>
-                Ingreso
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.llegoWeb)
-            </th>
-            <th>
-                Contraseña
-            </th>
-            <th>
-                Invitación enviada
-            </th>
-            <th>
-                Misa
-            </th>
-            <th>
-                Asistirá
-            </th>
-            <th>
-                QR enviado
-            </th>
-            <th>
-                QR confirmado
-            </th>
-            <th>
-                Asistió boda
-            </th>
-            <th>
-                Mesa
-            </th>
-            <th>
-                Mensaje
-            </th>
-            <th>
-                Regalo
-            </th>
-            <th>
-                Mensaje de regalo
-            </th>
-            <th>
-                Idioma
-            </th>
-            <th>
-                Tipo de invitado
-            </th>
-            <th>
-                Novia
-            </th>
-            <th></th>
-        </tr>
+                <ul class="plan-tools-list">
+                    <li class="wow fadeIn" data-wow-duration="2s" data-wow-delay="0.1s">
+                        <button id="filtroVienePorBtnNovia" class="list-box home-list active">
+                            <h6 class="title"><i class="la la-home"></i>Novia</h6>
+                        </button>
+                    </li>
 
-        @foreach (var item in Model)
-        {
+                    <li class="wow fadeIn" data-wow-duration="2s" data-wow-delay="0.5s">
+                        <button id="filtroVienePorBtnNovio" class="list-box short-list">                          
+                                <h6 class="title"><i class="la la-heart-o"></i>Novio</h6>
+                        </button>
+                        
+                    </li>
+
+                    <li class="guest-filter float-right nav">
+                        <a class="nav-link btn gray btn-sm" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Search</a>
+                        <a class="btn btn-sm gradient" href="//localhost:44369/tblAcompanantes/Create">+ Agregar acompañante</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="tab-content guest-filter-bx" id="myTabContent">
+                        <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label class="label-title">Guest name*</label>
+                                        <input type="text" class="form-control" placeholder="Guest name">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="row">
+                                <div class="col-lg-4">                                    <div class="form-group">
+                                        <label class="label-title">Invitation type</label>
+                                        <select>
+                                            <option>Filter invites by...</option>
+                                            <option>Filter invites by...</option>
+                                            <option>Filter invites by...</option>
+                                            <option>Filter invites by...</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="label-title">RSVPs</label>
+                                        <select>
+                                            <option>Filter invites by...</option>
+                                            <option>Filter invites by...</option>
+                                            <option>Filter invites by...</option>
+                                            <option>Filter invites by...</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="label-title">Addresses</label>
+                                        <select>
+                                            <option>Filter invites by...</option>
+                                            <option>Filter invites by...</option>
+                                            <option>Filter invites by...</option>
+                                            <option>Filter invites by...</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div style="overflow-x:auto;">
+
+        <table class="table">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.apodo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nombre)<br>
-                
-                    @Html.DisplayFor(modelItem => item.aPaterno)<br>
-                
-                    @Html.DisplayFor(modelItem => item.aMaterno)<br>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.boletos)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idGenero)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.boletosConfirmados)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.correo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.vienePor)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.telefono)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idTipoMenu)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.accedio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.llegoWeb)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.contrasena)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.invitacionEnviada)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.soloMisa)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.asistira)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.qrEnviado)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.qrConfirmado)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.asistioBoda)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.mesa)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.mensaje)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.regalo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.mensajeRegalo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idIdioma)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.tblTipoInvitado.tipoInvitado)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.tblNovios.nombreNovia)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.idInvitado }) |
-                    @Html.ActionLink("Detalles", "Details", new { id = item.idInvitado }) |
-                    @Html.ActionLink("Elimiar", "Delete", new { id = item.idInvitado })
-                </td>
-            </tr>
-        }
+                <th>
+                    Apodo
+                </th>
+                <th>
+                    Nombre completo
+                </th>
 
-    </table>
+                <th>
+                    Boletos
+                </th>
+                <th>
+                    Género
+                </th>
+                <th>
+                    Boletos confirmados
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Viene Por
+                </th>
+                <th>
+                    Teléfono
+                </th>
+                <th>
+                    Menú
+                </th>
+                <th>
+                    Ingreso
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.llegoWeb)
+                </th>
+                <th>
+                    Contraseña
+                </th>
+                <th>
+                    Invitación enviada
+                </th>
+                <th>
+                    Misa
+                </th>
+                <th>
+                    Asistirá
+                </th>
+                <th>
+                    QR enviado
+                </th>
+                <th>
+                    QR confirmado
+                </th>
+                <th>
+                    Asistió boda
+                </th>
+                <th>
+                    Mesa
+                </th>
+                <th>
+                    Mensaje
+                </th>
+                <th>
+                    Regalo
+                </th>
+                <th>
+                    Mensaje de regalo
+                </th>
+                <th>
+                    Idioma
+                </th>
+                <th>
+                    Tipo de invitado
+                </th>
+                <th>
+                    Novia
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.apodo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)<br>
+
+                        @Html.DisplayFor(modelItem => item.aPaterno)<br>
+
+                        @Html.DisplayFor(modelItem => item.aMaterno)<br>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.boletos)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idGenero)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.boletosConfirmados)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.correo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.vienePor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.telefono)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idTipoMenu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.accedio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.llegoWeb)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.contrasena)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.invitacionEnviada)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.soloMisa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.asistira)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.qrEnviado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.qrConfirmado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.asistioBoda)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mesa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mensaje)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.regalo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mensajeRegalo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idIdioma)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblTipoInvitado.tipoInvitado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblNovios.nombreNovia)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.idInvitado }) |
+                        @Html.ActionLink("Detalles", "Details", new { id = item.idInvitado }) |
+                        @Html.ActionLink("Elimiar", "Delete", new { id = item.idInvitado })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+    <script>
+        document.getElementById('filtroVienePorBtnNovia').addEventListener('click', function () {
+            // Envía una solicitud al servidor para filtrar por vienePor = 2 en la tabla actual
+            fetch('//localhost:44369/TblInvitados/FiltrarPorVienePor?vienePor=2')
+                .then(response => response.text())
+                .then(data => {
+                    // Reemplaza el contenido de la tabla actual con la respuesta del servidor
+                    document.querySelector('.table').innerHTML = data;
+                });
+        });
+
+    </script>
+    <script>
+        document.getElementById('filtroVienePorBtnNovio').addEventListener('click', function () {
+            // Envía una solicitud al servidor para filtrar por vienePor = 1 en la tabla actual
+            fetch('//localhost:44369/TblInvitados/FiltrarPorVienePor?vienePor=1')
+                .then(response => response.text())
+                .then(data => {
+                    // Reemplaza el contenido de la tabla actual con la respuesta del servidor
+                    document.querySelector('.table').innerHTML = data;
+                });
+        });
+
+    </script>
+
+
+
 </div>

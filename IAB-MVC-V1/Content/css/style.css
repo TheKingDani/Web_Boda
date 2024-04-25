@@ -239,7 +239,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: rgb(89,71,243);
+    color: #2b2d2e;
 	font-family: Poppins;
 }
 h1 a,
@@ -257,7 +257,6 @@ h1 {
 	font-weight: 700;
 }
 h2 {
-    
     font-size: 32px;
     line-height: 45px;
     margin-bottom: 25px;
@@ -10249,9 +10248,3 @@ ol.commentlist li .star-rating {
 	bottom: 130px !important;
 }
 /* Support and Buy Button END */
-
-<style >
-body {
-    background-color: #f0f0f0; /* Sustituye #f0f0f0 por el color que prefieras */
-}
-</style>

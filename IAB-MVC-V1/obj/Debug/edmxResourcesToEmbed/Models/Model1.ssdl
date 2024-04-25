@@ -1,35 +1,172 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="dbInvitacionBodaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="tblEmpresas">
+  <EntityType Name="tblCategoriasProveedores">
     <Key>
-      <PropertyRef Name="idEmpresa" />
+      <PropertyRef Name="idCategoriaProveedor" />
     </Key>
-    <Property Name="idEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCategoriaProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreCategoria" Type="varchar" MaxLength="255" />
+    <Property Name="descripcion" Type="text" />
+  </EntityType>
+  <EntityType Name="tblDieteticas">
+    <Key>
+      <PropertyRef Name="idDietetica" />
+    </Key>
+    <Property Name="idDietetica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomDietetica" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblEmpresasOrganizadores">
+    <Key>
+      <PropertyRef Name="idEmpresaOrganizador" />
+    </Key>
+    <Property Name="idEmpresaOrganizador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombreEmpresa" Type="varchar" MaxLength="255" />
-  </EntityType>
-  <EntityType Name="tblWeddingPlanners">
-    <Key>
-      <PropertyRef Name="idWeddingPlanner" />
-    </Key>
-    <Property Name="idWeddingPlanner" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="255" />
-    <Property Name="apellidoPaterno" Type="varchar" MaxLength="255" />
-    <Property Name="apellidoMaterno" Type="varchar" MaxLength="255" />
-    <Property Name="correoElectronico1" Type="varchar" MaxLength="255" />
-    <Property Name="correoElectronico2" Type="varchar" MaxLength="255" />
+    <Property Name="direccion" Type="varchar" MaxLength="255" />
+    <Property Name="idEstado" Type="int" />
+    <Property Name="idMunicipio" Type="int" />
     <Property Name="telefono" Type="varchar" MaxLength="50" />
-    <Property Name="usuario" Type="varchar" MaxLength="50" />
-    <Property Name="contraseña" Type="varchar" MaxLength="50" />
-    <Property Name="activo" Type="bit" />
-    <Property Name="idEmpresa" Type="int" />
+    <Property Name="paginaWeb" Type="varchar" MaxLength="255" />
   </EntityType>
-  <EntityType Name="tblWPNovios">
+  <EntityType Name="tblEstados">
     <Key>
-      <PropertyRef Name="idWPNovios" />
+      <PropertyRef Name="idEstado" />
     </Key>
-    <Property Name="idWPNovios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idWeddingPlanner" Type="int" />
+    <Property Name="idEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreEstado" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblMensajesProveedores">
+    <Key>
+      <PropertyRef Name="idMensajeProveedor" />
+    </Key>
+    <Property Name="idMensajeProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idProveedor" Type="int" />
+    <Property Name="tituloMensaje" Type="varchar" MaxLength="255" />
+    <Property Name="Mensaje" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblMunicipios">
+    <Key>
+      <PropertyRef Name="idMunicipio" />
+    </Key>
+    <Property Name="idMunicipio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreMunicipio" Type="varchar" MaxLength="255" />
+    <Property Name="idEstado" Type="int" />
+  </EntityType>
+  <EntityType Name="tblOfertasProveedores">
+    <Key>
+      <PropertyRef Name="idOfertaProveedor" />
+    </Key>
+    <Property Name="idOfertaProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="oferta" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="estatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblOrganizadoresBodas">
+    <Key>
+      <PropertyRef Name="idOrganizadorBoda" />
+    </Key>
+    <Property Name="idOrganizadorBoda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idEmpresaOrganizador" Type="int" />
+    <Property Name="nombreOrganizador" Type="varchar" MaxLength="255" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="tel" Type="varchar" MaxLength="50" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblPreguntasProveedores">
+    <Key>
+      <PropertyRef Name="idPreguntaProveedor" />
+    </Key>
+    <Property Name="idPreguntaProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pregunta" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblProveedores">
+    <Key>
+      <PropertyRef Name="idProveedor" />
+    </Key>
+    <Property Name="idProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomNegocio" Type="varchar" MaxLength="255" />
+    <Property Name="idCategoriaProveedor" Type="int" />
+    <Property Name="sitioWeb" Type="varchar" MaxLength="255" />
+    <Property Name="tel" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="codigoPostal" Type="varchar" MaxLength="50" />
+    <Property Name="direccion" Type="varchar" MaxLength="255" />
+    <Property Name="ciudad" Type="varchar" MaxLength="100" />
+    <Property Name="pais" Type="varchar" MaxLength="100" />
+    <Property Name="idEstado" Type="int" />
+    <Property Name="precioInicial" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="tblProveedoresDieteticas">
+    <Key>
+      <PropertyRef Name="idProveedorDietetica" />
+    </Key>
+    <Property Name="idProveedorDietetica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idDietetica" Type="int" />
+    <Property Name="idProveedor" Type="int" />
+  </EntityType>
+  <EntityType Name="tblProveedoresMunicipios">
+    <Key>
+      <PropertyRef Name="idProveedorMunicipio" />
+    </Key>
+    <Property Name="idProveedorMunicipio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idProveedor" Type="int" />
+    <Property Name="idMunicipio" Type="int" />
+  </EntityType>
+  <EntityType Name="tblRedesProveedores">
+    <Key>
+      <PropertyRef Name="idRedProveedor" />
+    </Key>
+    <Property Name="idRedProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idRedSocial" Type="int" />
+    <Property Name="idProveedor" Type="int" />
+    <Property Name="link" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblRedesSociales">
+    <Key>
+      <PropertyRef Name="idRedSocial" />
+    </Key>
+    <Property Name="idRedSocial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="redSocial" Type="varchar" MaxLength="255" />
+    <Property Name="estatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="tblRespuestasProveedores">
+    <Key>
+      <PropertyRef Name="idRespuestaProveedor" />
+    </Key>
+    <Property Name="idRespuestaProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idPreguntaProveedor" Type="int" />
+    <Property Name="idProveedor" Type="int" />
+    <Property Name="Respuesta" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblSeleccionarOfertas">
+    <Key>
+      <PropertyRef Name="idSeleccionOferta" />
+    </Key>
+    <Property Name="idSeleccionOferta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idOfertaProveedor" Type="int" />
+    <Property Name="idProveedor" Type="int" />
+  </EntityType>
+  <EntityType Name="tblSeleccionarOrganizadoresBodas">
+    <Key>
+      <PropertyRef Name="IdSeleccionarOrganizadorBoda" />
+    </Key>
+    <Property Name="IdSeleccionarOrganizadorBoda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idNovios" Type="int" />
+    <Property Name="idOrganizadorBoda" Type="int" />
+  </EntityType>
+  <EntityType Name="tblServiciosCategoriasProvedores">
+    <Key>
+      <PropertyRef Name="idServicioCategoProv" />
+    </Key>
+    <Property Name="idServicioCategoProv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCategoriaProveedor" Type="int" />
+    <Property Name="serviciosProveedores" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblServiciosProveedores">
+    <Key>
+      <PropertyRef Name="idServicioProveedor" />
+    </Key>
+    <Property Name="idServicioProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idProveedor" Type="int" />
+    <Property Name="idServiciosCategoProv" Type="int" />
   </EntityType>
   <EntityType Name="tblAcompanantes">
     <Key>
@@ -317,6 +454,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__tblEmpres__idEst__63D8CE75">
+    <End Role="tblEstados" Type="Self.tblEstados" Multiplicity="0..1" />
+    <End Role="tblEmpresasOrganizadores" Type="Self.tblEmpresasOrganizadores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEstados">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="tblEmpresasOrganizadores">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmpres__idMun__62E4AA3C">
+    <End Role="tblMunicipios" Type="Self.tblMunicipios" Multiplicity="0..1" />
+    <End Role="tblEmpresasOrganizadores" Type="Self.tblEmpresasOrganizadores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMunicipios">
+        <PropertyRef Name="idMunicipio" />
+      </Principal>
+      <Dependent Role="tblEmpresasOrganizadores">
+        <PropertyRef Name="idMunicipio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__tblInvita__idTip__24927208">
     <End Role="tblTipoInvitado" Type="Self.tblTipoInvitado" Multiplicity="0..1" />
     <End Role="tblInvitados" Type="Self.tblInvitados" Multiplicity="*" />
@@ -329,39 +490,243 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__tblWeddin__idEmp__13F1F5EB">
-    <End Role="tblEmpresas" Type="Self.tblEmpresas" Multiplicity="0..1" />
-    <End Role="tblWeddingPlanners" Type="Self.tblWeddingPlanners" Multiplicity="*" />
+  <Association Name="FK__tblMensaj__idPro__4C0144E4">
+    <End Role="tblProveedores" Type="Self.tblProveedores" Multiplicity="0..1" />
+    <End Role="tblMensajesProveedores" Type="Self.tblMensajesProveedores" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tblEmpresas">
-        <PropertyRef Name="idEmpresa" />
+      <Principal Role="tblProveedores">
+        <PropertyRef Name="idProveedor" />
       </Principal>
-      <Dependent Role="tblWeddingPlanners">
-        <PropertyRef Name="idEmpresa" />
+      <Dependent Role="tblMensajesProveedores">
+        <PropertyRef Name="idProveedor" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__tblWPNovi__idNov__17C286CF">
+  <Association Name="FK__tblMunici__idEst__2AA05119">
+    <End Role="tblEstados" Type="Self.tblEstados" Multiplicity="0..1" />
+    <End Role="tblMunicipios" Type="Self.tblMunicipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEstados">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="tblMunicipios">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblOrgani__idEmp__66B53B20">
+    <End Role="tblEmpresasOrganizadores" Type="Self.tblEmpresasOrganizadores" Multiplicity="0..1" />
+    <End Role="tblOrganizadoresBodas" Type="Self.tblOrganizadoresBodas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmpresasOrganizadores">
+        <PropertyRef Name="idEmpresaOrganizador" />
+      </Principal>
+      <Dependent Role="tblOrganizadoresBodas">
+        <PropertyRef Name="idEmpresaOrganizador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProvee__idCat__2022C2A6">
+    <End Role="tblCategoriasProveedores" Type="Self.tblCategoriasProveedores" Multiplicity="0..1" />
+    <End Role="tblProveedores" Type="Self.tblProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCategoriasProveedores">
+        <PropertyRef Name="idCategoriaProveedor" />
+      </Principal>
+      <Dependent Role="tblProveedores">
+        <PropertyRef Name="idCategoriaProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProvee__idDie__3335971A">
+    <End Role="tblDieteticas" Type="Self.tblDieteticas" Multiplicity="0..1" />
+    <End Role="tblProveedoresDieteticas" Type="Self.tblProveedoresDieteticas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDieteticas">
+        <PropertyRef Name="idDietetica" />
+      </Principal>
+      <Dependent Role="tblProveedoresDieteticas">
+        <PropertyRef Name="idDietetica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProvee__idEst__2116E6DF">
+    <End Role="tblEstados" Type="Self.tblEstados" Multiplicity="0..1" />
+    <End Role="tblProveedores" Type="Self.tblProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEstados">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="tblProveedores">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProvee__idMun__2E70E1FD">
+    <End Role="tblMunicipios" Type="Self.tblMunicipios" Multiplicity="0..1" />
+    <End Role="tblProveedoresMunicipios" Type="Self.tblProveedoresMunicipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMunicipios">
+        <PropertyRef Name="idMunicipio" />
+      </Principal>
+      <Dependent Role="tblProveedoresMunicipios">
+        <PropertyRef Name="idMunicipio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProvee__idPro__2D7CBDC4">
+    <End Role="tblProveedores" Type="Self.tblProveedores" Multiplicity="0..1" />
+    <End Role="tblProveedoresMunicipios" Type="Self.tblProveedoresMunicipios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProveedores">
+        <PropertyRef Name="idProveedor" />
+      </Principal>
+      <Dependent Role="tblProveedoresMunicipios">
+        <PropertyRef Name="idProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProvee__idPro__3429BB53">
+    <End Role="tblProveedores" Type="Self.tblProveedores" Multiplicity="0..1" />
+    <End Role="tblProveedoresDieteticas" Type="Self.tblProveedoresDieteticas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProveedores">
+        <PropertyRef Name="idProveedor" />
+      </Principal>
+      <Dependent Role="tblProveedoresDieteticas">
+        <PropertyRef Name="idProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblRedesP__idPro__39E294A9">
+    <End Role="tblProveedores" Type="Self.tblProveedores" Multiplicity="0..1" />
+    <End Role="tblRedesProveedores" Type="Self.tblRedesProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProveedores">
+        <PropertyRef Name="idProveedor" />
+      </Principal>
+      <Dependent Role="tblRedesProveedores">
+        <PropertyRef Name="idProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblRedesP__idRed__38EE7070">
+    <End Role="tblRedesSociales" Type="Self.tblRedesSociales" Multiplicity="0..1" />
+    <End Role="tblRedesProveedores" Type="Self.tblRedesProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRedesSociales">
+        <PropertyRef Name="idRedSocial" />
+      </Principal>
+      <Dependent Role="tblRedesProveedores">
+        <PropertyRef Name="idRedSocial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblRespue__idPre__4830B400">
+    <End Role="tblPreguntasProveedores" Type="Self.tblPreguntasProveedores" Multiplicity="0..1" />
+    <End Role="tblRespuestasProveedores" Type="Self.tblRespuestasProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPreguntasProveedores">
+        <PropertyRef Name="idPreguntaProveedor" />
+      </Principal>
+      <Dependent Role="tblRespuestasProveedores">
+        <PropertyRef Name="idPreguntaProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblRespue__idPro__4924D839">
+    <End Role="tblProveedores" Type="Self.tblProveedores" Multiplicity="0..1" />
+    <End Role="tblRespuestasProveedores" Type="Self.tblRespuestasProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProveedores">
+        <PropertyRef Name="idProveedor" />
+      </Principal>
+      <Dependent Role="tblRespuestasProveedores">
+        <PropertyRef Name="idProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblSelecc__idNov__6991A7CB">
     <End Role="tblNovios" Type="Self.tblNovios" Multiplicity="0..1" />
-    <End Role="tblWPNovios" Type="Self.tblWPNovios" Multiplicity="*" />
+    <End Role="tblSeleccionarOrganizadoresBodas" Type="Self.tblSeleccionarOrganizadoresBodas" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="tblNovios">
         <PropertyRef Name="idNovios" />
       </Principal>
-      <Dependent Role="tblWPNovios">
+      <Dependent Role="tblSeleccionarOrganizadoresBodas">
         <PropertyRef Name="idNovios" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__tblWPNovi__idWed__16CE6296">
-    <End Role="tblWeddingPlanners" Type="Self.tblWeddingPlanners" Multiplicity="0..1" />
-    <End Role="tblWPNovios" Type="Self.tblWPNovios" Multiplicity="*" />
+  <Association Name="FK__tblSelecc__idOfe__3EA749C6">
+    <End Role="tblOfertasProveedores" Type="Self.tblOfertasProveedores" Multiplicity="0..1" />
+    <End Role="tblSeleccionarOfertas" Type="Self.tblSeleccionarOfertas" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tblWeddingPlanners">
-        <PropertyRef Name="idWeddingPlanner" />
+      <Principal Role="tblOfertasProveedores">
+        <PropertyRef Name="idOfertaProveedor" />
       </Principal>
-      <Dependent Role="tblWPNovios">
-        <PropertyRef Name="idWeddingPlanner" />
+      <Dependent Role="tblSeleccionarOfertas">
+        <PropertyRef Name="idOfertaProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblSelecc__idOrg__6A85CC04">
+    <End Role="tblOrganizadoresBodas" Type="Self.tblOrganizadoresBodas" Multiplicity="0..1" />
+    <End Role="tblSeleccionarOrganizadoresBodas" Type="Self.tblSeleccionarOrganizadoresBodas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblOrganizadoresBodas">
+        <PropertyRef Name="idOrganizadorBoda" />
+      </Principal>
+      <Dependent Role="tblSeleccionarOrganizadoresBodas">
+        <PropertyRef Name="idOrganizadorBoda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblSelecc__idPro__3F9B6DFF">
+    <End Role="tblProveedores" Type="Self.tblProveedores" Multiplicity="0..1" />
+    <End Role="tblSeleccionarOfertas" Type="Self.tblSeleccionarOfertas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProveedores">
+        <PropertyRef Name="idProveedor" />
+      </Principal>
+      <Dependent Role="tblSeleccionarOfertas">
+        <PropertyRef Name="idProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblServic__idCat__23F3538A">
+    <End Role="tblCategoriasProveedores" Type="Self.tblCategoriasProveedores" Multiplicity="0..1" />
+    <End Role="tblServiciosCategoriasProvedores" Type="Self.tblServiciosCategoriasProvedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCategoriasProveedores">
+        <PropertyRef Name="idCategoriaProveedor" />
+      </Principal>
+      <Dependent Role="tblServiciosCategoriasProvedores">
+        <PropertyRef Name="idCategoriaProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblServic__idPro__26CFC035">
+    <End Role="tblProveedores" Type="Self.tblProveedores" Multiplicity="0..1" />
+    <End Role="tblServiciosProveedores" Type="Self.tblServiciosProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProveedores">
+        <PropertyRef Name="idProveedor" />
+      </Principal>
+      <Dependent Role="tblServiciosProveedores">
+        <PropertyRef Name="idProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblServic__idSer__27C3E46E">
+    <End Role="tblServiciosCategoriasProvedores" Type="Self.tblServiciosCategoriasProvedores" Multiplicity="0..1" />
+    <End Role="tblServiciosProveedores" Type="Self.tblServiciosProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblServiciosCategoriasProvedores">
+        <PropertyRef Name="idServicioCategoProv" />
+      </Principal>
+      <Dependent Role="tblServiciosProveedores">
+        <PropertyRef Name="idServiciosCategoProv" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -522,9 +887,25 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="dbInvitacionBodaModelStoreContainer">
-    <EntitySet Name="tblEmpresas" EntityType="Self.tblEmpresas" Schema="dbInvitacion_u" store:Type="Tables" />
-    <EntitySet Name="tblWeddingPlanners" EntityType="Self.tblWeddingPlanners" Schema="dbInvitacion_u" store:Type="Tables" />
-    <EntitySet Name="tblWPNovios" EntityType="Self.tblWPNovios" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblCategoriasProveedores" EntityType="Self.tblCategoriasProveedores" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblDieteticas" EntityType="Self.tblDieteticas" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblEmpresasOrganizadores" EntityType="Self.tblEmpresasOrganizadores" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblEstados" EntityType="Self.tblEstados" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblMensajesProveedores" EntityType="Self.tblMensajesProveedores" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblMunicipios" EntityType="Self.tblMunicipios" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblOfertasProveedores" EntityType="Self.tblOfertasProveedores" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblOrganizadoresBodas" EntityType="Self.tblOrganizadoresBodas" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblPreguntasProveedores" EntityType="Self.tblPreguntasProveedores" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblProveedores" EntityType="Self.tblProveedores" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblProveedoresDieteticas" EntityType="Self.tblProveedoresDieteticas" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblProveedoresMunicipios" EntityType="Self.tblProveedoresMunicipios" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblRedesProveedores" EntityType="Self.tblRedesProveedores" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblRedesSociales" EntityType="Self.tblRedesSociales" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblRespuestasProveedores" EntityType="Self.tblRespuestasProveedores" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblSeleccionarOfertas" EntityType="Self.tblSeleccionarOfertas" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblSeleccionarOrganizadoresBodas" EntityType="Self.tblSeleccionarOrganizadoresBodas" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblServiciosCategoriasProvedores" EntityType="Self.tblServiciosCategoriasProvedores" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblServiciosProveedores" EntityType="Self.tblServiciosProveedores" Schema="dbInvitacion_u" store:Type="Tables" />
     <EntitySet Name="tblAcompanantes" EntityType="Self.tblAcompanantes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblBebidas" EntityType="Self.tblBebidas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblBebidasInvitado" EntityType="Self.tblBebidasInvitado" Schema="dbo" store:Type="Tables" />
@@ -550,21 +931,97 @@
       <End Role="tblInvitados" EntitySet="tblInvitados" />
       <End Role="tblAcompanantes" EntitySet="tblAcompanantes" />
     </AssociationSet>
+    <AssociationSet Name="FK__tblEmpres__idEst__63D8CE75" Association="Self.FK__tblEmpres__idEst__63D8CE75">
+      <End Role="tblEstados" EntitySet="tblEstados" />
+      <End Role="tblEmpresasOrganizadores" EntitySet="tblEmpresasOrganizadores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmpres__idMun__62E4AA3C" Association="Self.FK__tblEmpres__idMun__62E4AA3C">
+      <End Role="tblMunicipios" EntitySet="tblMunicipios" />
+      <End Role="tblEmpresasOrganizadores" EntitySet="tblEmpresasOrganizadores" />
+    </AssociationSet>
     <AssociationSet Name="FK__tblInvita__idTip__24927208" Association="Self.FK__tblInvita__idTip__24927208">
       <End Role="tblTipoInvitado" EntitySet="tblTipoInvitado" />
       <End Role="tblInvitados" EntitySet="tblInvitados" />
     </AssociationSet>
-    <AssociationSet Name="FK__tblWeddin__idEmp__13F1F5EB" Association="Self.FK__tblWeddin__idEmp__13F1F5EB">
-      <End Role="tblEmpresas" EntitySet="tblEmpresas" />
-      <End Role="tblWeddingPlanners" EntitySet="tblWeddingPlanners" />
+    <AssociationSet Name="FK__tblMensaj__idPro__4C0144E4" Association="Self.FK__tblMensaj__idPro__4C0144E4">
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+      <End Role="tblMensajesProveedores" EntitySet="tblMensajesProveedores" />
     </AssociationSet>
-    <AssociationSet Name="FK__tblWPNovi__idNov__17C286CF" Association="Self.FK__tblWPNovi__idNov__17C286CF">
+    <AssociationSet Name="FK__tblMunici__idEst__2AA05119" Association="Self.FK__tblMunici__idEst__2AA05119">
+      <End Role="tblEstados" EntitySet="tblEstados" />
+      <End Role="tblMunicipios" EntitySet="tblMunicipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblOrgani__idEmp__66B53B20" Association="Self.FK__tblOrgani__idEmp__66B53B20">
+      <End Role="tblEmpresasOrganizadores" EntitySet="tblEmpresasOrganizadores" />
+      <End Role="tblOrganizadoresBodas" EntitySet="tblOrganizadoresBodas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProvee__idCat__2022C2A6" Association="Self.FK__tblProvee__idCat__2022C2A6">
+      <End Role="tblCategoriasProveedores" EntitySet="tblCategoriasProveedores" />
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProvee__idDie__3335971A" Association="Self.FK__tblProvee__idDie__3335971A">
+      <End Role="tblDieteticas" EntitySet="tblDieteticas" />
+      <End Role="tblProveedoresDieteticas" EntitySet="tblProveedoresDieteticas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProvee__idEst__2116E6DF" Association="Self.FK__tblProvee__idEst__2116E6DF">
+      <End Role="tblEstados" EntitySet="tblEstados" />
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProvee__idMun__2E70E1FD" Association="Self.FK__tblProvee__idMun__2E70E1FD">
+      <End Role="tblMunicipios" EntitySet="tblMunicipios" />
+      <End Role="tblProveedoresMunicipios" EntitySet="tblProveedoresMunicipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProvee__idPro__2D7CBDC4" Association="Self.FK__tblProvee__idPro__2D7CBDC4">
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+      <End Role="tblProveedoresMunicipios" EntitySet="tblProveedoresMunicipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProvee__idPro__3429BB53" Association="Self.FK__tblProvee__idPro__3429BB53">
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+      <End Role="tblProveedoresDieteticas" EntitySet="tblProveedoresDieteticas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblRedesP__idPro__39E294A9" Association="Self.FK__tblRedesP__idPro__39E294A9">
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+      <End Role="tblRedesProveedores" EntitySet="tblRedesProveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblRedesP__idRed__38EE7070" Association="Self.FK__tblRedesP__idRed__38EE7070">
+      <End Role="tblRedesSociales" EntitySet="tblRedesSociales" />
+      <End Role="tblRedesProveedores" EntitySet="tblRedesProveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblRespue__idPre__4830B400" Association="Self.FK__tblRespue__idPre__4830B400">
+      <End Role="tblPreguntasProveedores" EntitySet="tblPreguntasProveedores" />
+      <End Role="tblRespuestasProveedores" EntitySet="tblRespuestasProveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblRespue__idPro__4924D839" Association="Self.FK__tblRespue__idPro__4924D839">
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+      <End Role="tblRespuestasProveedores" EntitySet="tblRespuestasProveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblSelecc__idNov__6991A7CB" Association="Self.FK__tblSelecc__idNov__6991A7CB">
       <End Role="tblNovios" EntitySet="tblNovios" />
-      <End Role="tblWPNovios" EntitySet="tblWPNovios" />
+      <End Role="tblSeleccionarOrganizadoresBodas" EntitySet="tblSeleccionarOrganizadoresBodas" />
     </AssociationSet>
-    <AssociationSet Name="FK__tblWPNovi__idWed__16CE6296" Association="Self.FK__tblWPNovi__idWed__16CE6296">
-      <End Role="tblWeddingPlanners" EntitySet="tblWeddingPlanners" />
-      <End Role="tblWPNovios" EntitySet="tblWPNovios" />
+    <AssociationSet Name="FK__tblSelecc__idOfe__3EA749C6" Association="Self.FK__tblSelecc__idOfe__3EA749C6">
+      <End Role="tblOfertasProveedores" EntitySet="tblOfertasProveedores" />
+      <End Role="tblSeleccionarOfertas" EntitySet="tblSeleccionarOfertas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblSelecc__idOrg__6A85CC04" Association="Self.FK__tblSelecc__idOrg__6A85CC04">
+      <End Role="tblOrganizadoresBodas" EntitySet="tblOrganizadoresBodas" />
+      <End Role="tblSeleccionarOrganizadoresBodas" EntitySet="tblSeleccionarOrganizadoresBodas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblSelecc__idPro__3F9B6DFF" Association="Self.FK__tblSelecc__idPro__3F9B6DFF">
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+      <End Role="tblSeleccionarOfertas" EntitySet="tblSeleccionarOfertas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblServic__idCat__23F3538A" Association="Self.FK__tblServic__idCat__23F3538A">
+      <End Role="tblCategoriasProveedores" EntitySet="tblCategoriasProveedores" />
+      <End Role="tblServiciosCategoriasProvedores" EntitySet="tblServiciosCategoriasProvedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblServic__idPro__26CFC035" Association="Self.FK__tblServic__idPro__26CFC035">
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+      <End Role="tblServiciosProveedores" EntitySet="tblServiciosProveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblServic__idSer__27C3E46E" Association="Self.FK__tblServic__idSer__27C3E46E">
+      <End Role="tblServiciosCategoriasProvedores" EntitySet="tblServiciosCategoriasProvedores" />
+      <End Role="tblServiciosProveedores" EntitySet="tblServiciosProveedores" />
     </AssociationSet>
     <AssociationSet Name="FK_tblBebidasInvitado_TotblBebidasNovios" Association="Self.FK_tblBebidasInvitado_TotblBebidasNovios">
       <End Role="tblBebidasNovios" EntitySet="tblBebidasNovios" />

@@ -296,37 +296,190 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tblEmpresas">
-      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblEmpresas">
-        <MappingFragment StoreEntitySet="tblEmpresas">
-          <ScalarProperty Name="nombreEmpresa" ColumnName="nombreEmpresa" />
-          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+    <EntitySetMapping Name="tblCategoriasProveedores">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblCategoriasProveedores">
+        <MappingFragment StoreEntitySet="tblCategoriasProveedores">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
+          <ScalarProperty Name="idCategoriaProveedor" ColumnName="idCategoriaProveedor" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tblWeddingPlanners">
-      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblWeddingPlanners">
-        <MappingFragment StoreEntitySet="tblWeddingPlanners">
-          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
-          <ScalarProperty Name="activo" ColumnName="activo" />
-          <ScalarProperty Name="contraseña" ColumnName="contraseña" />
-          <ScalarProperty Name="usuario" ColumnName="usuario" />
+    <EntitySetMapping Name="tblDieteticas">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblDieteticas">
+        <MappingFragment StoreEntitySet="tblDieteticas">
+          <ScalarProperty Name="nomDietetica" ColumnName="nomDietetica" />
+          <ScalarProperty Name="idDietetica" ColumnName="idDietetica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEstados">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblEstados">
+        <MappingFragment StoreEntitySet="tblEstados">
+          <ScalarProperty Name="nombreEstado" ColumnName="nombreEstado" />
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMensajesProveedores">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblMensajesProveedores">
+        <MappingFragment StoreEntitySet="tblMensajesProveedores">
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+          <ScalarProperty Name="tituloMensaje" ColumnName="tituloMensaje" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="idMensajeProveedor" ColumnName="idMensajeProveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMunicipios">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblMunicipios">
+        <MappingFragment StoreEntitySet="tblMunicipios">
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="nombreMunicipio" ColumnName="nombreMunicipio" />
+          <ScalarProperty Name="idMunicipio" ColumnName="idMunicipio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOfertasProveedores">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblOfertasProveedores">
+        <MappingFragment StoreEntitySet="tblOfertasProveedores">
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="oferta" ColumnName="oferta" />
+          <ScalarProperty Name="idOfertaProveedor" ColumnName="idOfertaProveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPreguntasProveedores">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblPreguntasProveedores">
+        <MappingFragment StoreEntitySet="tblPreguntasProveedores">
+          <ScalarProperty Name="Pregunta" ColumnName="Pregunta" />
+          <ScalarProperty Name="idPreguntaProveedor" ColumnName="idPreguntaProveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProveedores">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblProveedores">
+        <MappingFragment StoreEntitySet="tblProveedores">
+          <ScalarProperty Name="precioInicial" ColumnName="precioInicial" />
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="sitioWeb" ColumnName="sitioWeb" />
+          <ScalarProperty Name="idCategoriaProveedor" ColumnName="idCategoriaProveedor" />
+          <ScalarProperty Name="nomNegocio" ColumnName="nomNegocio" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProveedoresDieteticas">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblProveedoresDieteticas">
+        <MappingFragment StoreEntitySet="tblProveedoresDieteticas">
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="idDietetica" ColumnName="idDietetica" />
+          <ScalarProperty Name="idProveedorDietetica" ColumnName="idProveedorDietetica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProveedoresMunicipios">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblProveedoresMunicipios">
+        <MappingFragment StoreEntitySet="tblProveedoresMunicipios">
+          <ScalarProperty Name="idMunicipio" ColumnName="idMunicipio" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="idProveedorMunicipio" ColumnName="idProveedorMunicipio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRedesProveedores">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblRedesProveedores">
+        <MappingFragment StoreEntitySet="tblRedesProveedores">
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="idRedSocial" ColumnName="idRedSocial" />
+          <ScalarProperty Name="idRedProveedor" ColumnName="idRedProveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRedesSociales">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblRedesSociales">
+        <MappingFragment StoreEntitySet="tblRedesSociales">
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="redSocial" ColumnName="redSocial" />
+          <ScalarProperty Name="idRedSocial" ColumnName="idRedSocial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRespuestasProveedores">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblRespuestasProveedores">
+        <MappingFragment StoreEntitySet="tblRespuestasProveedores">
+          <ScalarProperty Name="Respuesta" ColumnName="Respuesta" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="idPreguntaProveedor" ColumnName="idPreguntaProveedor" />
+          <ScalarProperty Name="idRespuestaProveedor" ColumnName="idRespuestaProveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSeleccionarOfertas">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblSeleccionarOfertas">
+        <MappingFragment StoreEntitySet="tblSeleccionarOfertas">
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="idOfertaProveedor" ColumnName="idOfertaProveedor" />
+          <ScalarProperty Name="idSeleccionOferta" ColumnName="idSeleccionOferta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblServiciosCategoriasProvedores">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblServiciosCategoriasProvedores">
+        <MappingFragment StoreEntitySet="tblServiciosCategoriasProvedores">
+          <ScalarProperty Name="serviciosProveedores" ColumnName="serviciosProveedores" />
+          <ScalarProperty Name="idCategoriaProveedor" ColumnName="idCategoriaProveedor" />
+          <ScalarProperty Name="idServicioCategoProv" ColumnName="idServicioCategoProv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblServiciosProveedores">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblServiciosProveedores">
+        <MappingFragment StoreEntitySet="tblServiciosProveedores">
+          <ScalarProperty Name="idServiciosCategoProv" ColumnName="idServiciosCategoProv" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+          <ScalarProperty Name="idServicioProveedor" ColumnName="idServicioProveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmpresasOrganizadores">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblEmpresasOrganizadores">
+        <MappingFragment StoreEntitySet="tblEmpresasOrganizadores">
+          <ScalarProperty Name="paginaWeb" ColumnName="paginaWeb" />
           <ScalarProperty Name="telefono" ColumnName="telefono" />
-          <ScalarProperty Name="correoElectronico2" ColumnName="correoElectronico2" />
-          <ScalarProperty Name="correoElectronico1" ColumnName="correoElectronico1" />
-          <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
-          <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
-          <ScalarProperty Name="nombre" ColumnName="nombre" />
-          <ScalarProperty Name="idWeddingPlanner" ColumnName="idWeddingPlanner" />
+          <ScalarProperty Name="idMunicipio" ColumnName="idMunicipio" />
+          <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="nombreEmpresa" ColumnName="nombreEmpresa" />
+          <ScalarProperty Name="idEmpresaOrganizador" ColumnName="idEmpresaOrganizador" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tblWPNovios">
-      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblWPNovios">
-        <MappingFragment StoreEntitySet="tblWPNovios">
+    <EntitySetMapping Name="tblOrganizadoresBodas">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblOrganizadoresBodas">
+        <MappingFragment StoreEntitySet="tblOrganizadoresBodas">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="tel" ColumnName="tel" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="nombreOrganizador" ColumnName="nombreOrganizador" />
+          <ScalarProperty Name="idEmpresaOrganizador" ColumnName="idEmpresaOrganizador" />
+          <ScalarProperty Name="idOrganizadorBoda" ColumnName="idOrganizadorBoda" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSeleccionarOrganizadoresBodas">
+      <EntityTypeMapping TypeName="dbInvitacionBodaModel.tblSeleccionarOrganizadoresBodas">
+        <MappingFragment StoreEntitySet="tblSeleccionarOrganizadoresBodas">
+          <ScalarProperty Name="idOrganizadorBoda" ColumnName="idOrganizadorBoda" />
           <ScalarProperty Name="idNovios" ColumnName="idNovios" />
-          <ScalarProperty Name="idWeddingPlanner" ColumnName="idWeddingPlanner" />
-          <ScalarProperty Name="idWPNovios" ColumnName="idWPNovios" />
+          <ScalarProperty Name="IdSeleccionarOrganizadorBoda" ColumnName="IdSeleccionarOrganizadorBoda" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

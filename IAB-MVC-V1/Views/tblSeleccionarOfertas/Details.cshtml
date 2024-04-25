@@ -1,0 +1,34 @@
+﻿@model IAB_MVC_V1.Models.tblSeleccionarOfertas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblSeleccionarOfertas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblOfertasProveedores.idOfertaProveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblOfertasProveedores.idOfertaProveedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblProveedores.nomNegocio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblProveedores.nomNegocio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idSeleccionOferta }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

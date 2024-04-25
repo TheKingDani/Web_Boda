@@ -26,7 +26,7 @@ namespace IAB_MVC_V1.Models
             this.tblMesasNovios = new HashSet<tblMesasNovios>();
             this.tblPlantillasNovios = new HashSet<tblPlantillasNovios>();
             this.tblTipoInvitado = new HashSet<tblTipoInvitado>();
-            this.tblWPNovios = new HashSet<tblWPNovios>();
+            this.tblSeleccionarOrganizadoresBodas = new HashSet<tblSeleccionarOrganizadoresBodas>();
         }
     
         public int idNovios { get; set; }
@@ -94,6 +94,6 @@ namespace IAB_MVC_V1.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblTipoInvitado> tblTipoInvitado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblWPNovios> tblWPNovios { get; set; }
+        public virtual ICollection<tblSeleccionarOrganizadoresBodas> tblSeleccionarOrganizadoresBodas { get; set; }
     }
 }

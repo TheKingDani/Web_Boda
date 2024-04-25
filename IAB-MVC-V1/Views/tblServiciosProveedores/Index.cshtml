@@ -1,0 +1,39 @@
+﻿@model IEnumerable<IAB_MVC_V1.Models.tblServiciosProveedores>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tblProveedores.nomNegocio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblServiciosCategoriasProvedores.serviciosProveedores)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblProveedores.nomNegocio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblServiciosCategoriasProvedores.serviciosProveedores)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idServicioProveedor }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idServicioProveedor }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idServicioProveedor })
+        </td>
+    </tr>
+}
+
+</table>

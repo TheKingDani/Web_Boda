@@ -14,6 +14,7 @@ namespace IAB_MVC_V1.Controllers
     {
         private dbInvitacionBodaEntities db = new dbInvitacionBodaEntities();
 
+
         // GET: tblNovios
         public ActionResult Index()
         {
@@ -50,7 +51,7 @@ namespace IAB_MVC_V1.Controllers
         {
             if (ModelState.IsValid)
             {
-             
+
                 db.tblNovios.Add(tblNovios);
                 db.SaveChanges();
                 return RedirectToAction("Index");

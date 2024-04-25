@@ -1,0 +1,33 @@
+﻿@model IEnumerable<IAB_MVC_V1.Models.tblDieteticas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nomDietetica)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomDietetica)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idDietetica }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idDietetica }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idDietetica })
+        </td>
+    </tr>
+}
+
+</table>

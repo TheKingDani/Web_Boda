@@ -1,0 +1,34 @@
+﻿@model IAB_MVC_V1.Models.tblServiciosCategoriasProvedores
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblServiciosCategoriasProvedores</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.serviciosProveedores)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serviciosProveedores)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblCategoriasProveedores.nombreCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblCategoriasProveedores.nombreCategoria)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idServicioCategoProv }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

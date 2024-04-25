@@ -10,18 +10,33 @@ using IAB_MVC_V1.Models;
 
 namespace IAB_MVC_V1.Controllers
 {
-    public class tblInvitadosController : Controller
+    public class TblInvitadosController : Controller
     {
+
         private dbInvitacionBodaEntities db = new dbInvitacionBodaEntities();
 
         // GET: tblInvitados
+       
+
         public ActionResult Index()
         {
             var tblInvitados = db.tblInvitados.Include(t => t.tblTipoInvitado).Include(t => t.tblNovios);
             return View(tblInvitados.ToList());
         }
+  public ActionResult FiltrarPorVienePor(int vienePor)
+    {
+        // Filtrar los invitados por el valor de vienePor
+        var invitadosFiltrados = db.tblInvitados.Where(i => i.vienePor == vienePor).ToList();
 
-        // GET: tblInvitados/Details/5
+        // Renderizar una vista parcial con la tabla filtrada
+        return PartialView("_TablaInvitados", invitadosFiltrados);
+    }
+
+      
+
+
+
+
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -132,5 +147,6 @@ namespace IAB_MVC_V1.Controllers
             }
             base.Dispose(disposing);
         }
+      
     }
 }

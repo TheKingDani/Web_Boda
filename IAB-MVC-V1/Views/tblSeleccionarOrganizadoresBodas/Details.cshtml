@@ -1,0 +1,34 @@
+﻿@model IAB_MVC_V1.Models.tblSeleccionarOrganizadoresBodas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblSeleccionarOrganizadoresBodas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblOrganizadoresBodas.nombreOrganizador)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblOrganizadoresBodas.nombreOrganizador)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblNovios.nombreNovia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblNovios.nombreNovia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdSeleccionarOrganizadorBoda }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

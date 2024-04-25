@@ -147,25 +147,41 @@
     <Compile Include="Controllers\tblBebidasInvitadoesController.cs" />
     <Compile Include="Controllers\tblBebidasNoviosController.cs" />
     <Compile Include="Controllers\tblBioNoviosController.cs" />
+    <Compile Include="Controllers\tblCategoriasProveedoresController.cs" />
     <Compile Include="Controllers\tblConfiguracionsController.cs" />
     <Compile Include="Controllers\tblCuentasCorreosController.cs" />
-    <Compile Include="Controllers\tblEmpresasController.cs" />
+    <Compile Include="Controllers\tblDieteticasController.cs" />
+    <Compile Include="Controllers\tblEmpresasOrganizadoresController.cs" />
     <Compile Include="Controllers\tblEnviosDiariosController.cs" />
+    <Compile Include="Controllers\tblEstadosController.cs" />
     <Compile Include="Controllers\tblHistoriaNoviosController.cs" />
     <Compile Include="Controllers\tblIdiomasController.cs" />
     <Compile Include="Controllers\tblIntentosIngresoesController.cs" />
-    <Compile Include="Controllers\tblInvitadosController.cs" />
+    <Compile Include="Controllers\TblInvitadosController.cs" />
     <Compile Include="Controllers\tblItinerariosController.cs" />
+    <Compile Include="Controllers\tblMensajesProveedoresController.cs" />
     <Compile Include="Controllers\tblMensajesWAsController.cs" />
     <Compile Include="Controllers\tblMesasNoviosController.cs" />
     <Compile Include="Controllers\tblMesasRegalosController.cs" />
+    <Compile Include="Controllers\tblMunicipiosController.cs" />
     <Compile Include="Controllers\tblNoviosController.cs" />
+    <Compile Include="Controllers\tblOfertasProveedoresController.cs" />
+    <Compile Include="Controllers\tblOrganizadoresBodasController.cs" />
     <Compile Include="Controllers\tblPlantillaBoletosController.cs" />
     <Compile Include="Controllers\tblPlantillasController.cs" />
     <Compile Include="Controllers\tblPlantillasNoviosController.cs" />
+    <Compile Include="Controllers\tblPreguntasProveedoresController.cs" />
+    <Compile Include="Controllers\tblProveedoresController.cs" />
+    <Compile Include="Controllers\tblProveedoresDieteticasController.cs" />
+    <Compile Include="Controllers\tblProveedoresMunicipiosController.cs" />
+    <Compile Include="Controllers\tblRedesProveedoresController.cs" />
+    <Compile Include="Controllers\tblRedesSocialesController.cs" />
+    <Compile Include="Controllers\tblRespuestasProveedoresController.cs" />
+    <Compile Include="Controllers\tblSeleccionarOfertasController.cs" />
+    <Compile Include="Controllers\tblSeleccionarOrganizadoresBodasController.cs" />
+    <Compile Include="Controllers\tblServiciosCategoriasProvedoresController.cs" />
+    <Compile Include="Controllers\tblServiciosProveedoresController.cs" />
     <Compile Include="Controllers\tblTipoInvitadoesController.cs" />
-    <Compile Include="Controllers\tblWeddingPlannersController.cs" />
-    <Compile Include="Controllers\tblWPNoviosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,16 +215,25 @@
     <Compile Include="Models\tblBioNovios.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tblCategoriasProveedores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblConfiguracion.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblCuentasCorreo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\tblEmpresas.cs">
+    <Compile Include="Models\tblDieteticas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblEmpresasOrganizadores.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblEnviosDiarios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblEstados.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblHistoriaNovios.cs">
@@ -226,6 +251,9 @@
     <Compile Include="Models\tblItinerario.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tblMensajesProveedores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblMensajesWA.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -235,7 +263,16 @@
     <Compile Include="Models\tblMesasRegalos.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tblMunicipios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblNovios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblOfertasProveedores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblOrganizadoresBodas.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblPlantillaBoletos.cs">
@@ -247,13 +284,40 @@
     <Compile Include="Models\tblPlantillasNovios.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tblPreguntasProveedores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblProveedores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblProveedoresDieteticas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblProveedoresMunicipios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblRedesProveedores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblRedesSociales.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblRespuestasProveedores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSeleccionarOfertas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblSeleccionarOrganizadoresBodas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblServiciosCategoriasProvedores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblServiciosProveedores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblTipoInvitado.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblWeddingPlanners.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblWPNovios.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -279,6 +343,213 @@
     <Content Include="Content\css\style.min.css" />
     <Content Include="Content\css\templete.css" />
     <Content Include="Content\css\templete.min.css" />
+    <Content Include="Content\images\about\pic1.jpg" />
+    <Content Include="Content\images\about\pic2.jpg" />
+    <Content Include="Content\images\about\pic3.jpg" />
+    <Content Include="Content\images\app1.jpg" />
+    <Content Include="Content\images\app1.png" />
+    <Content Include="Content\images\app2.jpg" />
+    <Content Include="Content\images\app2.png" />
+    <Content Include="Content\images\background\bg1.jpg" />
+    <Content Include="Content\images\background\bg1.png" />
+    <Content Include="Content\images\background\bg2.jpg" />
+    <Content Include="Content\images\background\bg3.jpg" />
+    <Content Include="Content\images\background\bg4.jpg" />
+    <Content Include="Content\images\background\bg5.jpg" />
+    <Content Include="Content\images\background\bg6.jpg" />
+    <Content Include="Content\images\background\body-bg\bg1.jpg" />
+    <Content Include="Content\images\background\body-bg\bg2.jpg" />
+    <Content Include="Content\images\background\body-bg\bg3.jpg" />
+    <Content Include="Content\images\background\body-bg\bg4.jpg" />
+    <Content Include="Content\images\banner\bnr1.jpg" />
+    <Content Include="Content\images\blog\default\thum1.jpg" />
+    <Content Include="Content\images\blog\default\thum2.jpg" />
+    <Content Include="Content\images\blog\default\thum3.jpg" />
+    <Content Include="Content\images\blog\default\thum4.jpg" />
+    <Content Include="Content\images\blog\grid\img1.jpg" />
+    <Content Include="Content\images\blog\grid\img2.jpg" />
+    <Content Include="Content\images\blog\grid\pic1.jpg" />
+    <Content Include="Content\images\blog\grid\pic2.jpg" />
+    <Content Include="Content\images\blog\grid\pic3.jpg" />
+    <Content Include="Content\images\blog\grid\pic4.jpg" />
+    <Content Include="Content\images\client-logo\logo1.jpg" />
+    <Content Include="Content\images\client-logo\logo2.jpg" />
+    <Content Include="Content\images\client-logo\logo3.jpg" />
+    <Content Include="Content\images\client-logo\logo\logo1.png" />
+    <Content Include="Content\images\client-logo\logo\logo10.png" />
+    <Content Include="Content\images\client-logo\logo\logo11.png" />
+    <Content Include="Content\images\client-logo\logo\logo2.png" />
+    <Content Include="Content\images\client-logo\logo\logo3.png" />
+    <Content Include="Content\images\client-logo\logo\logo4.png" />
+    <Content Include="Content\images\client-logo\logo\logo5.png" />
+    <Content Include="Content\images\client-logo\logo\logo6.png" />
+    <Content Include="Content\images\client-logo\logo\logo7.png" />
+    <Content Include="Content\images\client-logo\logo\logo8.png" />
+    <Content Include="Content\images\client-logo\logo\logo9.png" />
+    <Content Include="Content\images\client-logo\our-logo\logo1.png" />
+    <Content Include="Content\images\client-logo\our-logo\logo2.png" />
+    <Content Include="Content\images\client-logo\our-logo\logo3.png" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\favicon.png" />
+    <Content Include="Content\images\gallery\gallery\pic1.jpg" />
+    <Content Include="Content\images\gallery\gallery\pic2.jpg" />
+    <Content Include="Content\images\gallery\gallery\pic3.jpg" />
+    <Content Include="Content\images\gallery\gallery\pic4.jpg" />
+    <Content Include="Content\images\gallery\pic1.jpg" />
+    <Content Include="Content\images\gallery\pic2.jpg" />
+    <Content Include="Content\images\gallery\pic3.jpg" />
+    <Content Include="Content\images\gallery\pic4.jpg" />
+    <Content Include="Content\images\gallery\pic5.jpg" />
+    <Content Include="Content\images\gallery\pic6.jpg" />
+    <Content Include="Content\images\gallery\pic7.jpg" />
+    <Content Include="Content\images\gallery\pic8.jpg" />
+    <Content Include="Content\images\gallery\pic9.jpg" />
+    <Content Include="Content\images\icon\icon1.png" />
+    <Content Include="Content\images\icon\icon1\1icon2.png" />
+    <Content Include="Content\images\icon\icon1\icon1.png" />
+    <Content Include="Content\images\icon\icon1\icon2.png" />
+    <Content Include="Content\images\icon\icon1\icon3.png" />
+    <Content Include="Content\images\icon\icon1\icon4.png" />
+    <Content Include="Content\images\icon\icon1\icon5.png" />
+    <Content Include="Content\images\icon\icon1\icon6.png" />
+    <Content Include="Content\images\icon\icon1\icon7.png" />
+    <Content Include="Content\images\icon\icon1\icon8.png" />
+    <Content Include="Content\images\icon\icon2.png" />
+    <Content Include="Content\images\icon\icon2\icon1.png" />
+    <Content Include="Content\images\icon\icon2\icon2.png" />
+    <Content Include="Content\images\icon\icon2\icon3.png" />
+    <Content Include="Content\images\icon\icon2\icon4.png" />
+    <Content Include="Content\images\icon\icon2\icon5.png" />
+    <Content Include="Content\images\icon\icon2\icon6.png" />
+    <Content Include="Content\images\icon\icon2\icon7.png" />
+    <Content Include="Content\images\icon\icon2\icon70.png" />
+    <Content Include="Content\images\icon\icon2\icon8.png" />
+    <Content Include="Content\images\icon\icon3.png" />
+    <Content Include="Content\images\icon\icon3\icon1.png" />
+    <Content Include="Content\images\icon\icon3\icon2.png" />
+    <Content Include="Content\images\icon\no-review1.png" />
+    <Content Include="Content\images\icon\no-review2.png" />
+    <Content Include="Content\images\icon\no-review3.png" />
+    <Content Include="Content\images\icon\pic1.jpg" />
+    <Content Include="Content\images\icon\pic2.png" />
+    <Content Include="Content\images\icon\pic3.jpg" />
+    <Content Include="Content\images\icon\pic3.png" />
+    <Content Include="Content\images\icon\pic4.png" />
+    <Content Include="Content\images\icon\pic5.png" />
+    <Content Include="Content\images\icon\pic6.png" />
+    <Content Include="Content\images\icon\pic7.png" />
+    <Content Include="Content\images\icon\pic8.png" />
+    <Content Include="Content\images\laptop.png" />
+    <Content Include="Content\images\listing\pic1.jpg" />
+    <Content Include="Content\images\listing\pic10.jpg" />
+    <Content Include="Content\images\listing\pic11.jpg" />
+    <Content Include="Content\images\listing\pic12.jpg" />
+    <Content Include="Content\images\listing\pic2.jpg" />
+    <Content Include="Content\images\listing\pic3.jpg" />
+    <Content Include="Content\images\listing\pic4.jpg" />
+    <Content Include="Content\images\listing\pic5.jpg" />
+    <Content Include="Content\images\listing\pic6.jpg" />
+    <Content Include="Content\images\listing\pic7.jpg" />
+    <Content Include="Content\images\listing\pic8.jpg" />
+    <Content Include="Content\images\listing\pic9.jpg" />
+    <Content Include="Content\images\loading.svg" />
+    <Content Include="Content\images\logo-black-1.png" />
+    <Content Include="Content\images\logo-black-2.png" />
+    <Content Include="Content\images\logo-black-3.png" />
+    <Content Include="Content\images\logo-black-4.png" />
+    <Content Include="Content\images\logo-black.png" />
+    <Content Include="Content\images\logo-white-1.png" />
+    <Content Include="Content\images\logo-white-2.png" />
+    <Content Include="Content\images\logo-white-3.png" />
+    <Content Include="Content\images\logo-white-4.png" />
+    <Content Include="Content\images\logo-white.png" />
+    <Content Include="Content\images\logo-white1.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\main-slider\slide1.jpg" />
+    <Content Include="Content\images\main-slider\slide2.jpg" />
+    <Content Include="Content\images\navbg.jpg" />
+    <Content Include="Content\images\notepad.png" />
+    <Content Include="Content\images\notepad1.png" />
+    <Content Include="Content\images\pattern\pattern1.jpg" />
+    <Content Include="Content\images\pattern\pattern2.png" />
+    <Content Include="Content\images\pattern\pt1.jpg" />
+    <Content Include="Content\images\pattern\pt10.jpg" />
+    <Content Include="Content\images\pattern\pt11.jpg" />
+    <Content Include="Content\images\pattern\pt12.jpg" />
+    <Content Include="Content\images\pattern\pt2.jpg" />
+    <Content Include="Content\images\pattern\pt3.jpg" />
+    <Content Include="Content\images\pattern\pt4.jpg" />
+    <Content Include="Content\images\pattern\pt5.jpg" />
+    <Content Include="Content\images\pattern\pt6.jpg" />
+    <Content Include="Content\images\pattern\pt7.jpg" />
+    <Content Include="Content\images\pattern\pt8.jpg" />
+    <Content Include="Content\images\pattern\pt9.jpg" />
+    <Content Include="Content\images\pattern\pt\pt1.png" />
+    <Content Include="Content\images\pattern\pt\pt10.png" />
+    <Content Include="Content\images\pattern\pt\pt2.png" />
+    <Content Include="Content\images\pattern\pt\pt3.png" />
+    <Content Include="Content\images\pattern\pt\pt4.png" />
+    <Content Include="Content\images\pattern\pt\pt5.png" />
+    <Content Include="Content\images\pattern\pt\pt6.png" />
+    <Content Include="Content\images\pattern\pt\pt7.png" />
+    <Content Include="Content\images\pattern\pt\pt8.png" />
+    <Content Include="Content\images\pattern\pt\pt9.png" />
+    <Content Include="Content\images\pic1.jpg" />
+    <Content Include="Content\images\pic2.png" />
+    <Content Include="Content\images\pic3.png" />
+    <Content Include="Content\images\pic4.png" />
+    <Content Include="Content\images\quote.png" />
+    <Content Include="Content\images\review\thum1.jpg" />
+    <Content Include="Content\images\review\thum2.jpg" />
+    <Content Include="Content\images\review\thum3.jpg" />
+    <Content Include="Content\images\review\thum4.jpg" />
+    <Content Include="Content\images\sap1.png" />
+    <Content Include="Content\images\supplier\pic1.jpg" />
+    <Content Include="Content\images\supplier\pic2.jpg" />
+    <Content Include="Content\images\supplier\pic3.jpg" />
+    <Content Include="Content\images\supplier\pic4.jpg" />
+    <Content Include="Content\images\supplier\pic5.jpg" />
+    <Content Include="Content\images\supplier\pic6.jpg" />
+    <Content Include="Content\images\supplier\pic7.jpg" />
+    <Content Include="Content\images\supplier\pic8.jpg" />
+    <Content Include="Content\images\switcher\switcher-bg\bg1.jpg" />
+    <Content Include="Content\images\switcher\switcher-bg\bg2.jpg" />
+    <Content Include="Content\images\switcher\switcher-bg\bg3.jpg" />
+    <Content Include="Content\images\switcher\switcher-bg\bg4.jpg" />
+    <Content Include="Content\images\switcher\switcher-patterns\bg1.jpg" />
+    <Content Include="Content\images\switcher\switcher-patterns\bg10.jpg" />
+    <Content Include="Content\images\switcher\switcher-patterns\bg11.jpg" />
+    <Content Include="Content\images\switcher\switcher-patterns\bg12.jpg" />
+    <Content Include="Content\images\switcher\switcher-patterns\bg2.jpg" />
+    <Content Include="Content\images\switcher\switcher-patterns\bg3.jpg" />
+    <Content Include="Content\images\switcher\switcher-patterns\bg4.jpg" />
+    <Content Include="Content\images\switcher\switcher-patterns\bg5.jpg" />
+    <Content Include="Content\images\switcher\switcher-patterns\bg6.jpg" />
+    <Content Include="Content\images\switcher\switcher-patterns\bg7.jpg" />
+    <Content Include="Content\images\switcher\switcher-patterns\bg8.jpg" />
+    <Content Include="Content\images\switcher\switcher-patterns\bg9.jpg" />
+    <Content Include="Content\images\testimonials\pic1.jpg" />
+    <Content Include="Content\images\testimonials\pic2.jpg" />
+    <Content Include="Content\images\video\pic1.jpg" />
+    <Content Include="Content\images\video\pic2.jpg" />
+    <Content Include="Content\images\video\pic3.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic1.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic10.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic11.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic12.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic13.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic14.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic15.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic16.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic17.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic2.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic3.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic4.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic5.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic6.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic7.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic8.jpg" />
+    <Content Include="Content\images\wedding-suppliers\pic9.jpg" />
     <Content Include="Content\js\combining.js" />
     <Content Include="Content\js\custom.js" />
     <Content Include="Content\js\custom.min.js" />
@@ -372,6 +643,27 @@
     <Content Include="Content\plugins\wizard\js\jquery.validate.min.js" />
     <Content Include="Content\plugins\wizard\js\material-bootstrap-wizard.js" />
     <Content Include="Content\plugins\wow\wow.js" />
+    <Content Include="Content\script\contact.php" />
+    <Content Include="Content\script\mailchamp.php" />
+    <Content Include="Content\script\recaptcha-master\.gitignore" />
+    <Content Include="Content\script\recaptcha-master\api.js" />
+    <Content Include="Content\script\recaptcha-master\examples\example-captcha.php" />
+    <Content Include="Content\script\recaptcha-master\src\autoload.php" />
+    <Content Include="Content\script\recaptcha-master\src\ReCaptcha\ReCaptcha.php" />
+    <Content Include="Content\script\recaptcha-master\src\ReCaptcha\RequestMethod.php" />
+    <Content Include="Content\script\recaptcha-master\src\ReCaptcha\RequestMethod\Curl.php" />
+    <Content Include="Content\script\recaptcha-master\src\ReCaptcha\RequestMethod\CurlPost.php" />
+    <Content Include="Content\script\recaptcha-master\src\ReCaptcha\RequestMethod\Post.php" />
+    <Content Include="Content\script\recaptcha-master\src\ReCaptcha\RequestMethod\Socket.php" />
+    <Content Include="Content\script\recaptcha-master\src\ReCaptcha\RequestMethod\SocketPost.php" />
+    <Content Include="Content\script\recaptcha-master\src\ReCaptcha\RequestParameters.php" />
+    <Content Include="Content\script\recaptcha-master\src\ReCaptcha\Response.php" />
+    <Content Include="Content\script\recaptcha-master\tests\ReCaptcha\ReCaptchaTest.php" />
+    <Content Include="Content\script\recaptcha-master\tests\ReCaptcha\RequestMethod\CurlPostTest.php" />
+    <Content Include="Content\script\recaptcha-master\tests\ReCaptcha\RequestMethod\PostTest.php" />
+    <Content Include="Content\script\recaptcha-master\tests\ReCaptcha\RequestMethod\SocketPostTest.php" />
+    <Content Include="Content\script\recaptcha-master\tests\ReCaptcha\RequestParametersTest.php" />
+    <Content Include="Content\script\recaptcha-master\tests\ReCaptcha\ResponseTest.php" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -455,6 +747,12 @@
     <Content Include="Content\plugins\themify\fonts\themify.eot" />
     <Content Include="Content\plugins\themify\fonts\themify.ttf" />
     <Content Include="Content\plugins\themify\fonts\themify.woff" />
+    <Content Include="Content\script\recaptcha-master\.travis.yml" />
+    <Content Include="Content\script\recaptcha-master\composer.json" />
+    <Content Include="Content\script\recaptcha-master\CONTRIBUTING.md" />
+    <Content Include="Content\script\recaptcha-master\LICENSE" />
+    <Content Include="Content\script\recaptcha-master\phpunit.xml.dist" />
+    <Content Include="Content\script\recaptcha-master\README.md" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -480,21 +778,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\tblWeddingPlanners\Create.cshtml" />
-    <Content Include="Views\tblWeddingPlanners\Delete.cshtml" />
-    <Content Include="Views\tblWeddingPlanners\Details.cshtml" />
-    <Content Include="Views\tblWeddingPlanners\Edit.cshtml" />
-    <Content Include="Views\tblWeddingPlanners\Index.cshtml" />
-    <Content Include="Views\tblEmpresas\Create.cshtml" />
-    <Content Include="Views\tblEmpresas\Delete.cshtml" />
-    <Content Include="Views\tblEmpresas\Details.cshtml" />
-    <Content Include="Views\tblEmpresas\Edit.cshtml" />
-    <Content Include="Views\tblEmpresas\Index.cshtml" />
-    <Content Include="Views\tblWPNovios\Create.cshtml" />
-    <Content Include="Views\tblWPNovios\Delete.cshtml" />
-    <Content Include="Views\tblWPNovios\Details.cshtml" />
-    <Content Include="Views\tblWPNovios\Edit.cshtml" />
-    <Content Include="Views\tblWPNovios\Index.cshtml" />
     <Content Include="Views\tblNovios\Create.cshtml" />
     <Content Include="Views\tblNovios\Delete.cshtml" />
     <Content Include="Views\tblNovios\Details.cshtml" />
@@ -600,6 +883,102 @@
     <Content Include="Views\tblIdiomas\Details.cshtml" />
     <Content Include="Views\tblIdiomas\Edit.cshtml" />
     <Content Include="Views\tblIdiomas\Index.cshtml" />
+    <Content Include="Views\tblInvitados\_TablaInvitados.cshtml" />
+    <Content Include="Views\tblCategoriasProveedores\Create.cshtml" />
+    <Content Include="Views\tblCategoriasProveedores\Delete.cshtml" />
+    <Content Include="Views\tblCategoriasProveedores\Details.cshtml" />
+    <Content Include="Views\tblCategoriasProveedores\Edit.cshtml" />
+    <Content Include="Views\tblCategoriasProveedores\Index.cshtml" />
+    <Content Include="Views\tblDieteticas\Create.cshtml" />
+    <Content Include="Views\tblDieteticas\Delete.cshtml" />
+    <Content Include="Views\tblDieteticas\Details.cshtml" />
+    <Content Include="Views\tblDieteticas\Edit.cshtml" />
+    <Content Include="Views\tblDieteticas\Index.cshtml" />
+    <Content Include="Views\tblEstados\Create.cshtml" />
+    <Content Include="Views\tblEstados\Delete.cshtml" />
+    <Content Include="Views\tblEstados\Details.cshtml" />
+    <Content Include="Views\tblEstados\Edit.cshtml" />
+    <Content Include="Views\tblEstados\Index.cshtml" />
+    <Content Include="Views\tblMensajesProveedores\Create.cshtml" />
+    <Content Include="Views\tblMensajesProveedores\Delete.cshtml" />
+    <Content Include="Views\tblMensajesProveedores\Details.cshtml" />
+    <Content Include="Views\tblMensajesProveedores\Edit.cshtml" />
+    <Content Include="Views\tblMensajesProveedores\Index.cshtml" />
+    <Content Include="Views\tblMunicipios\Create.cshtml" />
+    <Content Include="Views\tblMunicipios\Delete.cshtml" />
+    <Content Include="Views\tblMunicipios\Details.cshtml" />
+    <Content Include="Views\tblMunicipios\Edit.cshtml" />
+    <Content Include="Views\tblMunicipios\Index.cshtml" />
+    <Content Include="Views\tblOfertasProveedores\Create.cshtml" />
+    <Content Include="Views\tblOfertasProveedores\Delete.cshtml" />
+    <Content Include="Views\tblOfertasProveedores\Details.cshtml" />
+    <Content Include="Views\tblOfertasProveedores\Edit.cshtml" />
+    <Content Include="Views\tblOfertasProveedores\Index.cshtml" />
+    <Content Include="Views\tblPreguntasProveedores\Create.cshtml" />
+    <Content Include="Views\tblPreguntasProveedores\Delete.cshtml" />
+    <Content Include="Views\tblPreguntasProveedores\Details.cshtml" />
+    <Content Include="Views\tblPreguntasProveedores\Edit.cshtml" />
+    <Content Include="Views\tblPreguntasProveedores\Index.cshtml" />
+    <Content Include="Views\tblProveedoresDieteticas\Create.cshtml" />
+    <Content Include="Views\tblProveedoresDieteticas\Delete.cshtml" />
+    <Content Include="Views\tblProveedoresDieteticas\Details.cshtml" />
+    <Content Include="Views\tblProveedoresDieteticas\Edit.cshtml" />
+    <Content Include="Views\tblProveedoresDieteticas\Index.cshtml" />
+    <Content Include="Views\tblProveedores\Create.cshtml" />
+    <Content Include="Views\tblProveedores\Delete.cshtml" />
+    <Content Include="Views\tblProveedores\Details.cshtml" />
+    <Content Include="Views\tblProveedores\Edit.cshtml" />
+    <Content Include="Views\tblProveedores\Index.cshtml" />
+    <Content Include="Views\tblProveedoresMunicipios\Create.cshtml" />
+    <Content Include="Views\tblProveedoresMunicipios\Delete.cshtml" />
+    <Content Include="Views\tblProveedoresMunicipios\Details.cshtml" />
+    <Content Include="Views\tblProveedoresMunicipios\Edit.cshtml" />
+    <Content Include="Views\tblProveedoresMunicipios\Index.cshtml" />
+    <Content Include="Views\tblRedesProveedores\Create.cshtml" />
+    <Content Include="Views\tblRedesProveedores\Delete.cshtml" />
+    <Content Include="Views\tblRedesProveedores\Details.cshtml" />
+    <Content Include="Views\tblRedesProveedores\Edit.cshtml" />
+    <Content Include="Views\tblRedesProveedores\Index.cshtml" />
+    <Content Include="Views\tblRedesSociales\Create.cshtml" />
+    <Content Include="Views\tblRedesSociales\Delete.cshtml" />
+    <Content Include="Views\tblRedesSociales\Details.cshtml" />
+    <Content Include="Views\tblRedesSociales\Edit.cshtml" />
+    <Content Include="Views\tblRedesSociales\Index.cshtml" />
+    <Content Include="Views\tblRespuestasProveedores\Create.cshtml" />
+    <Content Include="Views\tblRespuestasProveedores\Delete.cshtml" />
+    <Content Include="Views\tblRespuestasProveedores\Details.cshtml" />
+    <Content Include="Views\tblRespuestasProveedores\Edit.cshtml" />
+    <Content Include="Views\tblRespuestasProveedores\Index.cshtml" />
+    <Content Include="Views\tblSeleccionarOfertas\Create.cshtml" />
+    <Content Include="Views\tblSeleccionarOfertas\Delete.cshtml" />
+    <Content Include="Views\tblSeleccionarOfertas\Details.cshtml" />
+    <Content Include="Views\tblSeleccionarOfertas\Edit.cshtml" />
+    <Content Include="Views\tblSeleccionarOfertas\Index.cshtml" />
+    <Content Include="Views\tblServiciosCategoriasProvedores\Create.cshtml" />
+    <Content Include="Views\tblServiciosCategoriasProvedores\Delete.cshtml" />
+    <Content Include="Views\tblServiciosCategoriasProvedores\Details.cshtml" />
+    <Content Include="Views\tblServiciosCategoriasProvedores\Edit.cshtml" />
+    <Content Include="Views\tblServiciosCategoriasProvedores\Index.cshtml" />
+    <Content Include="Views\tblServiciosProveedores\Create.cshtml" />
+    <Content Include="Views\tblServiciosProveedores\Delete.cshtml" />
+    <Content Include="Views\tblServiciosProveedores\Details.cshtml" />
+    <Content Include="Views\tblServiciosProveedores\Edit.cshtml" />
+    <Content Include="Views\tblServiciosProveedores\Index.cshtml" />
+    <Content Include="Views\tblEmpresasOrganizadores\Create.cshtml" />
+    <Content Include="Views\tblEmpresasOrganizadores\Delete.cshtml" />
+    <Content Include="Views\tblEmpresasOrganizadores\Details.cshtml" />
+    <Content Include="Views\tblEmpresasOrganizadores\Edit.cshtml" />
+    <Content Include="Views\tblEmpresasOrganizadores\Index.cshtml" />
+    <Content Include="Views\tblOrganizadoresBodas\Create.cshtml" />
+    <Content Include="Views\tblOrganizadoresBodas\Delete.cshtml" />
+    <Content Include="Views\tblOrganizadoresBodas\Details.cshtml" />
+    <Content Include="Views\tblOrganizadoresBodas\Edit.cshtml" />
+    <Content Include="Views\tblOrganizadoresBodas\Index.cshtml" />
+    <Content Include="Views\tblSeleccionarOrganizadoresBodas\Create.cshtml" />
+    <Content Include="Views\tblSeleccionarOrganizadoresBodas\Delete.cshtml" />
+    <Content Include="Views\tblSeleccionarOrganizadoresBodas\Details.cshtml" />
+    <Content Include="Views\tblSeleccionarOrganizadoresBodas\Edit.cshtml" />
+    <Content Include="Views\tblSeleccionarOrganizadoresBodas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

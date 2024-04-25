@@ -1,0 +1,42 @@
+﻿@model IAB_MVC_V1.Models.tblMensajesProveedores
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblMensajesProveedores</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tituloMensaje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tituloMensaje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mensaje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mensaje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblProveedores.nomNegocio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblProveedores.nomNegocio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idMensajeProveedor }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

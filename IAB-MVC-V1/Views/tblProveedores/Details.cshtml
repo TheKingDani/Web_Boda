@@ -1,0 +1,106 @@
+﻿@model IAB_MVC_V1.Models.tblProveedores
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblProveedores</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nomNegocio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nomNegocio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sitioWeb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sitioWeb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.codigoPostal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigoPostal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ciudad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ciudad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precioInicial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precioInicial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblCategoriasProveedores.nombreCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblCategoriasProveedores.nombreCategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblEstados.nombreEstado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblEstados.nombreEstado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idProveedor }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

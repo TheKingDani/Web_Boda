@@ -46,8 +46,24 @@ namespace IAB_MVC_V1.Models
         public virtual DbSet<tblPlantillas> tblPlantillas { get; set; }
         public virtual DbSet<tblPlantillasNovios> tblPlantillasNovios { get; set; }
         public virtual DbSet<tblTipoInvitado> tblTipoInvitado { get; set; }
-        public virtual DbSet<tblEmpresas> tblEmpresas { get; set; }
-        public virtual DbSet<tblWeddingPlanners> tblWeddingPlanners { get; set; }
-        public virtual DbSet<tblWPNovios> tblWPNovios { get; set; }
+        public virtual DbSet<tblCategoriasProveedores> tblCategoriasProveedores { get; set; }
+        public virtual DbSet<tblDieteticas> tblDieteticas { get; set; }
+        public virtual DbSet<tblEstados> tblEstados { get; set; }
+        public virtual DbSet<tblMensajesProveedores> tblMensajesProveedores { get; set; }
+        public virtual DbSet<tblMunicipios> tblMunicipios { get; set; }
+        public virtual DbSet<tblOfertasProveedores> tblOfertasProveedores { get; set; }
+        public virtual DbSet<tblPreguntasProveedores> tblPreguntasProveedores { get; set; }
+        public virtual DbSet<tblProveedores> tblProveedores { get; set; }
+        public virtual DbSet<tblProveedoresDieteticas> tblProveedoresDieteticas { get; set; }
+        public virtual DbSet<tblProveedoresMunicipios> tblProveedoresMunicipios { get; set; }
+        public virtual DbSet<tblRedesProveedores> tblRedesProveedores { get; set; }
+        public virtual DbSet<tblRedesSociales> tblRedesSociales { get; set; }
+        public virtual DbSet<tblRespuestasProveedores> tblRespuestasProveedores { get; set; }
+        public virtual DbSet<tblSeleccionarOfertas> tblSeleccionarOfertas { get; set; }
+        public virtual DbSet<tblServiciosCategoriasProvedores> tblServiciosCategoriasProvedores { get; set; }
+        public virtual DbSet<tblServiciosProveedores> tblServiciosProveedores { get; set; }
+        public virtual DbSet<tblEmpresasOrganizadores> tblEmpresasOrganizadores { get; set; }
+        public virtual DbSet<tblOrganizadoresBodas> tblOrganizadoresBodas { get; set; }
+        public virtual DbSet<tblSeleccionarOrganizadoresBodas> tblSeleccionarOrganizadoresBodas { get; set; }
     }
 }

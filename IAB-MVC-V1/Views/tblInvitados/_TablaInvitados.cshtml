@@ -1,0 +1,175 @@
+﻿
+@model IEnumerable<IAB_MVC_V1.Models.tblInvitados>
+
+<table class="table">
+    <tr>
+        <th>
+            Apodo
+        </th>
+        <th>
+            Nombre completo
+        </th>
+
+        <th>
+            Boletos
+        </th>
+        <th>
+            Género
+        </th>
+        <th>
+            Boletos confirmados
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Viene Por
+        </th>
+        <th>
+            Teléfono
+        </th>
+        <th>
+            Menú
+        </th>
+        <th>
+            Ingreso
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.llegoWeb)
+        </th>
+        <th>
+            Contraseña
+        </th>
+        <th>
+            Invitación enviada
+        </th>
+        <th>
+            Misa
+        </th>
+        <th>
+            Asistirá
+        </th>
+        <th>
+            QR enviado
+        </th>
+        <th>
+            QR confirmado
+        </th>
+        <th>
+            Asistió boda
+        </th>
+        <th>
+            Mesa
+        </th>
+        <th>
+            Mensaje
+        </th>
+        <th>
+            Regalo
+        </th>
+        <th>
+            Mensaje de regalo
+        </th>
+        <th>
+            Idioma
+        </th>
+        <th>
+            Tipo de invitado
+        </th>
+        <th>
+            Novia
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.apodo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)<br>
+
+                @Html.DisplayFor(modelItem => item.aPaterno)<br>
+
+                @Html.DisplayFor(modelItem => item.aMaterno)<br>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.boletos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idGenero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.boletosConfirmados)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vienePor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idTipoMenu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.accedio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.llegoWeb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contrasena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.invitacionEnviada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soloMisa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.asistira)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qrEnviado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.qrConfirmado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.asistioBoda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mesa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mensaje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.regalo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mensajeRegalo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idIdioma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblTipoInvitado.tipoInvitado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblNovios.nombreNovia)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idInvitado }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idInvitado }) |
+                @Html.ActionLink("Elimiar", "Delete", new { id = item.idInvitado })
+            </td>
+        </tr>
+    }
+
+</table>
