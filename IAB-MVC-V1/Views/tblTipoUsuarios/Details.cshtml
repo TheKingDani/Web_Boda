@@ -1,0 +1,26 @@
+﻿@model IAB_MVC_V1.Models.tblTipoUsuarios
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblTipoUsuarios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreTipoUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreTipoUsuario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.tipoUsuarioID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

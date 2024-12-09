@@ -20,6 +20,14 @@ namespace IAB_MVC_V1.Controllers
             return View(db.tblCategoriasProveedores.ToList());
         }
 
+
+        public ActionResult ModalServicios()
+        {
+            return PartialView("_ModalServicios");
+        }
+
+
+
         // GET: tblCategoriasProveedores/Details/5
         public ActionResult Details(int? id)
         {

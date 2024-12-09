@@ -1,42 +1,57 @@
-﻿@model IAB_MVC_V1.Models.tblItinerario
+﻿@model IAB_MVC_V1.Models.tblItinerarios
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles";
 }
 
 <h2>Detalles</h2>
 
 <div>
-    <h4>Itinerario</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            ID Novio
+            Hora de Inicio
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.idNovio)
+            @Html.DisplayFor(model => model.horaInicio)
         </dd>
 
         <dt>
-            Fecha y Hora
+           Hora de Terminación
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.diaHora)
+            @Html.DisplayFor(model => model.horaFin)
         </dd>
 
         <dt>
-            Actividad
+           Actividad
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.actividad)
         </dd>
 
+        <dt>
+           Responsables
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.responsables)
+        </dd>
+
+        <dt>
+           Novia
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblNovios.nombreNovia)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Editar", new { id = Model.idItinerario }) |
-    @Html.ActionLink("Regresar", "Index")
+    @Html.ActionLink("Detalle", "Details", new { id = Model.idItinerario }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
 </p>

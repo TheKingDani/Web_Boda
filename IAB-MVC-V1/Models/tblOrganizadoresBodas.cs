@@ -26,6 +26,7 @@ namespace IAB_MVC_V1.Models
         public string email { get; set; }
         public string tel { get; set; }
         public Nullable<bool> activo { get; set; }
+        public Nullable<int> idUsuario { get; set; }
     
         public virtual tblEmpresasOrganizadores tblEmpresasOrganizadores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

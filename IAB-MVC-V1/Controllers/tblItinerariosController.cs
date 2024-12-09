@@ -17,7 +17,8 @@ namespace IAB_MVC_V1.Controllers
         // GET: tblItinerarios
         public ActionResult Index()
         {
-            return View(db.tblItinerario.ToList());
+            var tblItinerarios = db.tblItinerarios.Include(t => t.tblNovios);
+            return View(tblItinerarios.ToList());
         }
 
         // GET: tblItinerarios/Details/5
@@ -27,17 +28,18 @@ namespace IAB_MVC_V1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblItinerario tblItinerario = db.tblItinerario.Find(id);
-            if (tblItinerario == null)
+            tblItinerarios tblItinerarios = db.tblItinerarios.Find(id);
+            if (tblItinerarios == null)
             {
                 return HttpNotFound();
             }
-            return View(tblItinerario);
+            return View(tblItinerarios);
         }
 
         // GET: tblItinerarios/Create
         public ActionResult Create()
         {
+            ViewBag.idNovios = new SelectList(db.tblNovios, "idNovios", "nombreNovia");
             return View();
         }
 
@@ -46,16 +48,17 @@ namespace IAB_MVC_V1.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idItinerario,idNovio,diaHora,actividad")] tblItinerario tblItinerario)
+        public ActionResult Create([Bind(Include = "idItinerario,idNovios,horaInicio,horaFin,actividad,responsables")] tblItinerarios tblItinerarios)
         {
             if (ModelState.IsValid)
             {
-                db.tblItinerario.Add(tblItinerario);
+                db.tblItinerarios.Add(tblItinerarios);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(tblItinerario);
+            ViewBag.idNovios = new SelectList(db.tblNovios, "idNovios", "nombreNovia", tblItinerarios.idNovios);
+            return View(tblItinerarios);
         }
 
         // GET: tblItinerarios/Edit/5
@@ -65,12 +68,13 @@ namespace IAB_MVC_V1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblItinerario tblItinerario = db.tblItinerario.Find(id);
-            if (tblItinerario == null)
+            tblItinerarios tblItinerarios = db.tblItinerarios.Find(id);
+            if (tblItinerarios == null)
             {
                 return HttpNotFound();
             }
-            return View(tblItinerario);
+            ViewBag.idNovios = new SelectList(db.tblNovios, "idNovios", "nombreNovia", tblItinerarios.idNovios);
+            return View(tblItinerarios);
         }
 
         // POST: tblItinerarios/Edit/5
@@ -78,15 +82,16 @@ namespace IAB_MVC_V1.Controllers
         // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idItinerario,idNovio,diaHora,actividad")] tblItinerario tblItinerario)
+        public ActionResult Edit([Bind(Include = "idItinerario,idNovios,horaInicio,horaFin,actividad,responsables")] tblItinerarios tblItinerarios)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tblItinerario).State = EntityState.Modified;
+                db.Entry(tblItinerarios).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(tblItinerario);
+            ViewBag.idNovios = new SelectList(db.tblNovios, "idNovios", "nombreNovia", tblItinerarios.idNovios);
+            return View(tblItinerarios);
         }
 
         // GET: tblItinerarios/Delete/5
@@ -96,12 +101,12 @@ namespace IAB_MVC_V1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblItinerario tblItinerario = db.tblItinerario.Find(id);
-            if (tblItinerario == null)
+            tblItinerarios tblItinerarios = db.tblItinerarios.Find(id);
+            if (tblItinerarios == null)
             {
                 return HttpNotFound();
             }
-            return View(tblItinerario);
+            return View(tblItinerarios);
         }
 
         // POST: tblItinerarios/Delete/5
@@ -109,8 +114,8 @@ namespace IAB_MVC_V1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tblItinerario tblItinerario = db.tblItinerario.Find(id);
-            db.tblItinerario.Remove(tblItinerario);
+            tblItinerarios tblItinerarios = db.tblItinerarios.Find(id);
+            db.tblItinerarios.Remove(tblItinerarios);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

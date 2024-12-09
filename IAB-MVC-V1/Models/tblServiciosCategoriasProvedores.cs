@@ -18,6 +18,7 @@ namespace IAB_MVC_V1.Models
         public tblServiciosCategoriasProvedores()
         {
             this.tblServiciosProveedores = new HashSet<tblServiciosProveedores>();
+            this.tblPresupuestos = new HashSet<tblPresupuestos>();
         }
     
         public int idServicioCategoProv { get; set; }
@@ -27,5 +28,7 @@ namespace IAB_MVC_V1.Models
         public virtual tblCategoriasProveedores tblCategoriasProveedores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblServiciosProveedores> tblServiciosProveedores { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblPresupuestos> tblPresupuestos { get; set; }
     }
 }

@@ -171,6 +171,8 @@
     <Compile Include="Controllers\tblPlantillasController.cs" />
     <Compile Include="Controllers\tblPlantillasNoviosController.cs" />
     <Compile Include="Controllers\tblPreguntasProveedoresController.cs" />
+    <Compile Include="Controllers\tblPresupuestosController.cs" />
+    <Compile Include="Controllers\tblProductosProveedoresController.cs" />
     <Compile Include="Controllers\tblProveedoresController.cs" />
     <Compile Include="Controllers\tblProveedoresDieteticasController.cs" />
     <Compile Include="Controllers\tblProveedoresMunicipiosController.cs" />
@@ -181,7 +183,9 @@
     <Compile Include="Controllers\tblSeleccionarOrganizadoresBodasController.cs" />
     <Compile Include="Controllers\tblServiciosCategoriasProvedoresController.cs" />
     <Compile Include="Controllers\tblServiciosProveedoresController.cs" />
+    <Compile Include="Controllers\tblStatusPagosController.cs" />
     <Compile Include="Controllers\tblTipoInvitadoesController.cs" />
+    <Compile Include="Controllers\tblTipoUsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -200,6 +204,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProveedorExt.cs" />
     <Compile Include="Models\tblAcompanantes.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -248,7 +253,7 @@
     <Compile Include="Models\tblInvitados.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\tblItinerario.cs">
+    <Compile Include="Models\tblItinerarios.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblMensajesProveedores.cs">
@@ -287,6 +292,12 @@
     <Compile Include="Models\tblPreguntasProveedores.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tblPresupuestos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblProductosProveedores.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblProveedores.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -317,10 +328,21 @@
     <Compile Include="Models\tblServiciosProveedores.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tblStatusPagos.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tblTipoInvitado.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tblTipoUsuarios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblUsuarios.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\ProveedorLoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -818,11 +840,6 @@
     <Content Include="Views\tblMesasRegalos\Details.cshtml" />
     <Content Include="Views\tblMesasRegalos\Edit.cshtml" />
     <Content Include="Views\tblMesasRegalos\Index.cshtml" />
-    <Content Include="Views\tblItinerarios\Create.cshtml" />
-    <Content Include="Views\tblItinerarios\Delete.cshtml" />
-    <Content Include="Views\tblItinerarios\Details.cshtml" />
-    <Content Include="Views\tblItinerarios\Edit.cshtml" />
-    <Content Include="Views\tblItinerarios\Index.cshtml" />
     <Content Include="Views\tblMesasNovios\Create.cshtml" />
     <Content Include="Views\tblMesasNovios\Delete.cshtml" />
     <Content Include="Views\tblMesasNovios\Details.cshtml" />
@@ -924,11 +941,6 @@
     <Content Include="Views\tblProveedoresDieteticas\Details.cshtml" />
     <Content Include="Views\tblProveedoresDieteticas\Edit.cshtml" />
     <Content Include="Views\tblProveedoresDieteticas\Index.cshtml" />
-    <Content Include="Views\tblProveedores\Create.cshtml" />
-    <Content Include="Views\tblProveedores\Delete.cshtml" />
-    <Content Include="Views\tblProveedores\Details.cshtml" />
-    <Content Include="Views\tblProveedores\Edit.cshtml" />
-    <Content Include="Views\tblProveedores\Index.cshtml" />
     <Content Include="Views\tblProveedoresMunicipios\Create.cshtml" />
     <Content Include="Views\tblProveedoresMunicipios\Delete.cshtml" />
     <Content Include="Views\tblProveedoresMunicipios\Details.cshtml" />
@@ -979,6 +991,38 @@
     <Content Include="Views\tblSeleccionarOrganizadoresBodas\Details.cshtml" />
     <Content Include="Views\tblSeleccionarOrganizadoresBodas\Edit.cshtml" />
     <Content Include="Views\tblSeleccionarOrganizadoresBodas\Index.cshtml" />
+    <Content Include="Views\tblItinerarios\Create.cshtml" />
+    <Content Include="Views\tblItinerarios\Delete.cshtml" />
+    <Content Include="Views\tblItinerarios\Details.cshtml" />
+    <Content Include="Views\tblItinerarios\Edit.cshtml" />
+    <Content Include="Views\tblItinerarios\Index.cshtml" />
+    <Content Include="Views\tblStatusPagos\Create.cshtml" />
+    <Content Include="Views\tblStatusPagos\Delete.cshtml" />
+    <Content Include="Views\tblStatusPagos\Details.cshtml" />
+    <Content Include="Views\tblStatusPagos\Edit.cshtml" />
+    <Content Include="Views\tblStatusPagos\Index.cshtml" />
+    <Content Include="Views\tblPresupuestos\Create.cshtml" />
+    <Content Include="Views\tblPresupuestos\Delete.cshtml" />
+    <Content Include="Views\tblPresupuestos\Details.cshtml" />
+    <Content Include="Views\tblPresupuestos\Edit.cshtml" />
+    <Content Include="Views\tblPresupuestos\Index.cshtml" />
+    <Content Include="Views\tblProductosProveedores\Create.cshtml" />
+    <Content Include="Views\tblProductosProveedores\Delete.cshtml" />
+    <Content Include="Views\tblProductosProveedores\Details.cshtml" />
+    <Content Include="Views\tblProductosProveedores\Edit.cshtml" />
+    <Content Include="Views\tblProductosProveedores\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout - Copia.cshtml" />
+    <Content Include="Views\tblProveedores\Create.cshtml" />
+    <Content Include="Views\tblProveedores\Delete.cshtml" />
+    <Content Include="Views\tblProveedores\Details.cshtml" />
+    <Content Include="Views\tblProveedores\Edit.cshtml" />
+    <Content Include="Views\tblProveedores\Index.cshtml" />
+    <Content Include="Views\tblCategoriasProveedores\_ModalServicios.cshtml" />
+    <Content Include="Views\tblTipoUsuarios\Create.cshtml" />
+    <Content Include="Views\tblTipoUsuarios\Delete.cshtml" />
+    <Content Include="Views\tblTipoUsuarios\Details.cshtml" />
+    <Content Include="Views\tblTipoUsuarios\Edit.cshtml" />
+    <Content Include="Views\tblTipoUsuarios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,11 +12,15 @@ namespace IAB_MVC_V1.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tblItinerario
+    public partial class tblItinerarios
     {
         public int idItinerario { get; set; }
-        public int idNovio { get; set; }
-        public Nullable<System.DateTime> diaHora { get; set; }
+        public Nullable<int> idNovios { get; set; }
+        public Nullable<System.DateTime> horaInicio { get; set; }
+        public Nullable<System.DateTime> horaFin { get; set; }
         public string actividad { get; set; }
+        public string responsables { get; set; }
+    
+        public virtual tblNovios tblNovios { get; set; }
     }
 }

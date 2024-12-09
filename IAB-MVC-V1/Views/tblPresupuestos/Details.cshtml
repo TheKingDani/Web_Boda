@@ -1,0 +1,90 @@
+﻿@model IAB_MVC_V1.Models.tblPresupuestos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblPresupuestos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.costo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaPago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaPago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblNovios.nombreNovia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblNovios.nombreNovia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblProductosProveedores.nombreProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblProductosProveedores.nombreProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblServiciosProveedores.idServicioProveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblServiciosProveedores.idServicioProveedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblServiciosCategoriasProvedores.serviciosProveedores)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblServiciosCategoriasProvedores.serviciosProveedores)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblStatusPagos.nomStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblStatusPagos.nomStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idPresupuesto }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

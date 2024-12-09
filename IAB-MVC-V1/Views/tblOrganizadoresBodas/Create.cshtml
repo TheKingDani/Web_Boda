@@ -4,66 +4,571 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>tblOrganizadoresBodas</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.idEmpresaOrganizador, "idEmpresaOrganizador", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("idEmpresaOrganizador", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.idEmpresaOrganizador, "", new { @class = "text-danger" })
-            </div>
-        </div>
+@{ Layout = null; // Esto indica que la vista no utilizará ningún layout 
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.nombreOrganizador, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.nombreOrganizador, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nombreOrganizador, "", new { @class = "text-danger" })
-            </div>
-        </div>
+}
+    <div>
+        <link rel="stylesheet" type="text/css" href="~/Content/css/plugins.css">
+        <link rel="stylesheet" type="text/css" href="~/Content/css/style.css">
+        <link rel="stylesheet" href="~/Content/plugins/jquery-ui/jquery-ui.css">
+        <link rel="stylesheet" type="text/css" href="~/Content/css/templete.css">
+        <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.min.css">
+        <link class="skin" rel="stylesheet" type="text/css" href="~/Content/css/skin/skin-1.css">
+        <link rel="stylesheet" type="text/css" href="~/Content/css/star-rating-svg.css">
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.tel, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.tel, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.tel, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.activo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.activo)
-                    @Html.ValidationMessageFor(model => model.activo, "", new { @class = "text-danger" })
+<!-- header -->
+
+<header class="site-header header-transparent mo-left">
+    <!-- main header -->
+    <div class="sticky-header main-bar-wraper navbar-expand-lg">
+        <div class="main-bar clearfix ">
+            <div class="container-fluid clearfix">
+                <!-- website logo -->
+                <div class="logo-header mostion">
+                    <a class="header-logo1" href="index.html"><img src="images/logo-white-1.png" alt=""></a>
+                    <a class="header-logo2" href="index.html"><img src="images/logo-black-1.png" alt=""></a>
+                </div>
+                <!-- nav toggle button -->
+                <button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <!-- extra nav -->
+
+                <div class="extra-nav">
+                    <div class="extra-cell home-sign">
+                        <a href="index-business.html" class="btn gradient radius-sm"><span>Business login</span><i class="la la-industry"></i></a>
+                        <a href="javascript:void(0);" class="btn purple gradient radius-sm m-l10" data-toggle="modal" data-target="#signup"><span>Sign Up</span> <i class="la la-user-plus"></i></a>
+                        <a href="javascript:void(0);" class="btn green gradient radius-sm m-l10" data-toggle="modal" data-target="#login"><span>login</span> <i class="la la-sign-in"></i></a>
+                    </div>
+                </div>
+                <!-- main nav -->
+                <div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
+                    <div class="logo-header mostion">
+                        <a href="index.html"><img src="images/logo.png" alt=""></a>
+                    </div>
+                    <div class="home-sign">
+                        <div><a href="javascript:void(0);" class="btn gradient purple" data-toggle="modal" data-target="#signup"><span>Sign Up</span> <i class="la la-user-plus"></i></a></div>
+                        <div><a href="javascript:void(0);" class="btn gradient green" data-toggle="modal" data-target="#login"><span>login</span> <i class="la la-sign-in"></i></a></div>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="has-mega-menu active"><a href="wedding-search-venues.html">Wedding Venues</a></li>
+                        <li class="has-mega-menu"><a href="wedding-planning-tools.html">Manager Tools</a></li>
+                        <li class="has-mega-menu"><a href="wedding-suppliers.html">Wedding Suppliers </a></li>
+                        <li class="has-mega-menu"><a href="wedding-ideas-inspiration.html">Ideas & Inspiration </a></li>
+                    </ul>
+                    <div class="nav-footer">
+                        <ul class="nav-social">
+                            <li><a href="#" class="fa fa-facebook"></a></li>
+                            <li><a href="#" class="fa fa-google"></a></li>
+                            <li><a href="#" class="fa fa-twitter"></a></li>
+                        </ul>
+                        <p>© 2020 Wedding Manager Ltd</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <!-- main header END -->
+</header>
+<!-- header END -->
+<!-- Modal -->
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="modal fade my-account-bx" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <h2 class="title">Registre su cuenta</h2>
+                <!-- Asegúrate de reemplazar 'ruta_a_tu_servidor' con la URL correcta que procesará los datos del formulario -->
+                <form action="/ruta_a_tu_servidor" method="post">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.DropDownList("idEmpresaOrganizador", null, htmlAttributes: new { @class = "form-control", placeholder = "Empresa", required = "required", data_val = "true", data_val_required = "No se ha completado el campo Empresa" })
+                            @Html.ValidationMessageFor(model => model.idEmpresaOrganizador, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.nombreOrganizador, new { htmlAttributes = new { @class = "form-control", placeholder = "Organizador", required = "required", data_val = "true", data_val_required = "No se ha completado el campo Organizador" } })
+                            @Html.ValidationMessageFor(model => model.nombreOrganizador, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email", required = "required", data_val = "true", data_val_required = "No se ha completado el campo Email" } })
+                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.tel, new { htmlAttributes = new { @class = "form-control", placeholder = "Tel", required = "required", data_val = "true", data_val_required = "No se ha completado el campo Tel" } })
+                            @Html.ValidationMessageFor(model => model.tel, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <div class="checkbox">
+                                @Html.EditorFor(model => model.activo, new { htmlAttributes = new { name = "activo", data_val = "true", data_val_required = "No se ha marcado el campo Activo" } })
+                                @Html.ValidationMessageFor(model => model.activo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 }
 
+
+
+
+
+
+
+<div class="modal fade my-account-bx" id="login" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <h2 class="title">Login Your Account</h2>
+            <form action="my-account.html">
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password">
+                    <div class="reset-password">
+                        <a class="btn-link collapsed" data-toggle="collapse" href="#reset-password" role="button" aria-expanded="false" aria-controls="reset-password">Reset password?</a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-block gradient">Login</button>
+                </div>
+                <div class="form-group">
+                    <a href="my-account.html" class="btn facebook btn-block"><i class="fa fa-facebook m-r10"></i> Log in with Facebook</a>
+                </div>
+                <div class="form-group">
+                    <a href="my-account.html" class="btn google-plus btn-block"><i class="fa fa-google m-r10"></i>Log in with Google</a>
+                </div>
+                <div class="sign-text">
+                    <span class="">Don't have a Wedding Manager account? <a href="#">Sign up</a></span>
+                </div>
+            </form>
+        </div>
+        <div class="modal-content collapse reset-password" id="reset-password">
+            <h2 class="title">Reset password?</h2>
+            <form>
+                <div class="form-group password-icon-bx">
+                    <i class="fa fa-lock"></i>
+                    <p>Enter your email address associated with your account, and we'll email you a link to reset your password...</p>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Enter email address">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-block gradient">Send reset link</button>
+                </div>
+                <div class="sign-text">
+                    <span class=""><a data-toggle="collapse" href="#reset-password" role="button" aria-expanded="false" aria-controls="reset-password">Back</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal End -->
+<!-- Content -->
+<div class="page-content bg-white">
+    <!-- Section Banner -->
+    <div class="dlab-bnr-inr text-center home-banner dlab-bnr-inr-sm overlay-black-dark" id="app-banner" style="background-image:url(images/banner/bnr1.jpg); background-size: cover;">
+        <div class="container">
+            <div class="dlab-bnr-inr-entry align-m">
+                <div class="bnr-content">
+                    <div class="icon-bx">
+                        <img src="images/icon/icon3/icon1.png" alt="">
+                    </div>
+                    <h2 class="title">Your Free Wedding Manager App</h2>
+                    <a href="#" class="btn btn-md gradient radius-xl" data-toggle="modal" data-target="#login"><img src="images/icon/icon3/icon2.png" class="m-r5" alt=""> Plan Your Wedding</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Section Banner END -->
+    <!-- Manager Tools -->
+    <div class="section-full bg-gray content-inner" style="background-image: url(images/background/bg1.png); background-size: cover; background-position: right bottom;">
+        <div class="container">
+            <div class="section-head text-center">
+                <h2 class="box-title text-italic">Wedding Manager Tools</h2>
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6  wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+                    <div class="planning-tools style1 text-center m-b30">
+                        <div class="icon-bx">
+                            <img alt="" src="images/icon/icon2/icon3.png">
+                        </div>
+                        <div class="content-bx">
+                            <h5 class="title text-black">Lista de Inivtados</h5>
+                            <p>Puedes mantener un registro claro de quién está invitado, quién ha confirmado su asistencia y cualquier información relevante, como restricciones dietéticas o preferencias de asientos.</p>
+                            <a href="planner-guest-list.html" class="btn gradient radius-xl">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.4s">
+                    <div class="planning-tools style1 text-center m-b30">
+                        <div class="icon-bx">
+                            <img alt="" src="images/icon/icon2/icon4.png">
+                        </div>
+                        <div class="content-bx">
+                            <h5 class="title text-black">Lista de verifiación</h5>
+                            <p>Aquí encontrarás todos los elementos importantes que necesitas considerar para tu evento. Desde la planificación inicial hasta los detalles finales, esta lista te ayudará a mantener todo en orden y asegurarte de que no se te escape nada.</p>
+                            <a href="planner-checklist-select-date.html" class="btn gradient radius-xl">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">
+                    <div class="planning-tools style1 text-center m-b30">
+                        <div class="icon-bx">
+                            <img alt="" src="images/icon/icon2/icon5.png">
+                        </div>
+                        <div class="content-bx">
+                            <h5 class="title text-black">Presupuesto</h5>
+                            <p>Aquí encontrarás una detallada desglose de gastos,mantenerse dentro del presupuesto es clave para el éxito de cualquier evento, y esta herramienta te ayudará a hacerlo de manera organizada.</p>
+                            <a href="planner-budget-select.html" class="btn gradient radius-xl">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.8s">
+                    <div class="planning-tools style1 text-center m-b30">
+                        <div class="icon-bx">
+                            <img alt="" src="images/icon/icon2/icon6.png">
+                        </div>
+                        <div class="content-bx">
+                            <h5 class="title text-black">Lista Corta</h5>
+                            <p>La lista corta es tu herramienta rápida y eficiente para tener a mano los aspectos más cruciales de tu evento. Con solo los puntos principales destacados, esta lista te permitirá mantener el enfoque en lo más importante.</p>
+                            <a href="planner-shortlist.html" class="btn gradient radius-xl">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Manager Tools End -->
+    <!-- Venue Search Box -->
+    <div class="section-full bg-gray content-inner overlay-black-dark wow fadeIn" id="app-search" data-wow-duration="2s" data-wow-delay="0.3s" style="background-image: url(images/background/bg4.jpg); background-size: cover; background-position: right bottom;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-head venue-search-title text-center">
+                        <h2 class="box-title text-italic">Busque los proveedores de bodas favoritos por categoría, ubicación o nombre</h2>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <!-- Search Filter -->
+                    <div class="search-filter style1">
+                        <div class="container">
+                            <form class="filter-form" action="wedding-venues-search.html">
+                                <div class="row sp10">
+                                    <div class="col-lg-4 col-md-6 col-sm-6">
+                                        <input type="text" class="form-control" placeholder="We’re looking for">
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-6">
+                                        <input type="text" class="form-control" placeholder="Near">
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-sm-6">
+                                        <input type="text" class="form-control" placeholder="Or Called">
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-6 d-flex">
+                                        <button class="btn btn-block radius-xl text-uppercase"> Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Search Filter END -->
+                </div>
+            </div>
+            <div class="section-head venue-search-list-title text-center">
+                <div class="separate gradient"></div>
+                <h2 class="box-title text-gradient">Popular venue searches</h2>
+            </div>
+            <div class="row venue-search-list">
+                <div class="col-lg-3 col-md-3 col-6">
+                    <ul>
+                        <li><a href="wedding-venues-search.html">Essex</a></li>
+                        <li><a href="wedding-venues-search.html">Kent</a></li>
+                        <li><a href="wedding-venues-search.html">Surrey</a></li>
+                        <li><a href="wedding-venues-search.html">Hampshire</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3 col-6">
+                    <ul>
+                        <li><a href="wedding-venues-search.html">Hertfordshire</a></li>
+                        <li><a href="wedding-venues-search.html">Yorkshire</a></li>
+                        <li><a href="wedding-venues-search.html">Buckinghamshire</a></li>
+                        <li><a href="wedding-venues-search.html">Lancashire</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3 col-6">
+                    <ul>
+                        <li><a href="wedding-venues-search.html">West Midlands</a></li>
+                        <li><a href="wedding-venues-search.html">Leicestershire</a></li>
+                        <li><a href="wedding-venues-search.html">Northamtonshire</a></li>
+                        <li><a href="wedding-venues-search.html">Oxfordshire</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3 col-6">
+                    <ul>
+                        <li><a href="wedding-venues-search.html">London</a></li>
+                        <li><a href="wedding-venues-search.html">Scotland</a></li>
+                        <li><a href="wedding-venues-search.html">Northern Ireland</a></li>
+                        <li><a href="wedding-venues-search.html">Wales</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Venue Search End -->
+    <!-- Testimonials Box -->
+    <div class="section-full bg-gray content-inner-2 wow fadeIn" data-wow-duration="2s" data-wow-delay="0.3s" style="background-image: url(images/background/bg5.jpg); background-size: cover; background-position: right bottom;">
+        <div class="container-fluid testimonials-section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-head text-center">
+                        <h2 class="box-title text-black text-italic"> The easiest way to plan <br />your wedding</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-carousel owl-carousel owl-theme">
+                <div class="testimonials-box">
+                    <p>When I first started my wedding manager, I had no idea where to begin! But by using Wedding Manager I have been able to search for all of my suppliers, as well as organise my guestlist, checklist and budget. I now feel so much more relaxed about the wedding!</p>
+                    <h5 class="testimonials-name">- Alexia L. & Sam</h5>
+                    <div class="quote">
+                        <img src="images/quote.png" alt="">
+                    </div>
+                </div>
+                <div class="testimonials-box">
+                    <p>When I first started my wedding manager, I had no idea where to begin! But by using Wedding Manager I have been able to search for all of my suppliers, as well as organise my guestlist, checklist and budget. I now feel so much more relaxed about the wedding!</p>
+                    <h5 class="testimonials-name">- Alexia L. & Sam</h5>
+                    <div class="quote">
+                        <img src="images/quote.png" alt="">
+                    </div>
+                </div>
+                <div class="testimonials-box">
+                    <p>When I first started my wedding manager, I had no idea where to begin! But by using Wedding Manager I have been able to search for all of my suppliers, as well as organise my guestlist, checklist and budget. I now feel so much more relaxed about the wedding!</p>
+                    <h5 class="testimonials-name">- Alexia L. & Sam</h5>
+                    <div class="quote">
+                        <img src="images/quote.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonials End -->
+    <!-- Insightful Inspiration -->
+    <div class="section-full bg-gray content-inner-2" style="background-image: url(images/background/bg3.jpg); background-size: cover; background-position: right bottom;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 d-flex wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0.4s">
+                    <div class="inspiration-box align-self-center">
+                        <h2 class="title text-black">Insightful inspiration</h2>
+                        <p>Whether you're a fan of dreamy white weddings or care-free bohemian celebrations, you'll find tips, tricks, and inspiration to guide you through every stage of your wedding manager. Who better to guide you than some of our illustrious experts like Mary Berry and Bobbi Brown?</p>
+                        <a href="wedding-ideas-inspiration.html" class="btn gradient btn-md radius-xl">Discover endless inspiration</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 d-flex wow fadeInRight" data-wow-duration="2s" data-wow-delay="0.8s">
+                    <div class="align-self-center">
+                        <img alt="" src="images/pic4.png" class="out-img img-wave">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Insightful Inspiration End -->
+    <!-- Apps Store -->
+    <div class="section-full content-inner-1 apps-box overlay-black-dark" id="app-mobile" style="background-image: url(images/background/bg2.jpg); background-size: cover;">
+        <div class="container">
+            <div class="row col-md-revers">
+                <div class="col-lg-6 wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0.3s">
+                    <img src="images/pic3.png" alt="">
+                </div>
+                <div class="col-lg-6 d-flex wow fadeInRight" data-wow-duration="2s" data-wow-delay="0.6s">
+                    <div class="align-self-center p-a30 app-info text-white">
+                        <h2 class="title">Plan anywhere, anytime</h2>
+                        <p>Wedding Manager app is designed with busy modern couples like you in mind. You can now both simultaneously plan your wedding on the go, wherever that might be! Never lose track of your planning again with Wedding Manager.</p>
+                        <a href="#" class="m-r10 m-b10"><img src="images/app1.png" alt=""></a>
+                        <a href="#"><img src="images/app2.png" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Apps Store End -->
+    <!-- Expert Advice -->
+    <div class="section-full bg-white content-inner expert-advice" style="background-image:url(images/background/bg6.jpg); background-size: cover; background-position: left bottom;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0.3s">
+                    <div class="section-head">
+                        <h2 class="box-title text-gradient">Wedding Ideas and Expert Advice</h2>
+                        <p>Get inspired with creative ideas, expert advice and amazing real weddings</p>
+                        <div class="separate gradient"></div>
+                    </div>
+                    <ul class="expert-advice-list">
+                        <li>Consejos de expertos de un equipo confiable de profesionales</li>
+                        <li>Real Weddings to help you get some ideas (and related supplier links) for your own wedding</li>
+                        <li>‘How To’ Tips as your wedding guide so you feel confident in picking suppliers and choosing wedding details</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-md-12 wow fadeInRight" data-wow-duration="2s" data-wow-delay="0.6s">
+                    <img src="images/pic2.png" class="img-wave" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Expert Advice End -->
+    <!-- Call To Action -->
+    <div class="section-full content-inner-2 overlay-black-dark bg-img-fix" id="app-today" style="background-image: url(images/background/bg1.jpg); background-size: cover;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <a href="javascript:void(0)" class="btn btn-md gradient radius-xl">Start today, it's free</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Call To Action End -->
+    <!-- Weddings Services Box End -->
+    <div class="section-full bg-gray content-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+                    <div class="wedding-services">
+                        <div class="icon-bx">
+                            <img src="images/icon/icon2/icon1.png" alt="">
+                        </div>
+                        <div class="content-bx">
+                            <a class="title" href="wedding-venues-search.html">Search</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.4s">
+                    <div class="wedding-services">
+                        <div class="icon-bx">
+                            <img src="images/icon/icon2/icon2.png" alt="">
+                        </div>
+                        <div class="content-bx">
+                            <a class="title" href="wedding-planning-tools.html">Manager Tools</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">
+                    <div class="wedding-services">
+                        <div class="icon-bx">
+                            <img src="images/icon/icon2/icon3.png" alt="">
+                        </div>
+                        <div class="content-bx">
+                            <a class="title" href="planner-guest-list.html">Guestlist</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.8s">
+                    <div class="wedding-services">
+                        <div class="icon-bx">
+                            <img src="images/icon/icon2/icon4.png" alt="">
+                        </div>
+                        <div class="content-bx">
+                            <a class="title" href="planner-checklist-select-date.html">Checklist</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+                    <div class="wedding-services">
+                        <div class="icon-bx">
+                            <img src="images/icon/icon2/icon5.png" alt="">
+                        </div>
+                        <div class="content-bx">
+                            <a class="title" href="planner-budget-select.html">Budget</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.4s">
+                    <div class="wedding-services">
+                        <div class="icon-bx">
+                            <img src="images/icon/icon2/icon6.png" alt="">
+                        </div>
+                        <div class="content-bx">
+                            <a class="title" href="planner-shortlist.html">Shortlist</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">
+                    <div class="wedding-services">
+                        <div class="icon-bx">
+                            <img src="images/icon/icon2/icon7.png" alt="">
+                        </div>
+                        <div class="content-bx">
+                            <a class="title" href="planner-advice.html">Advice</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.8s">
+                    <div class="wedding-services">
+                        <div class="icon-bx">
+                            <img src="images/icon/icon2/icon8.png" alt="">
+                        </div>
+                        <div class="content-bx">
+                            <a class="title" href="wedding-gift-lists.html">Gift Lists</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Manager Tools End -->
+</div>
+
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <!-- JAVASCRIPT FILES ========================================= -->
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="~/Content/js/jquery-ui.js"></script>
+    <script src="~/Content/plugins/wow/wow.js"></script>
+    <script src="~/Content/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="~/Content/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="~/Content/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+    <script src="~/Content/plugins/magnific-popup/magnific-popup.js"></script>
+    <script src="~/Content/plugins/counter/waypoints-min.js"></script>
+    <script src="~/Content/plugins/counter/counterup.min.js"></script>
+    <script src="~/Content/plugins/imagesloaded/imagesloaded.js"></script>
+    <script src="~/Content/plugins/masonry/masonry-3.1.4.js"></script>
+    <script src="~/Content/plugins/masonry/masonry.filter.js"></script>
+    <script src="~/Content/plugins/rangeslider/rangeslider.js"></script>
+    <script src="~/Content/plugins/owl-carousel/owl.carousel.js"></script>
+    <script src="~/Content/plugins/particles/particles.js"></script>
+    <script src="~/Content/plugins/particles/particles-app.js"></script>
+    <script src="~/Content/js/dz.carousel.js"></script>
+    <script src="~/Content/js/custom.js"></script>
+    <script src="~/Content/js/dz.ajax.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+    <script src="~/Content/plugins/wizard/js/jquery.smartWizard.min.js"></script>
+    <script src="~/Content/plugins/scroll/scrollbar.min.js"></script><!-- SCROLLBAR JS -->
 </div>

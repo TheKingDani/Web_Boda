@@ -34,6 +34,17 @@
     <Property Name="idEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombreEstado" Type="varchar" MaxLength="255" />
   </EntityType>
+  <EntityType Name="tblItinerarios">
+    <Key>
+      <PropertyRef Name="idItinerario" />
+    </Key>
+    <Property Name="idItinerario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idNovios" Type="int" />
+    <Property Name="horaInicio" Type="date" />
+    <Property Name="horaFin" Type="date" />
+    <Property Name="actividad" Type="varchar" MaxLength="255" />
+    <Property Name="responsables" Type="varchar" MaxLength="255" />
+  </EntityType>
   <EntityType Name="tblMensajesProveedores">
     <Key>
       <PropertyRef Name="idMensajeProveedor" />
@@ -69,6 +80,7 @@
     <Property Name="email" Type="varchar" MaxLength="255" />
     <Property Name="tel" Type="varchar" MaxLength="50" />
     <Property Name="activo" Type="bit" />
+    <Property Name="idUsuario" Type="int" />
   </EntityType>
   <EntityType Name="tblPreguntasProveedores">
     <Key>
@@ -76,6 +88,30 @@
     </Key>
     <Property Name="idPreguntaProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Pregunta" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblPresupuestos">
+    <Key>
+      <PropertyRef Name="idPresupuesto" />
+    </Key>
+    <Property Name="idPresupuesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idNovios" Type="int" />
+    <Property Name="idServicioCategoProv" Type="int" />
+    <Property Name="costo" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="fechaPago" Type="date" />
+    <Property Name="idStatusPago" Type="int" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="observaciones" Type="varchar" MaxLength="255" />
+    <Property Name="idProductoProveedor" Type="int" />
+  </EntityType>
+  <EntityType Name="tblProductosProveedores">
+    <Key>
+      <PropertyRef Name="idProductoProveedor" />
+    </Key>
+    <Property Name="idProductoProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idServicioProveedor" Type="int" />
+    <Property Name="nombreProducto" Type="varchar" MaxLength="255" />
+    <Property Name="precioProducto" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="descripcion" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="tblProveedores">
     <Key>
@@ -89,10 +125,12 @@
     <Property Name="email" Type="varchar" MaxLength="255" />
     <Property Name="codigoPostal" Type="varchar" MaxLength="50" />
     <Property Name="direccion" Type="varchar" MaxLength="255" />
-    <Property Name="ciudad" Type="varchar" MaxLength="100" />
     <Property Name="pais" Type="varchar" MaxLength="100" />
     <Property Name="idEstado" Type="int" />
-    <Property Name="precioInicial" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="idMunicipio" Type="int" />
+    <Property Name="precioInicial" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="usuarioID" Type="int" />
+    <Property Name="password" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="tblProveedoresDieteticas">
     <Key>
@@ -167,6 +205,30 @@
     <Property Name="idServicioProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idProveedor" Type="int" />
     <Property Name="idServiciosCategoProv" Type="int" />
+  </EntityType>
+  <EntityType Name="tblStatusPagos">
+    <Key>
+      <PropertyRef Name="idStatusPago" />
+    </Key>
+    <Property Name="idStatusPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomStatus" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="tblTipoUsuarios">
+    <Key>
+      <PropertyRef Name="tipoUsuarioID" />
+    </Key>
+    <Property Name="tipoUsuarioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreTipoUsuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUsuarios">
+    <Key>
+      <PropertyRef Name="usuarioID" />
+    </Key>
+    <Property Name="usuarioID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="tipoUsuarioID" Type="int" />
+    <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
   </EntityType>
   <EntityType Name="tblAcompanantes">
     <Key>
@@ -311,15 +373,6 @@
     <Property Name="mensajeRegalo" Type="text" />
     <Property Name="idIdioma" Type="int" />
   </EntityType>
-  <EntityType Name="tblItinerario">
-    <Key>
-      <PropertyRef Name="idItinerario" />
-    </Key>
-    <Property Name="idItinerario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idNovio" Type="int" Nullable="false" />
-    <Property Name="diaHora" Type="datetime" />
-    <Property Name="actividad" Type="varchar" MaxLength="255" />
-  </EntityType>
   <EntityType Name="tblMensajesWA">
     <Key>
       <PropertyRef Name="idMensajeWA" />
@@ -398,6 +451,7 @@
     <Property Name="fiestaLatitud" Type="varchar" MaxLength="255" />
     <Property Name="fiestaLongitud" Type="varchar" MaxLength="255" />
     <Property Name="dominioExterno" Type="bit" />
+    <Property Name="idUsuario" Type="int" />
   </EntityType>
   <EntityType Name="tblPlantillaBoletos">
     <Key>
@@ -490,6 +544,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__tblItiner__idNov__6D6238AF">
+    <End Role="tblNovios" Type="Self.tblNovios" Multiplicity="0..1" />
+    <End Role="tblItinerarios" Type="Self.tblItinerarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNovios">
+        <PropertyRef Name="idNovios" />
+      </Principal>
+      <Dependent Role="tblItinerarios">
+        <PropertyRef Name="idNovios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__tblMensaj__idPro__4C0144E4">
     <End Role="tblProveedores" Type="Self.tblProveedores" Multiplicity="0..1" />
     <End Role="tblMensajesProveedores" Type="Self.tblMensajesProveedores" Multiplicity="*" />
@@ -526,6 +592,78 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__tblPresup__idNov__147C05D0">
+    <End Role="tblNovios" Type="Self.tblNovios" Multiplicity="0..1" />
+    <End Role="tblPresupuestos" Type="Self.tblPresupuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNovios">
+        <PropertyRef Name="idNovios" />
+      </Principal>
+      <Dependent Role="tblPresupuestos">
+        <PropertyRef Name="idNovios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblPresup__idPro__1FEDB87C">
+    <End Role="tblProductosProveedores" Type="Self.tblProductosProveedores" Multiplicity="0..1" />
+    <End Role="tblPresupuestos" Type="Self.tblPresupuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProductosProveedores">
+        <PropertyRef Name="idProductoProveedor" />
+      </Principal>
+      <Dependent Role="tblPresupuestos">
+        <PropertyRef Name="idProductoProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblPresup__idSer__15702A09">
+    <End Role="tblServiciosProveedores" Type="Self.tblServiciosProveedores" Multiplicity="0..1" />
+    <End Role="tblPresupuestos" Type="Self.tblPresupuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblServiciosProveedores">
+        <PropertyRef Name="idServicioProveedor" />
+      </Principal>
+      <Dependent Role="tblPresupuestos">
+        <PropertyRef Name="idServicioCategoProv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblPresup__idSer__22CA2527">
+    <End Role="tblServiciosCategoriasProvedores" Type="Self.tblServiciosCategoriasProvedores" Multiplicity="0..1" />
+    <End Role="tblPresupuestos" Type="Self.tblPresupuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblServiciosCategoriasProvedores">
+        <PropertyRef Name="idServicioCategoProv" />
+      </Principal>
+      <Dependent Role="tblPresupuestos">
+        <PropertyRef Name="idServicioCategoProv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblPresup__idSta__16644E42">
+    <End Role="tblStatusPagos" Type="Self.tblStatusPagos" Multiplicity="0..1" />
+    <End Role="tblPresupuestos" Type="Self.tblPresupuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStatusPagos">
+        <PropertyRef Name="idStatusPago" />
+      </Principal>
+      <Dependent Role="tblPresupuestos">
+        <PropertyRef Name="idStatusPago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProduc__idSer__1EF99443">
+    <End Role="tblServiciosProveedores" Type="Self.tblServiciosProveedores" Multiplicity="0..1" />
+    <End Role="tblProductosProveedores" Type="Self.tblProductosProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblServiciosProveedores">
+        <PropertyRef Name="idServicioProveedor" />
+      </Principal>
+      <Dependent Role="tblProductosProveedores">
+        <PropertyRef Name="idServicioProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__tblProvee__idCat__2022C2A6">
     <End Role="tblCategoriasProveedores" Type="Self.tblCategoriasProveedores" Multiplicity="0..1" />
     <End Role="tblProveedores" Type="Self.tblProveedores" Multiplicity="*" />
@@ -559,6 +697,18 @@
       </Principal>
       <Dependent Role="tblProveedores">
         <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProvee__idMun__23BE4960">
+    <End Role="tblMunicipios" Type="Self.tblMunicipios" Multiplicity="0..1" />
+    <End Role="tblProveedores" Type="Self.tblProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMunicipios">
+        <PropertyRef Name="idMunicipio" />
+      </Principal>
+      <Dependent Role="tblProveedores">
+        <PropertyRef Name="idMunicipio" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -730,6 +880,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__tblUsuari__tipoU__297722B6">
+    <End Role="tblTipoUsuarios" Type="Self.tblTipoUsuarios" Multiplicity="0..1" />
+    <End Role="tblUsuarios" Type="Self.tblUsuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblTipoUsuarios">
+        <PropertyRef Name="tipoUsuarioID" />
+      </Principal>
+      <Dependent Role="tblUsuarios">
+        <PropertyRef Name="tipoUsuarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tblBebidasInvitado_TotblBebidasNovios">
     <End Role="tblBebidasNovios" Type="Self.tblBebidasNovios" Multiplicity="0..1" />
     <End Role="tblBebidasInvitado" Type="Self.tblBebidasInvitado" Multiplicity="*" />
@@ -874,6 +1036,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_tblProveedores_tblUsuarios">
+    <End Role="tblUsuarios" Type="Self.tblUsuarios" Multiplicity="0..1" />
+    <End Role="tblProveedores" Type="Self.tblProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUsuarios">
+        <PropertyRef Name="usuarioID" />
+      </Principal>
+      <Dependent Role="tblProveedores">
+        <PropertyRef Name="usuarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tblTipoInvitado_TotblNovios">
     <End Role="tblNovios" Type="Self.tblNovios" Multiplicity="0..1" />
     <End Role="tblTipoInvitado" Type="Self.tblTipoInvitado" Multiplicity="*" />
@@ -891,11 +1065,14 @@
     <EntitySet Name="tblDieteticas" EntityType="Self.tblDieteticas" Schema="dbInvitacion_u" store:Type="Tables" />
     <EntitySet Name="tblEmpresasOrganizadores" EntityType="Self.tblEmpresasOrganizadores" Schema="dbInvitacion_u" store:Type="Tables" />
     <EntitySet Name="tblEstados" EntityType="Self.tblEstados" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblItinerarios" EntityType="Self.tblItinerarios" Schema="dbInvitacion_u" store:Type="Tables" />
     <EntitySet Name="tblMensajesProveedores" EntityType="Self.tblMensajesProveedores" Schema="dbInvitacion_u" store:Type="Tables" />
     <EntitySet Name="tblMunicipios" EntityType="Self.tblMunicipios" Schema="dbInvitacion_u" store:Type="Tables" />
     <EntitySet Name="tblOfertasProveedores" EntityType="Self.tblOfertasProveedores" Schema="dbInvitacion_u" store:Type="Tables" />
     <EntitySet Name="tblOrganizadoresBodas" EntityType="Self.tblOrganizadoresBodas" Schema="dbInvitacion_u" store:Type="Tables" />
     <EntitySet Name="tblPreguntasProveedores" EntityType="Self.tblPreguntasProveedores" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblPresupuestos" EntityType="Self.tblPresupuestos" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblProductosProveedores" EntityType="Self.tblProductosProveedores" Schema="dbInvitacion_u" store:Type="Tables" />
     <EntitySet Name="tblProveedores" EntityType="Self.tblProveedores" Schema="dbInvitacion_u" store:Type="Tables" />
     <EntitySet Name="tblProveedoresDieteticas" EntityType="Self.tblProveedoresDieteticas" Schema="dbInvitacion_u" store:Type="Tables" />
     <EntitySet Name="tblProveedoresMunicipios" EntityType="Self.tblProveedoresMunicipios" Schema="dbInvitacion_u" store:Type="Tables" />
@@ -906,6 +1083,9 @@
     <EntitySet Name="tblSeleccionarOrganizadoresBodas" EntityType="Self.tblSeleccionarOrganizadoresBodas" Schema="dbInvitacion_u" store:Type="Tables" />
     <EntitySet Name="tblServiciosCategoriasProvedores" EntityType="Self.tblServiciosCategoriasProvedores" Schema="dbInvitacion_u" store:Type="Tables" />
     <EntitySet Name="tblServiciosProveedores" EntityType="Self.tblServiciosProveedores" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblStatusPagos" EntityType="Self.tblStatusPagos" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblTipoUsuarios" EntityType="Self.tblTipoUsuarios" Schema="dbInvitacion_u" store:Type="Tables" />
+    <EntitySet Name="tblUsuarios" EntityType="Self.tblUsuarios" Schema="dbInvitacion_u" store:Type="Tables" />
     <EntitySet Name="tblAcompanantes" EntityType="Self.tblAcompanantes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblBebidas" EntityType="Self.tblBebidas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblBebidasInvitado" EntityType="Self.tblBebidasInvitado" Schema="dbo" store:Type="Tables" />
@@ -918,7 +1098,6 @@
     <EntitySet Name="tblIdioma" EntityType="Self.tblIdioma" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblIntentosIngreso" EntityType="Self.tblIntentosIngreso" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblInvitados" EntityType="Self.tblInvitados" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tblItinerario" EntityType="Self.tblItinerario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblMensajesWA" EntityType="Self.tblMensajesWA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblMesasNovios" EntityType="Self.tblMesasNovios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblMesasRegalos" EntityType="Self.tblMesasRegalos" Schema="dbo" store:Type="Tables" />
@@ -943,6 +1122,10 @@
       <End Role="tblTipoInvitado" EntitySet="tblTipoInvitado" />
       <End Role="tblInvitados" EntitySet="tblInvitados" />
     </AssociationSet>
+    <AssociationSet Name="FK__tblItiner__idNov__6D6238AF" Association="Self.FK__tblItiner__idNov__6D6238AF">
+      <End Role="tblNovios" EntitySet="tblNovios" />
+      <End Role="tblItinerarios" EntitySet="tblItinerarios" />
+    </AssociationSet>
     <AssociationSet Name="FK__tblMensaj__idPro__4C0144E4" Association="Self.FK__tblMensaj__idPro__4C0144E4">
       <End Role="tblProveedores" EntitySet="tblProveedores" />
       <End Role="tblMensajesProveedores" EntitySet="tblMensajesProveedores" />
@@ -955,6 +1138,30 @@
       <End Role="tblEmpresasOrganizadores" EntitySet="tblEmpresasOrganizadores" />
       <End Role="tblOrganizadoresBodas" EntitySet="tblOrganizadoresBodas" />
     </AssociationSet>
+    <AssociationSet Name="FK__tblPresup__idNov__147C05D0" Association="Self.FK__tblPresup__idNov__147C05D0">
+      <End Role="tblNovios" EntitySet="tblNovios" />
+      <End Role="tblPresupuestos" EntitySet="tblPresupuestos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblPresup__idPro__1FEDB87C" Association="Self.FK__tblPresup__idPro__1FEDB87C">
+      <End Role="tblProductosProveedores" EntitySet="tblProductosProveedores" />
+      <End Role="tblPresupuestos" EntitySet="tblPresupuestos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblPresup__idSer__15702A09" Association="Self.FK__tblPresup__idSer__15702A09">
+      <End Role="tblServiciosProveedores" EntitySet="tblServiciosProveedores" />
+      <End Role="tblPresupuestos" EntitySet="tblPresupuestos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblPresup__idSer__22CA2527" Association="Self.FK__tblPresup__idSer__22CA2527">
+      <End Role="tblServiciosCategoriasProvedores" EntitySet="tblServiciosCategoriasProvedores" />
+      <End Role="tblPresupuestos" EntitySet="tblPresupuestos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblPresup__idSta__16644E42" Association="Self.FK__tblPresup__idSta__16644E42">
+      <End Role="tblStatusPagos" EntitySet="tblStatusPagos" />
+      <End Role="tblPresupuestos" EntitySet="tblPresupuestos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProduc__idSer__1EF99443" Association="Self.FK__tblProduc__idSer__1EF99443">
+      <End Role="tblServiciosProveedores" EntitySet="tblServiciosProveedores" />
+      <End Role="tblProductosProveedores" EntitySet="tblProductosProveedores" />
+    </AssociationSet>
     <AssociationSet Name="FK__tblProvee__idCat__2022C2A6" Association="Self.FK__tblProvee__idCat__2022C2A6">
       <End Role="tblCategoriasProveedores" EntitySet="tblCategoriasProveedores" />
       <End Role="tblProveedores" EntitySet="tblProveedores" />
@@ -965,6 +1172,10 @@
     </AssociationSet>
     <AssociationSet Name="FK__tblProvee__idEst__2116E6DF" Association="Self.FK__tblProvee__idEst__2116E6DF">
       <End Role="tblEstados" EntitySet="tblEstados" />
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProvee__idMun__23BE4960" Association="Self.FK__tblProvee__idMun__23BE4960">
+      <End Role="tblMunicipios" EntitySet="tblMunicipios" />
       <End Role="tblProveedores" EntitySet="tblProveedores" />
     </AssociationSet>
     <AssociationSet Name="FK__tblProvee__idMun__2E70E1FD" Association="Self.FK__tblProvee__idMun__2E70E1FD">
@@ -1023,6 +1234,10 @@
       <End Role="tblServiciosCategoriasProvedores" EntitySet="tblServiciosCategoriasProvedores" />
       <End Role="tblServiciosProveedores" EntitySet="tblServiciosProveedores" />
     </AssociationSet>
+    <AssociationSet Name="FK__tblUsuari__tipoU__297722B6" Association="Self.FK__tblUsuari__tipoU__297722B6">
+      <End Role="tblTipoUsuarios" EntitySet="tblTipoUsuarios" />
+      <End Role="tblUsuarios" EntitySet="tblUsuarios" />
+    </AssociationSet>
     <AssociationSet Name="FK_tblBebidasInvitado_TotblBebidasNovios" Association="Self.FK_tblBebidasInvitado_TotblBebidasNovios">
       <End Role="tblBebidasNovios" EntitySet="tblBebidasNovios" />
       <End Role="tblBebidasInvitado" EntitySet="tblBebidasInvitado" />
@@ -1070,6 +1285,10 @@
     <AssociationSet Name="FK_tblPlantillasNovios_TotblNovios" Association="Self.FK_tblPlantillasNovios_TotblNovios">
       <End Role="tblNovios" EntitySet="tblNovios" />
       <End Role="tblPlantillasNovios" EntitySet="tblPlantillasNovios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblProveedores_tblUsuarios" Association="Self.FK_tblProveedores_tblUsuarios">
+      <End Role="tblUsuarios" EntitySet="tblUsuarios" />
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
     </AssociationSet>
     <AssociationSet Name="FK_tblTipoInvitado_TotblNovios" Association="Self.FK_tblTipoInvitado_TotblNovios">
       <End Role="tblNovios" EntitySet="tblNovios" />

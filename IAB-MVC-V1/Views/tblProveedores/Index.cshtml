@@ -1,93 +1,90 @@
-﻿@model IEnumerable<IAB_MVC_V1.Models.tblProveedores>
+﻿@model IAB_MVC_V1.Models.tblProveedores
 
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nomNegocio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sitioWeb)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.codigoPostal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.direccion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ciudad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.pais)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.precioInicial)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tblCategoriasProveedores.nombreCategoria)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tblEstados.nombreEstado)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nomNegocio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.sitioWeb)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.codigoPostal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.direccion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ciudad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pais)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.precioInicial)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tblCategoriasProveedores.nombreCategoria)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tblEstados.nombreEstado)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idProveedor }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idProveedor }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idProveedor })
-        </td>
-    </tr>
+@{
+    Layout = "~/Views/Shared/_Layout - Copia.cshtml";
 }
+<div class="content" style="margin-left: 0;">
 
-</table>
+    <form class="business-supplier bns-form">
+        <div class="form-box">
+            <h4 class="title">Detalles de contacto</h4>
+            <hr />
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label class="label-title">Nombre del Negocio</label>
+                        <input type="text" class="form-control" placeholder="Nombre" value="@Html.DisplayFor(model => model.nomNegocio)">
+                    </div>
+                    <div class="form-group">
+                        <label class="label-title">Categoria</label>
+                        <input type="text" class="form-control" placeholder="Nombre" value="@Html.DisplayFor(model => model.idCategoriaProveedor)">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 d-lg-block d-md-none d-sm-none col-sm-6"></div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label class="label-title">URL de su sitio Web</label>
+                        <input type="text" class="form-control" placeholder="URL" value="@Html.DisplayFor(model => model.sitioWeb)">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="form-group">
+                        <label class="label-title">Numero de Télefono</label>
+                        <input type="text" class="form-control" placeholder="Telefono" value="@Html.DisplayFor(model => model.tel)">
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <label class="label-title">Dirección:</label>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Telefono" value="@Html.DisplayFor(model => model.direccion)">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Ciudad" value="@Html.DisplayFor(model => model.idEstado)">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Ciudad" value="@Html.DisplayFor(model => model.idMunicipio)">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Pais" value="@Html.DisplayFor(model => model.pais)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="codigo postal" value="@Html.DisplayFor(model => model.codigoPostal)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <label class="label-title">Dirección de correo: </label>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Pais" value="@Html.DisplayFor(model => model.email)">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <button class="btn blue gradient"><i class="fa fa-envelope m-r5"></i>Trigger test enquiry</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

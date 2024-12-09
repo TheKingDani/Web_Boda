@@ -1,51 +1,57 @@
-﻿@model IEnumerable<IAB_MVC_V1.Models.tblItinerario>
+﻿@model IEnumerable<IAB_MVC_V1.Models.tblItinerarios>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Itinerario";
 }
 
 <h2>Itinerario</h2>
 
 <p>
-    @Html.ActionLink("Registrar", "Create")
+    @Html.ActionLink("Nuevo Itinerario", "Create")
 </p>
+<table class="table">
+    <tr>
+        <th>
+            Hora Inicio
+        </th>
+        <th>
+            Hora de Terminación
+        </th>
+        <th>
+            Actividad
+        </th>
+        <th>
+           Responsables
+        </th>
+        <th>
+           Novia
+        </th>
+        <th></th>
+    </tr>
 
-<div style="overflow-x:auto;">
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.horaInicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.horaFin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.actividad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.responsables)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblNovios.nombreNovia)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idItinerario }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.idItinerario }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idItinerario })
+        </td>
+    </tr>
+}
 
-    <table class="table">
-        <tr>
-            <th>
-                ID del novio
-            </th>
-            <th>
-                Fecha y Hora
-            </th>
-            <th>
-                Actividad
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idNovio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.diaHora)
-             
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.actividad)
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.idItinerario }) |
-                    @Html.ActionLink("Detalles", "Details", new { id = item.idItinerario }) |
-                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idItinerario })
-                </td>
-            </tr>
-        }
-
-    </table>
-</div>
+</table>

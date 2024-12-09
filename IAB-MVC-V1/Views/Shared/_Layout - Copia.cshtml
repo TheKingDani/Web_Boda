@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/plugins.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/Content/plugins/jquery-ui/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/templete.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.min.css">
+    <link class="skin" rel="stylesheet" type="text/css" href="~/Content/css/skin/skin-1.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/star-rating-svg.css">
+
+    <style>
+        /* Estilos para la barra lateral */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #f1f1f1;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+            .sidenav .bns-frame {
+                padding: 8px 8px 0 8px;
+            }
+
+            .sidenav a {
+                padding: 8px 8px 8px 16px;
+                text-decoration: none;
+                font-size: 18px;
+                color: #808080;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidenav a:hover {
+                    color: #000;
+                }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                left: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+        /* Estilos para el botón de cerrar */
+        .closebtn:hover {
+            color: red;
+            cursor: pointer;
+        }
+
+        /* Estilos para el contenido de la página */
+        .content {
+            transition: margin-left 0.5s;
+            padding: 16px;
+        }
+    </style>
+
+
+
+</head>
+
+<!-- Botón para abrir la barra lateral -->
+<button onclick="toggleNav()">||| Menú</button>
+
+
+<!-- Barra lateral -->
+<div id="mySidenav" class="sidenav">
+
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
+    <!-- Contenido de la barra lateral omitido por brevedad -->
+    <div class="page-wraper">
+        <div class="bns-frame">
+            <a href="//localhost:44369/tblProveedores/Index">Detalles de Contacto</a>
+            <a href="//localhost:44369/tblProveedoresMunicipios/Create">Regiones</a>
+            <a href="//localhost:44369/tblServiciosProveedores/Create">Servicios</a>
+            <a href="//localhost:44369/tblProveedoresDieteticas/Create">Dietas</a>
+            <a href="//localhost:44369/tblOfertasProveedores/Create">Ofertas</a>
+            <a href="//localhost:44369/tblRedesProveedores/Create">Redes Sociales</a>
+            <a href="//localhost:44369/tblMensajesProveedores/Create">Mensajes</a>
+            <a href="//localhost:44369/tblRespuestasProveedores/Create">Preguntas Frecuentes</a>
+            <a href="//localhost:44369/tblProductosProveedores/Create">Registrar Productos</a>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    // Función para abrir/cerrar la barra lateral
+    function toggleNav() {
+        var sidenav = document.getElementById("mySidenav");
+        var content = document.querySelector(".content");
+        if (sidenav.style.width === "250px") {
+            sidenav.style.width = "0";
+            content.style.marginLeft = "0";
+        } else {
+            sidenav.style.width = "250px"; // Puedes ajustar el ancho según tus necesidades
+            content.style.marginLeft = "250px"; // Ajusta el margen izquierdo del contenido
+        }
+    }
+</script>
+
+
+<div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Invitación a boda</p>
+    </footer>
+</div>
+@Scripts.Render("~/bundles/jquery")
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="~/Content/js/jquery.min.js"></script>
+<script src="~/Content/js/jquery-ui.js"></script>
+<script src="~/Content/plugins/wow/wow.js"></script>
+<script src="~/Content/plugins/bootstrap/js/popper.min.js"></script>
+<script src="~/Content/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/Content/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="~/Content/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+<script src="~/Content/plugins/magnific-popup/magnific-popup.js"></script>
+<script src="~/Content/plugins/counter/waypoints-min.js"></script>
+<script src="~/Content/plugins/counter/counterup.min.js"></script>
+<script src="~/Content/plugins/imagesloaded/imagesloaded.js"></script>
+<script src="~/Content/plugins/masonry/masonry-3.1.4.js"></script>
+<script src="~/Content/plugins/masonry/masonry.filter.js"></script>
+<script src="~/Content/plugins/rangeslider/rangeslider.js"></script>
+<script src="~/Content/plugins/owl-carousel/owl.carousel.js"></script>
+<script src="~/Content/plugins/particles/particles.js"></script>
+<script src="~/Content/plugins/particles/particles-app.js"></script>
+<script src="~/Content/js/dz.carousel.js"></script>
+<script src="~/Content/js/custom.js"></script>
+<script src="~/Content/js/dz.ajax.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+<script src="~/Content/plugins/wizard/js/jquery.smartWizard.min.js"></script>
+<script src="~/Content/plugins/scroll/scrollbar.min.js"></script><!-- SCROLLBAR JS -->
+<!-- Bundle de Bootstrap -->
+@Scripts.Render("~/bundles/bootstrap")
+<!-- Sección de scripts adicionales (si es necesario) -->
+@RenderSection("scripts", required: false)
+
+
+
+</body>
+</html>
+
+
