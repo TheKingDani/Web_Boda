@@ -17,8 +17,8 @@ namespace IAB_MVC_V1.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblCategoriasProveedores()
         {
-            this.tblProveedores = new HashSet<tblProveedores>();
             this.tblServiciosCategoriasProvedores = new HashSet<tblServiciosCategoriasProvedores>();
+            this.tblProveedores = new HashSet<tblProveedores>();
         }
     
         public int idCategoriaProveedor { get; set; }
@@ -26,8 +26,8 @@ namespace IAB_MVC_V1.Models
         public string descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblProveedores> tblProveedores { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblServiciosCategoriasProvedores> tblServiciosCategoriasProvedores { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblProveedores> tblProveedores { get; set; }
     }
 }

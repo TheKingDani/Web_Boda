@@ -4,36 +4,103 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+
+
+<h2>Categorías de Proveedores</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear nuevo", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nombreCategoria)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </th>
-        <th></th>
-    </tr>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombreCategoria)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.descripcion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idCategoriaProveedor }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idCategoriaProveedor }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idCategoriaProveedor })
-        </td>
-    </tr>
-}
+<script>
+    jQuery(document).ready(function () {
+            $('#miModal').on('show.bs.modal', function (e) {
+            var url = '@Url.Action("ModalServicios", "tblCategoriasProveedores")';
 
-</table>
+
+                $('#modalContent').load(url);
+            });
+        });
+</script>
+
+<!-- Planner advice End -->
+<!-- contact area -->
+<div class="section-full content-inner bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12">
+                <div class="planner-box m-b30">
+                    <div class="content-box">
+                        <div class="planner-category">
+                            <h3 class="category-title">Seleccione la categoria </h3>
+                            <!-- Tu código HTML existente para la navegación -->
+                        </div>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="planner-shortlist-bx tab-pane fade show active" id="Shortlisted" role="tabpanel" aria-labelledby="home-tab">
+                                <ul>
+                                    @foreach (var item in Model)
+                                    {
+                                        <li>
+                                            <a href="javascript:void(0);" class="rightopen shortlist shortlist-add">
+                                                <!-- Aquí puedes personalizar los iconos según tu necesidad -->
+                                                <i></i>
+                                                <div class="add-info">
+                                                    <h6 class="shortlist-name">@item.idCategoriaProveedor</h6>
+                                                    <p>@item.nombreCategoria</p>
+                                                </div>
+                                                <!-- Puedes cambiar este texto según tus necesidades -->
+                                                <span class="shortlist-click" data-target="#miModal">Seleeccionar <i data-target="#miModal"></i></span>
+                                            </a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#miModal">
+    Abrir Modal
+</button>
+
+
+
+<style>
+
+    .modal-dialog {
+        max-width: 90%;
+        margin: 1.75rem auto;
+    }
+
+    .modal-content {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+
+
+
+</style>
+
+<div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-body" id="modalContent">
+                <!-- Aquí se cargará la vista parcial -->
+            </div>
+        </div>
+    </div>
+</div>
+
+

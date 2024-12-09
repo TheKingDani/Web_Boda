@@ -1,115 +1,597 @@
-﻿@model IAB_MVC_V1.Models.tblProveedores
+﻿@model IAB_MVC_V1.ViewModels.ProveedorLoginViewModel
 
-@{
-    ViewBag.Title = "Create";
-}
 
-<h2>Create</h2>
+@{ ViewBag.Title = "Create"; }
+@{ Layout = null; }
 
-@using (Html.BeginForm()) 
-{
+<!-- Aquí va el contenido de tu vista -->
+
+<div>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/plugins.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/Content/plugins/jquery-ui/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/templete.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/responsive.min.css">
+    <link class="skin" rel="stylesheet" type="text/css" href="~/Content/css/skin/skin-1.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/star-rating-svg.css">
+</div>
+<div class="modal fade my-account-bx" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="modal-dialog bns-modal" role="document">
+        <div class="modal-content business-form">
+            @using (Html.BeginForm())
+            {
+@Html.AntiForgeryToken()
+                <form>
+                    <h3 class="bns-title">¡Únase a Invitación a Boda para incluir su empresa en la lista GRATIS!</h3>
+
+                    <div class="bns-register">
+                        <div class="bns-inner" data-name="01">
+                            <div class="form-group">
+
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.ProveedorModel.nomNegocio, new { htmlAttributes = new { @class = "form-control", placeholder = "Negocio", id = "nomNegocioModal" } })
+                                    @Html.ValidationMessageFor(model => model.ProveedorModel.nomNegocio, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-md-10">
+                                    @Html.DropDownList("idCategoriaProveedor", null, htmlAttributes: new { @class = "form-control", placeholder = "Categoria", id = "provModal" })
+                                    @Html.ValidationMessageFor(model => model.ProveedorModel.idCategoriaProveedor, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.ProveedorModel.sitioWeb, new { htmlAttributes = new { @class = "form-control", placeholder = "Sitio Web", id = "webModal" } })
+                                    @Html.ValidationMessageFor(model => model.ProveedorModel.sitioWeb, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.ProveedorModel.tel, new { htmlAttributes = new { @class = "form-control", placeholder = "Teléfono", id = "telModal" } })
+                                    @Html.ValidationMessageFor(model => model.ProveedorModel.tel, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.ProveedorModel.email, new { htmlAttributes = new { @class = "form-control", placeholder = "Correo Electronico", id = "emailModal" } })
+                                @Html.ValidationMessageFor(model => model.ProveedorModel.email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <a class="btn blue gradient" data-toggle="collapse" href="#proceed" role="button" aria-expanded="false" aria-controls="proceed">CONTINÚE CON EL PASO 2 DE 2</a>
+                            </div>
+                        </div>
+                        <div class="bns-inner collapse next-proceed" id="proceed" data-name="02">
+                            <div class="form-group">
+
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.ProveedorModel.codigoPostal, new { htmlAttributes = new { @class = "form-control", placeholder = "Código postal", id = "cpostalModal" } })
+                                    @Html.ValidationMessageFor(model => model.ProveedorModel.codigoPostal, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.ProveedorModel.direccion, new { htmlAttributes = new { @class = "form-control", placeholder = "Dirección", id = "direccionModal" } })
+                                    @Html.ValidationMessageFor(model => model.ProveedorModel.direccion, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.ProveedorModel.pais, new { htmlAttributes = new { @class = "form-control", placeholder = "País", id = "paisModal" } })
+                                    @Html.ValidationMessageFor(model => model.ProveedorModel.pais, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="col-md-10">
+                                    @Html.DropDownList("idEstado", null, htmlAttributes: new { @class = "form-control", placeholder = "Estado", id = "estadoModal" })
+                                    @Html.ValidationMessageFor(model => model.ProveedorModel.idEstado, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.ProveedorModel.idMunicipio, new { htmlAttributes = new { @class = "form-control", placeholder = "Ciudad", id = "ciudadModal" } })
+                                    @Html.ValidationMessageFor(model => model.ProveedorModel.idMunicipio, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+
+
+
+                            <div class="form-group">
+
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.ProveedorModel.precioInicial, new { htmlAttributes = new { @class = "form-control", placeholder = "Precio Inicial", id = "precioModal" } })
+                                    @Html.ValidationMessageFor(model => model.ProveedorModel.precioInicial, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <a class="btn gray" data-toggle="collapse" href="#proceed1" role="button" aria-expanded="false" aria-controls="proceed1">Atrás</a>
+                                    <input type="submit" value="Crear" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sign-text">¿Ya eres proveedor registrado?<a href="javascript:;" data-toggle="modal" data-target="#login">Acceso</a></div>
+                    </div>
+                </form>}
+        </div>
+    </div>
+</div>
+
+
+
+
+@*@using (Html.BeginForm("Login", "tblProveedores", FormMethod.Post))
+    {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>tblProveedores</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.nomNegocio, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.nomNegocio, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nomNegocio, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.idCategoriaProveedor, "idCategoriaProveedor", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("idCategoriaProveedor", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.idCategoriaProveedor, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                    <div class="modal fade my-account-bx" id="login" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content  business-form">
+                                <form action="business-supplier.html">
+                                    <h3 class="bns-title">Inicia sesión como Proveedor de Bodas</h3>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(model => model.LoginModel.Email, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.PasswordFor(model => model.LoginModel.Password, new { @class = "form-control" })
+                                        <div class="reset-password">
+                                            <a class="btn-link collapsed" data-toggle="collapse" href="#reset-password" role="button" aria-expanded="false" aria-controls="reset-password">¿Restablecer la contraseña?</a>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.sitioWeb, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.sitioWeb, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.sitioWeb, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                    <div class="sign-text">
+                                        <span class=""> ¿No tienes una cuenta? <a href="#">Registrarse</a></span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-content collapse reset-password  business-form" id="reset-password">
+                                <form>
+                                    <h3 class="bns-title">
+                                        Restablecimiento de contraseña
+                                    </h3>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Enter email address">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-block blue gradient">
+                                            Enviar enlace de reinicio
+                                        </button>
+                                    </div>
+                                    <div class="sign-text">
+                                        <span class=""><a data-toggle="collapse" href="#reset-password" role="button" aria-expanded="false" aria-controls="reset-password">Regresar</a></span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    }*@
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.tel, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.tel, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.tel, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.codigoPostal, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.codigoPostal, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.codigoPostal, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.direccion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.direccion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })
-            </div>
-        </div>
+@using (Html.BeginForm("Login", "tblProveedores", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+@Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ciudad, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ciudad, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ciudad, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LoginModel.Email, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.LoginModel.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.LoginModel.Email)
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.pais, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.pais, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.pais, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.LoginModel.Password, new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.PasswordFor(m => m.LoginModel.Password, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.LoginModel.Password)
+                                    </div>
+                                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.idEstado, "idEstado", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("idEstado", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.idEstado, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-offset-2 col-md-10">
+                                                        <input type="submit" value="Login" class="btn btn-default" />
+                                                    </div>
+                                                </div>}
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.precioInicial, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.precioInicial, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.precioInicial, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+<!-- header -->
+<header class="site-header header-transparent mo-left">
+    <!-- main header -->
+    <div class="sticky-header main-bar-wraper navbar-expand-lg">
+        <div class="main-bar clearfix ">
+            <div class="container-fluid clearfix">
+                <!-- website logo -->
+                <div class="logo-header mostion">
+                    <a class="header-logo1" href="index.html"><img src="images/logo-white-4.png" alt=""></a>
+                    <a class="header-logo2" href="index.html"><img src="images/logo-black-4.png" alt=""></a>
+                </div>
+                <div class="extra-nav">
+                    <div class="extra-cell home-sign">
+                        <a href="business-faq.html" class="btn gradient blue radius-sm"><span>¿Necesitas ayuda?</span><i class="la la-industry"></i></a>
+                        <a href="javascript:void(0);" class="btn purple gradient radius-sm m-l10" data-toggle="modal" data-target="#signup"><span>Registrarse</span> <i class="la la-user-plus"></i></a>
+                        <a href="javascript:void(0);" class="btn green gradient radius-sm m-l10" data-toggle="modal" data-target="#login"><span>Acceso</span> <i class="la la-sign-in"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-}
+    <!-- main header END -->
+</header>
+
+<div class="dlab-bnr-inr text-center bus-banner overlay-black-dark ov-blue" id="app-banner" style="background-image:url(images/main-slider/slide2.jpg); background-size: cover;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-12 align-self-center">
+                <div class="bus-bnr-title text-left">
+                    <h2 class="title">Negocio de gerente de bodas</h2>
+                    <p>Promocione su negocio y reserve más parejas de forma gratuita utilizando la plataforma de gestión de bodas.</p>
+                    <a href="javascript:void(0);" class="btn gradient blue radius-sm m-l10 btn-md radius-xl" data-toggle="modal" data-target="#login"><span>ÚNASE AL NEGOCIO</span></a>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-12">
+                <div class="tab-content nav">
+                    @using (Html.BeginForm())
+                    {
+        @Html.AntiForgeryToken()
+                        <div class="bus-bnr-title text-left">
+                            <h3 class="bns-title">¡Únase a Invitación a Boda para incluir su empresa en la lista GRATIS!</h3>
+                        </div>
+                                        <div class="bns-register">
+                                            <div class="bns-inner" data-name="01">
+                                                <div class="form-group">
+
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.ProveedorModel.nomNegocio, new { htmlAttributes = new { @class = "form-control", placeholder = "Negocio" } })
+                                                        @Html.ValidationMessageFor(model => model.ProveedorModel.nomNegocio, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownList("idCategoriaProveedor", null, htmlAttributes: new { @class = "form-control", placeholder = "Categoria" })
+                                                        @Html.ValidationMessageFor(model => model.ProveedorModel.idCategoriaProveedor, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.ProveedorModel.sitioWeb, new { htmlAttributes = new { @class = "form-control", placeholder = "Sitio Web" } })
+                                                        @Html.ValidationMessageFor(model => model.ProveedorModel.sitioWeb, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.ProveedorModel.tel, new { htmlAttributes = new { @class = "form-control", placeholder = "Teléfono" } })
+                                                        @Html.ValidationMessageFor(model => model.ProveedorModel.tel, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.ProveedorModel.email, new { htmlAttributes = new { @class = "form-control", placeholder = "Correo Electronico" } })
+                                                        @Html.ValidationMessageFor(model => model.ProveedorModel.email, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-10">
+                                                        @Html.PasswordFor(model => model.ProveedorModel.password, new { @class = "form-control", placeholder = "Password" })
+                                                        @Html.ValidationMessageFor(model => model.ProveedorModel.password, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <a class="btn blue gradient" data-toggle="collapse" href="#proceed1" role="button" aria-expanded="false" aria-controls="proceed1">Continúe con el paso 2 de 2</a>
+                                                </div>
+                                                <div class="bns-inner collapse next-proceed" id="proceed1" data-name="02">
+                                                    <div class="form-group">
+
+                                                        <div class="col-md-10">
+                                                            @Html.EditorFor(model => model.ProveedorModel.codigoPostal, new { htmlAttributes = new { @class = "form-control", placeholder = "Código postal" } })
+                                                            @Html.ValidationMessageFor(model => model.ProveedorModel.codigoPostal, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+
+                                                        <div class="col-md-10">
+                                                            @Html.EditorFor(model => model.ProveedorModel.direccion, new { htmlAttributes = new { @class = "form-control", placeholder = "Dirección" } })
+                                                            @Html.ValidationMessageFor(model => model.ProveedorModel.direccion, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+
+                                                        <div class="col-md-10">
+                                                            @Html.EditorFor(model => model.ProveedorModel.pais, new { htmlAttributes = new { @class = "form-control", placeholder = "País" } })
+                                                            @Html.ValidationMessageFor(model => model.ProveedorModel.pais, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+
+                                                        <div class="col-md-10">
+                                                            @Html.DropDownList("idEstado", null, htmlAttributes: new { @class = "form-control", placeholder = "Estado" })
+                                                            @Html.ValidationMessageFor(model => model.ProveedorModel.idEstado, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+
+                                                        <div class="col-md-10">
+                                                            @Html.EditorFor(model => model.ProveedorModel.idMunicipio, new { htmlAttributes = new { @class = "form-control", placeholder = "Ciudad" } })
+                                                            @Html.ValidationMessageFor(model => model.ProveedorModel.idMunicipio, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+                                                    <div class="form-group">
+
+                                                        <div class="col-md-10">
+                                                            @Html.EditorFor(model => model.ProveedorModel.precioInicial, new { htmlAttributes = new { @class = "form-control", placeholder = "Precio Inicial" } })
+                                                            @Html.ValidationMessageFor(model => model.ProveedorModel.precioInicial, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group">
+                                                        <div class="col-md-offset-2 col-md-10">
+                                                            <a class="btn gray" data-toggle="collapse" href="#proceed1" role="button" aria-expanded="false" aria-controls="proceed1">Atrás</a>
+                                                            <input type="submit" value="Crear" class="btn btn-default" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-full content-inner-2 overlay-black-dark ov-blue wow fadeIn bns-search bg-img-fix" id="app-search" data-wow-duration="2s" data-wow-delay="0.3s" style="background-image: url(images/background/bg4.jpg); background-size: cover; background-position: right bottom;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-head venue-search-title text-center">
+                    <h2 class="box-title text-italic">El filtrado avanzado significa que las parejas pueden encontrar su empresa por categoría, ubicación o nombre.</h2>
+                </div>
+            </div>
+            <div class="col-lg-12 search-filter">
+                <form class="filter-form style1" action="wedding-venues-search.html">
+                    <div class="row sp10">
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" placeholder="Estamos buscando">
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="text" class="form-control" placeholder="Cerca">
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="text" class="form-control" placeholder="O llamado">
+                        </div>
+                        <div class="col-lg-2 d-flex">
+                            <button class="btn black btn-block radius-xl text-uppercase">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Venue Search End -->
+<!-- Insightful Inspiration -->
+<div class="section-full bg-gray content-inner" style="background-image: url(images/background/bg3.jpg); background-size: cover; background-position: right bottom;">
+    <div class="container">
+        <div class="section-head text-center">
+            <h2 class="box-title text-italic">Crea una cuenta gratuita en menos de 10 minutos</h2>
+            <P>Su perfil  es la mejor manera para que las parejas descubran todo lo que su negocio de bodas tiene para ofrecer. Clasifique más arriba en las búsquedas agregando:</P>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <ul class="serlist">
+                    <li><strong><i class="la la-photo"></i> <span>Fotos ilimitadas</span></strong></li>
+                    <li><strong><i class="la la-star"></i> <span>Recomendaciones de proveedores</span></strong></li>
+                    <li><strong><i class="la la-phone-square"></i> <span>Detalles de contacto directo</span></strong></li>
+                    <li><strong><i class="la la-youtube-play"></i> <span>Vídeos ilimitados</span></strong></li>
+                    <li><strong><i class="la la-check-square"></i> <span>Descripción de los Servicios</span></strong></li>
+                    <li><strong><i class="la la-cart-plus"></i> <span>Selección de productos</span></strong></li>
+                    <li><strong><i class="la la-heart"></i> <span>Enlaces a redes sociales</span></strong></li>
+                    <li><strong><i class="la la-trophy"></i> <span>Premios y características de la industria</span></strong></li>
+                    <li><strong><i class="fa fa-usd"></i> <span>Información de precio</span></strong></li>
+                    <li><strong><i class="la la-comments-o"></i> <span>Reseñas y testimonios de clientes</span></strong></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 m-t20 text-center">
+                <a href="" class="btn blue gradient" data-toggle="modal" data-target="#signup">CREAR MI CUENTA COMERCIAL GRATUITA</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Insightful Inspiration End -->
+<!-- Venue Search Box -->
+<div class="section-full content-inner overlay-black-dark ov-blue wow fadeIn bns-search bg-img-fix" id="app-info" data-wow-duration="2s" data-wow-delay="0.3s" style="background-image: url(images/background/bg4.jpg); background-size: cover; background-position: right bottom;">
+    <div class="container">
+        <div class="col-lg-12">
+            <div class="section-head venue-search-title text-center">
+                <h2 class="box-title text-italic">¿Quién utiliza Wedding Manager?</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-lg-4 m-b30">
+                <div class="counter-bx">
+                    <span>MÁS QUE</span>
+                    <h2 class="counter">100000</h2>
+                    <p>Las parejas están planeando su boda con Wedding Manager</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-lg-4 m-b30">
+                <div class="counter-bx">
+                    <span>ENCIMA</span>
+                    <h2 class="counter">350000</h2>
+                    <p>Seguidores de redes sociales</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-lg-4 m-b10">
+                <div class="counter-bx">
+                    <span>MÁS QUE</span>
+                    <h2 class="counter">16000</h2>
+                    <p>Empresas de bodas registradas</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Venue Search End -->
+<!-- Weddings Services Box End -->
+<div class="section-full bg-gray content-inner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+                <div class="wedding-services">
+                    <div class="icon-bx">
+                        <img src="images/icon/icon2/icon1.png" alt="">
+                    </div>
+                    <div class="content-bx">
+                        <a class="title" href="wedding-venues-search.html">Buscar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.4s">
+                <div class="wedding-services">
+                    <div class="icon-bx">
+                        <img src="images/icon/icon2/icon2.png" alt="">
+                    </div>
+                    <div class="content-bx">
+                        <a class="title" href="wedding-planning-tools.html">Herramientas de administrador</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">
+                <div class="wedding-services">
+                    <div class="icon-bx">
+                        <img src="images/icon/icon2/icon3.png" alt="">
+                    </div>
+                    <div class="content-bx">
+                        <a class="title" href="planner-guest-list.html">Lista de invitados</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.8s">
+                <div class="wedding-services">
+                    <div class="icon-bx">
+                        <img src="images/icon/icon2/icon4.png" alt="">
+                    </div>
+                    <div class="content-bx">
+                        <a class="title" href="planner-checklist-select-date.html">Lista de Verificación</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+                <div class="wedding-services">
+                    <div class="icon-bx">
+                        <img src="images/icon/icon2/icon5.png" alt="">
+                    </div>
+                    <div class="content-bx">
+                        <a class="title" href="planner-budget-select.html">Presupuesto</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.4s">
+                <div class="wedding-services">
+                    <div class="icon-bx">
+                        <img src="images/icon/icon2/icon6.png" alt="">
+                    </div>
+                    <div class="content-bx">
+                        <a class="title" href="planner-shortlist.html">Lista corta</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">
+                <div class="wedding-services">
+                    <div class="icon-bx">
+                        <img src="images/icon/icon2/icon7.png" alt="">
+                    </div>
+                    <div class="content-bx">
+                        <a class="title" href="planner-advice.html">Consejo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-6 m-b30 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.8s">
+                <div class="wedding-services">
+                    <div class="icon-bx">
+                        <img src="images/icon/icon2/icon8.png" alt="">
+                    </div>
+                    <div class="content-bx">
+                        <a class="title" href="wedding-gift-lists.html">Listas de regalos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Manager Tools End -->
+
+
+<button class="scroltop fa fa-chevron-up"></button>
+    </form>
+
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <!-- JAVASCRIPT FILES ========================================= -->
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="~/Content/js/jquery-ui.js"></script>
+    <script src="~/Content/plugins/wow/wow.js"></script>
+    <script src="~/Content/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="~/Content/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="~/Content/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+    <script src="~/Content/plugins/magnific-popup/magnific-popup.js"></script>
+    <script src="~/Content/plugins/counter/waypoints-min.js"></script>
+    <script src="~/Content/plugins/counter/counterup.min.js"></script>
+    <script src="~/Content/plugins/imagesloaded/imagesloaded.js"></script>
+    <script src="~/Content/plugins/masonry/masonry-3.1.4.js"></script>
+    <script src="~/Content/plugins/masonry/masonry.filter.js"></script>
+    <script src="~/Content/plugins/rangeslider/rangeslider.js"></script>
+    <script src="~/Content/plugins/owl-carousel/owl.carousel.js"></script>
+    <script src="~/Content/plugins/particles/particles.js"></script>
+    <script src="~/Content/plugins/particles/particles-app.js"></script>
+    <script src="~/Content/js/dz.carousel.js"></script>
+    <script src="~/Content/js/custom.js"></script>
+    <script src="~/Content/js/dz.ajax.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+    <script src="~/Content/plugins/wizard/js/jquery.smartWizard.min.js"></script>
+    <script src="~/Content/plugins/scroll/scrollbar.min.js"></script><!-- SCROLLBAR JS -->
 </div>

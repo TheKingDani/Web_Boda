@@ -2653,6 +2653,8 @@ blockquote:before {
 }
 /*= When header is sticky =*/
 
+
+
 .is-fixed .logo-header {
     height: 55px;
 	width: 120px;
@@ -10248,3 +10250,5 @@ ol.commentlist li .star-rating {
 	bottom: 130px !important;
 }
 /* Support and Buy Button END */
+
+

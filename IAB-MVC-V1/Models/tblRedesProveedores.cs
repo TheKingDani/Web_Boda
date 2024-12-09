@@ -19,7 +19,7 @@ namespace IAB_MVC_V1.Models
         public Nullable<int> idProveedor { get; set; }
         public string link { get; set; }
     
-        public virtual tblProveedores tblProveedores { get; set; }
         public virtual tblRedesSociales tblRedesSociales { get; set; }
+        public virtual tblProveedores tblProveedores { get; set; }
     }
 }

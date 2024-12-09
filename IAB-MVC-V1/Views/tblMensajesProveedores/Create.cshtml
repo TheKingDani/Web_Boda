@@ -3,19 +3,24 @@
 @{
     ViewBag.Title = "Create";
 }
+@{
+    Layout = "~/Views/Shared/_Layout - Copia.cshtml";
+}
+<div class="content" style="margin-left: 0;">
+ 
 
-<h2>Create</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
     <div class="form-horizontal">
-        <h4>tblMensajesProveedores</h4>
+        <h4>Mensaje personal del gerente</h4>
         <hr />
+        <p>¡Incluya un mensaje de bienvenida personal a las parejas para agregar ese toque personal adicional!!</p>
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.idProveedor, "idProveedor", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.idProveedor, "Proveedor", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("idProveedor", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.idProveedor, "", new { @class = "text-danger" })
@@ -23,29 +28,35 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.tituloMensaje, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.tituloMensaje, "Titulo del mensaje", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.tituloMensaje, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.tituloMensaje, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Mensaje, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Mensaje, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Mensaje, "", new { @class = "text-danger" })
+        <div class="col-lg-12">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Mensaje, "Message", htmlAttributes: new { @class = "label-title" })
+                <div>
+                    @Html.TextAreaFor(model => model.Mensaje, new { @class = "form-control auto-resize", placeholder = "Escribe tu mensaje(máximo 500 caracteres)" })
+                    @Html.ValidationMessageFor(model => model.Mensaje, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Guardar" class="btn blue" />
             </div>
         </div>
-    </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 </div>
+

@@ -37,7 +37,6 @@ namespace IAB_MVC_V1.Models
         public virtual DbSet<tblIdioma> tblIdioma { get; set; }
         public virtual DbSet<tblIntentosIngreso> tblIntentosIngreso { get; set; }
         public virtual DbSet<tblInvitados> tblInvitados { get; set; }
-        public virtual DbSet<tblItinerario> tblItinerario { get; set; }
         public virtual DbSet<tblMensajesWA> tblMensajesWA { get; set; }
         public virtual DbSet<tblMesasNovios> tblMesasNovios { get; set; }
         public virtual DbSet<tblMesasRegalos> tblMesasRegalos { get; set; }
@@ -53,7 +52,6 @@ namespace IAB_MVC_V1.Models
         public virtual DbSet<tblMunicipios> tblMunicipios { get; set; }
         public virtual DbSet<tblOfertasProveedores> tblOfertasProveedores { get; set; }
         public virtual DbSet<tblPreguntasProveedores> tblPreguntasProveedores { get; set; }
-        public virtual DbSet<tblProveedores> tblProveedores { get; set; }
         public virtual DbSet<tblProveedoresDieteticas> tblProveedoresDieteticas { get; set; }
         public virtual DbSet<tblProveedoresMunicipios> tblProveedoresMunicipios { get; set; }
         public virtual DbSet<tblRedesProveedores> tblRedesProveedores { get; set; }
@@ -65,5 +63,12 @@ namespace IAB_MVC_V1.Models
         public virtual DbSet<tblEmpresasOrganizadores> tblEmpresasOrganizadores { get; set; }
         public virtual DbSet<tblOrganizadoresBodas> tblOrganizadoresBodas { get; set; }
         public virtual DbSet<tblSeleccionarOrganizadoresBodas> tblSeleccionarOrganizadoresBodas { get; set; }
+        public virtual DbSet<tblItinerarios> tblItinerarios { get; set; }
+        public virtual DbSet<tblStatusPagos> tblStatusPagos { get; set; }
+        public virtual DbSet<tblProductosProveedores> tblProductosProveedores { get; set; }
+        public virtual DbSet<tblPresupuestos> tblPresupuestos { get; set; }
+        public virtual DbSet<tblProveedores> tblProveedores { get; set; }
+        public virtual DbSet<tblTipoUsuarios> tblTipoUsuarios { get; set; }
+        public virtual DbSet<tblUsuarios> tblUsuarios { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace IAB_MVC_V1.Models
         {
             this.tblProveedoresMunicipios = new HashSet<tblProveedoresMunicipios>();
             this.tblEmpresasOrganizadores = new HashSet<tblEmpresasOrganizadores>();
+            this.tblProveedores = new HashSet<tblProveedores>();
         }
     
         public int idMunicipio { get; set; }
@@ -30,5 +31,7 @@ namespace IAB_MVC_V1.Models
         public virtual ICollection<tblProveedoresMunicipios> tblProveedoresMunicipios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblEmpresasOrganizadores> tblEmpresasOrganizadores { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblProveedores> tblProveedores { get; set; }
     }
 }

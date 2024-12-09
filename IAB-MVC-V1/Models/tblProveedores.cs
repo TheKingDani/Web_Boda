@@ -34,15 +34,18 @@ namespace IAB_MVC_V1.Models
         public string email { get; set; }
         public string codigoPostal { get; set; }
         public string direccion { get; set; }
-        public string ciudad { get; set; }
         public string pais { get; set; }
         public Nullable<int> idEstado { get; set; }
+        public Nullable<int> idMunicipio { get; set; }
         public Nullable<decimal> precioInicial { get; set; }
+        public Nullable<int> usuarioID { get; set; }
+        public string password { get; set; }
     
         public virtual tblCategoriasProveedores tblCategoriasProveedores { get; set; }
         public virtual tblEstados tblEstados { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblMensajesProveedores> tblMensajesProveedores { get; set; }
+        public virtual tblMunicipios tblMunicipios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblProveedoresMunicipios> tblProveedoresMunicipios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -55,5 +58,6 @@ namespace IAB_MVC_V1.Models
         public virtual ICollection<tblSeleccionarOfertas> tblSeleccionarOfertas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblServiciosProveedores> tblServiciosProveedores { get; set; }
+        public virtual tblUsuarios tblUsuarios { get; set; }
     }
 }

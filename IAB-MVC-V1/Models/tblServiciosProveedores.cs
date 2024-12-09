@@ -14,11 +14,22 @@ namespace IAB_MVC_V1.Models
     
     public partial class tblServiciosProveedores
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblServiciosProveedores()
+        {
+            this.tblProductosProveedores = new HashSet<tblProductosProveedores>();
+            this.tblPresupuestos = new HashSet<tblPresupuestos>();
+        }
+    
         public int idServicioProveedor { get; set; }
         public Nullable<int> idProveedor { get; set; }
         public Nullable<int> idServiciosCategoProv { get; set; }
     
-        public virtual tblProveedores tblProveedores { get; set; }
         public virtual tblServiciosCategoriasProvedores tblServiciosCategoriasProvedores { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblProductosProveedores> tblProductosProveedores { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblPresupuestos> tblPresupuestos { get; set; }
+        public virtual tblProveedores tblProveedores { get; set; }
     }
 }

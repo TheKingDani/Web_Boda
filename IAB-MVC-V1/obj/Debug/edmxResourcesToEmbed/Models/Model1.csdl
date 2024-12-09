@@ -158,15 +158,6 @@
     <NavigationProperty Name="tblTipoInvitado" Relationship="Self.FK__tblInvita__idTip__24927208" FromRole="tblInvitados" ToRole="tblTipoInvitado" />
     <NavigationProperty Name="tblNovios" Relationship="Self.FK_tblInvitados_ToTtblNovios" FromRole="tblInvitados" ToRole="tblNovios" />
   </EntityType>
-  <EntityType Name="tblItinerario">
-    <Key>
-      <PropertyRef Name="idItinerario" />
-    </Key>
-    <Property Name="idItinerario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="idNovio" Type="Int32" Nullable="false" />
-    <Property Name="diaHora" Type="DateTime" Precision="3" />
-    <Property Name="actividad" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="tblMensajesWA">
     <Key>
       <PropertyRef Name="idMensajeWA" />
@@ -258,6 +249,8 @@
     <NavigationProperty Name="tblPlantillasNovios" Relationship="Self.FK_tblPlantillasNovios_TotblNovios" FromRole="tblNovios" ToRole="tblPlantillasNovios" />
     <NavigationProperty Name="tblTipoInvitado" Relationship="Self.FK_tblTipoInvitado_TotblNovios" FromRole="tblNovios" ToRole="tblTipoInvitado" />
     <NavigationProperty Name="tblSeleccionarOrganizadoresBodas" Relationship="dbInvitacionBodaModel.FK__tblSelecc__idNov__6991A7CB" FromRole="tblNovios" ToRole="tblSeleccionarOrganizadoresBodas" />
+    <NavigationProperty Name="tblItinerarios" Relationship="dbInvitacionBodaModel.FK__tblItiner__idNov__6D6238AF" FromRole="tblNovios" ToRole="tblItinerarios" />
+    <NavigationProperty Name="tblPresupuestos" Relationship="dbInvitacionBodaModel.FK__tblPresup__idNov__147C05D0" FromRole="tblNovios" ToRole="tblPresupuestos" />
   </EntityType>
   <EntityType Name="tblPlantillaBoletos">
     <Key>
@@ -498,7 +491,6 @@
     <EntitySet Name="tblIdioma" EntityType="Self.tblIdioma" />
     <EntitySet Name="tblIntentosIngreso" EntityType="Self.tblIntentosIngreso" />
     <EntitySet Name="tblInvitados" EntityType="Self.tblInvitados" />
-    <EntitySet Name="tblItinerario" EntityType="Self.tblItinerario" />
     <EntitySet Name="tblMensajesWA" EntityType="Self.tblMensajesWA" />
     <EntitySet Name="tblMesasNovios" EntityType="Self.tblMesasNovios" />
     <EntitySet Name="tblMesasRegalos" EntityType="Self.tblMesasRegalos" />
@@ -574,7 +566,6 @@
     <EntitySet Name="tblMunicipios" EntityType="dbInvitacionBodaModel.tblMunicipios" />
     <EntitySet Name="tblOfertasProveedores" EntityType="dbInvitacionBodaModel.tblOfertasProveedores" />
     <EntitySet Name="tblPreguntasProveedores" EntityType="dbInvitacionBodaModel.tblPreguntasProveedores" />
-    <EntitySet Name="tblProveedores" EntityType="dbInvitacionBodaModel.tblProveedores" />
     <EntitySet Name="tblProveedoresDieteticas" EntityType="dbInvitacionBodaModel.tblProveedoresDieteticas" />
     <EntitySet Name="tblProveedoresMunicipios" EntityType="dbInvitacionBodaModel.tblProveedoresMunicipios" />
     <EntitySet Name="tblRedesProveedores" EntityType="dbInvitacionBodaModel.tblRedesProveedores" />
@@ -583,10 +574,6 @@
     <EntitySet Name="tblSeleccionarOfertas" EntityType="dbInvitacionBodaModel.tblSeleccionarOfertas" />
     <EntitySet Name="tblServiciosCategoriasProvedores" EntityType="dbInvitacionBodaModel.tblServiciosCategoriasProvedores" />
     <EntitySet Name="tblServiciosProveedores" EntityType="dbInvitacionBodaModel.tblServiciosProveedores" />
-    <AssociationSet Name="FK__tblProvee__idCat__2022C2A6" Association="dbInvitacionBodaModel.FK__tblProvee__idCat__2022C2A6">
-      <End Role="tblCategoriasProveedores" EntitySet="tblCategoriasProveedores" />
-      <End Role="tblProveedores" EntitySet="tblProveedores" />
-    </AssociationSet>
     <AssociationSet Name="FK__tblServic__idCat__23F3538A" Association="dbInvitacionBodaModel.FK__tblServic__idCat__23F3538A">
       <End Role="tblCategoriasProveedores" EntitySet="tblCategoriasProveedores" />
       <End Role="tblServiciosCategoriasProvedores" EntitySet="tblServiciosCategoriasProvedores" />
@@ -599,14 +586,6 @@
       <End Role="tblEstados" EntitySet="tblEstados" />
       <End Role="tblMunicipios" EntitySet="tblMunicipios" />
     </AssociationSet>
-    <AssociationSet Name="FK__tblProvee__idEst__2116E6DF" Association="dbInvitacionBodaModel.FK__tblProvee__idEst__2116E6DF">
-      <End Role="tblEstados" EntitySet="tblEstados" />
-      <End Role="tblProveedores" EntitySet="tblProveedores" />
-    </AssociationSet>
-    <AssociationSet Name="FK__tblMensaj__idPro__4C0144E4" Association="dbInvitacionBodaModel.FK__tblMensaj__idPro__4C0144E4">
-      <End Role="tblProveedores" EntitySet="tblProveedores" />
-      <End Role="tblMensajesProveedores" EntitySet="tblMensajesProveedores" />
-    </AssociationSet>
     <AssociationSet Name="FK__tblProvee__idMun__2E70E1FD" Association="dbInvitacionBodaModel.FK__tblProvee__idMun__2E70E1FD">
       <End Role="tblMunicipios" EntitySet="tblMunicipios" />
       <End Role="tblProveedoresMunicipios" EntitySet="tblProveedoresMunicipios" />
@@ -618,30 +597,6 @@
     <AssociationSet Name="FK__tblRespue__idPre__4830B400" Association="dbInvitacionBodaModel.FK__tblRespue__idPre__4830B400">
       <End Role="tblPreguntasProveedores" EntitySet="tblPreguntasProveedores" />
       <End Role="tblRespuestasProveedores" EntitySet="tblRespuestasProveedores" />
-    </AssociationSet>
-    <AssociationSet Name="FK__tblProvee__idPro__2D7CBDC4" Association="dbInvitacionBodaModel.FK__tblProvee__idPro__2D7CBDC4">
-      <End Role="tblProveedores" EntitySet="tblProveedores" />
-      <End Role="tblProveedoresMunicipios" EntitySet="tblProveedoresMunicipios" />
-    </AssociationSet>
-    <AssociationSet Name="FK__tblProvee__idPro__3429BB53" Association="dbInvitacionBodaModel.FK__tblProvee__idPro__3429BB53">
-      <End Role="tblProveedores" EntitySet="tblProveedores" />
-      <End Role="tblProveedoresDieteticas" EntitySet="tblProveedoresDieteticas" />
-    </AssociationSet>
-    <AssociationSet Name="FK__tblRedesP__idPro__39E294A9" Association="dbInvitacionBodaModel.FK__tblRedesP__idPro__39E294A9">
-      <End Role="tblProveedores" EntitySet="tblProveedores" />
-      <End Role="tblRedesProveedores" EntitySet="tblRedesProveedores" />
-    </AssociationSet>
-    <AssociationSet Name="FK__tblRespue__idPro__4924D839" Association="dbInvitacionBodaModel.FK__tblRespue__idPro__4924D839">
-      <End Role="tblProveedores" EntitySet="tblProveedores" />
-      <End Role="tblRespuestasProveedores" EntitySet="tblRespuestasProveedores" />
-    </AssociationSet>
-    <AssociationSet Name="FK__tblSelecc__idPro__3F9B6DFF" Association="dbInvitacionBodaModel.FK__tblSelecc__idPro__3F9B6DFF">
-      <End Role="tblProveedores" EntitySet="tblProveedores" />
-      <End Role="tblSeleccionarOfertas" EntitySet="tblSeleccionarOfertas" />
-    </AssociationSet>
-    <AssociationSet Name="FK__tblServic__idPro__26CFC035" Association="dbInvitacionBodaModel.FK__tblServic__idPro__26CFC035">
-      <End Role="tblProveedores" EntitySet="tblProveedores" />
-      <End Role="tblServiciosProveedores" EntitySet="tblServiciosProveedores" />
     </AssociationSet>
     <AssociationSet Name="FK__tblRedesP__idRed__38EE7070" Association="dbInvitacionBodaModel.FK__tblRedesP__idRed__38EE7070">
       <End Role="tblRedesSociales" EntitySet="tblRedesSociales" />
@@ -674,6 +629,89 @@
       <End Role="tblNovios" EntitySet="tblNovios" />
       <End Role="tblSeleccionarOrganizadoresBodas" EntitySet="tblSeleccionarOrganizadoresBodas" />
     </AssociationSet>
+    <EntitySet Name="tblItinerarios" EntityType="dbInvitacionBodaModel.tblItinerarios" />
+    <AssociationSet Name="FK__tblItiner__idNov__6D6238AF" Association="dbInvitacionBodaModel.FK__tblItiner__idNov__6D6238AF">
+      <End Role="tblNovios" EntitySet="tblNovios" />
+      <End Role="tblItinerarios" EntitySet="tblItinerarios" />
+    </AssociationSet>
+    <EntitySet Name="tblStatusPagos" EntityType="dbInvitacionBodaModel.tblStatusPagos" />
+    <EntitySet Name="tblProductosProveedores" EntityType="dbInvitacionBodaModel.tblProductosProveedores" />
+    <AssociationSet Name="FK__tblProduc__idSer__1EF99443" Association="dbInvitacionBodaModel.FK__tblProduc__idSer__1EF99443">
+      <End Role="tblServiciosProveedores" EntitySet="tblServiciosProveedores" />
+      <End Role="tblProductosProveedores" EntitySet="tblProductosProveedores" />
+    </AssociationSet>
+    <EntitySet Name="tblPresupuestos" EntityType="dbInvitacionBodaModel.tblPresupuestos" />
+    <AssociationSet Name="FK__tblPresup__idNov__147C05D0" Association="dbInvitacionBodaModel.FK__tblPresup__idNov__147C05D0">
+      <End Role="tblNovios" EntitySet="tblNovios" />
+      <End Role="tblPresupuestos" EntitySet="tblPresupuestos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblPresup__idPro__1FEDB87C" Association="dbInvitacionBodaModel.FK__tblPresup__idPro__1FEDB87C">
+      <End Role="tblProductosProveedores" EntitySet="tblProductosProveedores" />
+      <End Role="tblPresupuestos" EntitySet="tblPresupuestos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblPresup__idSer__15702A09" Association="dbInvitacionBodaModel.FK__tblPresup__idSer__15702A09">
+      <End Role="tblServiciosProveedores" EntitySet="tblServiciosProveedores" />
+      <End Role="tblPresupuestos" EntitySet="tblPresupuestos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblPresup__idSer__22CA2527" Association="dbInvitacionBodaModel.FK__tblPresup__idSer__22CA2527">
+      <End Role="tblServiciosCategoriasProvedores" EntitySet="tblServiciosCategoriasProvedores" />
+      <End Role="tblPresupuestos" EntitySet="tblPresupuestos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblPresup__idSta__16644E42" Association="dbInvitacionBodaModel.FK__tblPresup__idSta__16644E42">
+      <End Role="tblStatusPagos" EntitySet="tblStatusPagos" />
+      <End Role="tblPresupuestos" EntitySet="tblPresupuestos" />
+    </AssociationSet>
+    <EntitySet Name="tblProveedores" EntityType="dbInvitacionBodaModel.tblProveedores" />
+    <AssociationSet Name="FK__tblProvee__idCat__2022C2A6" Association="dbInvitacionBodaModel.FK__tblProvee__idCat__2022C2A6">
+      <End Role="tblCategoriasProveedores" EntitySet="tblCategoriasProveedores" />
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProvee__idEst__2116E6DF" Association="dbInvitacionBodaModel.FK__tblProvee__idEst__2116E6DF">
+      <End Role="tblEstados" EntitySet="tblEstados" />
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblMensaj__idPro__4C0144E4" Association="dbInvitacionBodaModel.FK__tblMensaj__idPro__4C0144E4">
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+      <End Role="tblMensajesProveedores" EntitySet="tblMensajesProveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProvee__idMun__23BE4960" Association="dbInvitacionBodaModel.FK__tblProvee__idMun__23BE4960">
+      <End Role="tblMunicipios" EntitySet="tblMunicipios" />
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProvee__idPro__2D7CBDC4" Association="dbInvitacionBodaModel.FK__tblProvee__idPro__2D7CBDC4">
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+      <End Role="tblProveedoresMunicipios" EntitySet="tblProveedoresMunicipios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProvee__idPro__3429BB53" Association="dbInvitacionBodaModel.FK__tblProvee__idPro__3429BB53">
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+      <End Role="tblProveedoresDieteticas" EntitySet="tblProveedoresDieteticas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblRedesP__idPro__39E294A9" Association="dbInvitacionBodaModel.FK__tblRedesP__idPro__39E294A9">
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+      <End Role="tblRedesProveedores" EntitySet="tblRedesProveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblRespue__idPro__4924D839" Association="dbInvitacionBodaModel.FK__tblRespue__idPro__4924D839">
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+      <End Role="tblRespuestasProveedores" EntitySet="tblRespuestasProveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblSelecc__idPro__3F9B6DFF" Association="dbInvitacionBodaModel.FK__tblSelecc__idPro__3F9B6DFF">
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+      <End Role="tblSeleccionarOfertas" EntitySet="tblSeleccionarOfertas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblServic__idPro__26CFC035" Association="dbInvitacionBodaModel.FK__tblServic__idPro__26CFC035">
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+      <End Role="tblServiciosProveedores" EntitySet="tblServiciosProveedores" />
+    </AssociationSet>
+    <EntitySet Name="tblTipoUsuarios" EntityType="dbInvitacionBodaModel.tblTipoUsuarios" />
+    <EntitySet Name="tblUsuarios" EntityType="dbInvitacionBodaModel.tblUsuarios" />
+    <AssociationSet Name="FK_tblProveedores_tblUsuarios" Association="dbInvitacionBodaModel.FK_tblProveedores_tblUsuarios">
+      <End Role="tblUsuarios" EntitySet="tblUsuarios" />
+      <End Role="tblProveedores" EntitySet="tblProveedores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblUsuari__tipoU__297722B6" Association="dbInvitacionBodaModel.FK__tblUsuari__tipoU__297722B6">
+      <End Role="tblTipoUsuarios" EntitySet="tblTipoUsuarios" />
+      <End Role="tblUsuarios" EntitySet="tblUsuarios" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="tblCategoriasProveedores">
     <Key>
@@ -682,8 +720,8 @@
     <Property Name="idCategoriaProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nombreCategoria" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="tblProveedores" Relationship="dbInvitacionBodaModel.FK__tblProvee__idCat__2022C2A6" FromRole="tblCategoriasProveedores" ToRole="tblProveedores" />
     <NavigationProperty Name="tblServiciosCategoriasProvedores" Relationship="dbInvitacionBodaModel.FK__tblServic__idCat__23F3538A" FromRole="tblCategoriasProveedores" ToRole="tblServiciosCategoriasProvedores" />
+    <NavigationProperty Name="tblProveedores" Relationship="dbInvitacionBodaModel.FK__tblProvee__idCat__2022C2A6" FromRole="tblCategoriasProveedores" ToRole="tblProveedores" />
   </EntityType>
   <EntityType Name="tblDieteticas">
     <Key>
@@ -700,8 +738,8 @@
     <Property Name="idEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nombreEstado" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="tblMunicipios" Relationship="dbInvitacionBodaModel.FK__tblMunici__idEst__2AA05119" FromRole="tblEstados" ToRole="tblMunicipios" />
-    <NavigationProperty Name="tblProveedores" Relationship="dbInvitacionBodaModel.FK__tblProvee__idEst__2116E6DF" FromRole="tblEstados" ToRole="tblProveedores" />
     <NavigationProperty Name="tblEmpresasOrganizadores" Relationship="dbInvitacionBodaModel.FK__tblEmpres__idEst__63D8CE75" FromRole="tblEstados" ToRole="tblEmpresasOrganizadores" />
+    <NavigationProperty Name="tblProveedores" Relationship="dbInvitacionBodaModel.FK__tblProvee__idEst__2116E6DF" FromRole="tblEstados" ToRole="tblProveedores" />
   </EntityType>
   <EntityType Name="tblMensajesProveedores">
     <Key>
@@ -723,6 +761,7 @@
     <NavigationProperty Name="tblEstados" Relationship="dbInvitacionBodaModel.FK__tblMunici__idEst__2AA05119" FromRole="tblMunicipios" ToRole="tblEstados" />
     <NavigationProperty Name="tblProveedoresMunicipios" Relationship="dbInvitacionBodaModel.FK__tblProvee__idMun__2E70E1FD" FromRole="tblMunicipios" ToRole="tblProveedoresMunicipios" />
     <NavigationProperty Name="tblEmpresasOrganizadores" Relationship="dbInvitacionBodaModel.FK__tblEmpres__idMun__62E4AA3C" FromRole="tblMunicipios" ToRole="tblEmpresasOrganizadores" />
+    <NavigationProperty Name="tblProveedores" Relationship="dbInvitacionBodaModel.FK__tblProvee__idMun__23BE4960" FromRole="tblMunicipios" ToRole="tblProveedores" />
   </EntityType>
   <EntityType Name="tblOfertasProveedores">
     <Key>
@@ -740,32 +779,6 @@
     <Property Name="idPreguntaProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Pregunta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="tblRespuestasProveedores" Relationship="dbInvitacionBodaModel.FK__tblRespue__idPre__4830B400" FromRole="tblPreguntasProveedores" ToRole="tblRespuestasProveedores" />
-  </EntityType>
-  <EntityType Name="tblProveedores">
-    <Key>
-      <PropertyRef Name="idProveedor" />
-    </Key>
-    <Property Name="idProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nomNegocio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="idCategoriaProveedor" Type="Int32" />
-    <Property Name="sitioWeb" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="codigoPostal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="pais" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="idEstado" Type="Int32" />
-    <Property Name="precioInicial" Type="Decimal" Precision="18" Scale="2" />
-    <NavigationProperty Name="tblCategoriasProveedores" Relationship="dbInvitacionBodaModel.FK__tblProvee__idCat__2022C2A6" FromRole="tblProveedores" ToRole="tblCategoriasProveedores" />
-    <NavigationProperty Name="tblEstados" Relationship="dbInvitacionBodaModel.FK__tblProvee__idEst__2116E6DF" FromRole="tblProveedores" ToRole="tblEstados" />
-    <NavigationProperty Name="tblMensajesProveedores" Relationship="dbInvitacionBodaModel.FK__tblMensaj__idPro__4C0144E4" FromRole="tblProveedores" ToRole="tblMensajesProveedores" />
-    <NavigationProperty Name="tblProveedoresMunicipios" Relationship="dbInvitacionBodaModel.FK__tblProvee__idPro__2D7CBDC4" FromRole="tblProveedores" ToRole="tblProveedoresMunicipios" />
-    <NavigationProperty Name="tblProveedoresDieteticas" Relationship="dbInvitacionBodaModel.FK__tblProvee__idPro__3429BB53" FromRole="tblProveedores" ToRole="tblProveedoresDieteticas" />
-    <NavigationProperty Name="tblRedesProveedores" Relationship="dbInvitacionBodaModel.FK__tblRedesP__idPro__39E294A9" FromRole="tblProveedores" ToRole="tblRedesProveedores" />
-    <NavigationProperty Name="tblRespuestasProveedores" Relationship="dbInvitacionBodaModel.FK__tblRespue__idPro__4924D839" FromRole="tblProveedores" ToRole="tblRespuestasProveedores" />
-    <NavigationProperty Name="tblSeleccionarOfertas" Relationship="dbInvitacionBodaModel.FK__tblSelecc__idPro__3F9B6DFF" FromRole="tblProveedores" ToRole="tblSeleccionarOfertas" />
-    <NavigationProperty Name="tblServiciosProveedores" Relationship="dbInvitacionBodaModel.FK__tblServic__idPro__26CFC035" FromRole="tblProveedores" ToRole="tblServiciosProveedores" />
   </EntityType>
   <EntityType Name="tblProveedoresDieteticas">
     <Key>
@@ -795,8 +808,8 @@
     <Property Name="idRedSocial" Type="Int32" />
     <Property Name="idProveedor" Type="Int32" />
     <Property Name="link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="tblProveedores" Relationship="dbInvitacionBodaModel.FK__tblRedesP__idPro__39E294A9" FromRole="tblRedesProveedores" ToRole="tblProveedores" />
     <NavigationProperty Name="tblRedesSociales" Relationship="dbInvitacionBodaModel.FK__tblRedesP__idRed__38EE7070" FromRole="tblRedesProveedores" ToRole="tblRedesSociales" />
+    <NavigationProperty Name="tblProveedores" Relationship="dbInvitacionBodaModel.FK__tblRedesP__idPro__39E294A9" FromRole="tblRedesProveedores" ToRole="tblProveedores" />
   </EntityType>
   <EntityType Name="tblRedesSociales">
     <Key>
@@ -837,6 +850,7 @@
     <Property Name="serviciosProveedores" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="tblCategoriasProveedores" Relationship="dbInvitacionBodaModel.FK__tblServic__idCat__23F3538A" FromRole="tblServiciosCategoriasProvedores" ToRole="tblCategoriasProveedores" />
     <NavigationProperty Name="tblServiciosProveedores" Relationship="dbInvitacionBodaModel.FK__tblServic__idSer__27C3E46E" FromRole="tblServiciosCategoriasProvedores" ToRole="tblServiciosProveedores" />
+    <NavigationProperty Name="tblPresupuestos" Relationship="dbInvitacionBodaModel.FK__tblPresup__idSer__22CA2527" FromRole="tblServiciosCategoriasProvedores" ToRole="tblPresupuestos" />
   </EntityType>
   <EntityType Name="tblServiciosProveedores">
     <Key>
@@ -845,21 +859,11 @@
     <Property Name="idServicioProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idProveedor" Type="Int32" />
     <Property Name="idServiciosCategoProv" Type="Int32" />
-    <NavigationProperty Name="tblProveedores" Relationship="dbInvitacionBodaModel.FK__tblServic__idPro__26CFC035" FromRole="tblServiciosProveedores" ToRole="tblProveedores" />
     <NavigationProperty Name="tblServiciosCategoriasProvedores" Relationship="dbInvitacionBodaModel.FK__tblServic__idSer__27C3E46E" FromRole="tblServiciosProveedores" ToRole="tblServiciosCategoriasProvedores" />
+    <NavigationProperty Name="tblProductosProveedores" Relationship="dbInvitacionBodaModel.FK__tblProduc__idSer__1EF99443" FromRole="tblServiciosProveedores" ToRole="tblProductosProveedores" />
+    <NavigationProperty Name="tblPresupuestos" Relationship="dbInvitacionBodaModel.FK__tblPresup__idSer__15702A09" FromRole="tblServiciosProveedores" ToRole="tblPresupuestos" />
+    <NavigationProperty Name="tblProveedores" Relationship="dbInvitacionBodaModel.FK__tblServic__idPro__26CFC035" FromRole="tblServiciosProveedores" ToRole="tblProveedores" />
   </EntityType>
-  <Association Name="FK__tblProvee__idCat__2022C2A6">
-    <End Type="dbInvitacionBodaModel.tblCategoriasProveedores" Role="tblCategoriasProveedores" Multiplicity="0..1" />
-    <End Type="dbInvitacionBodaModel.tblProveedores" Role="tblProveedores" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblCategoriasProveedores">
-        <PropertyRef Name="idCategoriaProveedor" />
-      </Principal>
-      <Dependent Role="tblProveedores">
-        <PropertyRef Name="idCategoriaProveedor" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__tblServic__idCat__23F3538A">
     <End Type="dbInvitacionBodaModel.tblCategoriasProveedores" Role="tblCategoriasProveedores" Multiplicity="0..1" />
     <End Type="dbInvitacionBodaModel.tblServiciosCategoriasProvedores" Role="tblServiciosCategoriasProvedores" Multiplicity="*" />
@@ -896,30 +900,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__tblProvee__idEst__2116E6DF">
-    <End Type="dbInvitacionBodaModel.tblEstados" Role="tblEstados" Multiplicity="0..1" />
-    <End Type="dbInvitacionBodaModel.tblProveedores" Role="tblProveedores" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblEstados">
-        <PropertyRef Name="idEstado" />
-      </Principal>
-      <Dependent Role="tblProveedores">
-        <PropertyRef Name="idEstado" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__tblMensaj__idPro__4C0144E4">
-    <End Type="dbInvitacionBodaModel.tblProveedores" Role="tblProveedores" Multiplicity="0..1" />
-    <End Type="dbInvitacionBodaModel.tblMensajesProveedores" Role="tblMensajesProveedores" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblProveedores">
-        <PropertyRef Name="idProveedor" />
-      </Principal>
-      <Dependent Role="tblMensajesProveedores">
-        <PropertyRef Name="idProveedor" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__tblProvee__idMun__2E70E1FD">
     <End Type="dbInvitacionBodaModel.tblMunicipios" Role="tblMunicipios" Multiplicity="0..1" />
     <End Type="dbInvitacionBodaModel.tblProveedoresMunicipios" Role="tblProveedoresMunicipios" Multiplicity="*" />
@@ -953,6 +933,342 @@
       </Principal>
       <Dependent Role="tblRespuestasProveedores">
         <PropertyRef Name="idPreguntaProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblRedesP__idRed__38EE7070">
+    <End Type="dbInvitacionBodaModel.tblRedesSociales" Role="tblRedesSociales" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblRedesProveedores" Role="tblRedesProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRedesSociales">
+        <PropertyRef Name="idRedSocial" />
+      </Principal>
+      <Dependent Role="tblRedesProveedores">
+        <PropertyRef Name="idRedSocial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblServic__idSer__27C3E46E">
+    <End Type="dbInvitacionBodaModel.tblServiciosCategoriasProvedores" Role="tblServiciosCategoriasProvedores" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblServiciosProveedores" Role="tblServiciosProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblServiciosCategoriasProvedores">
+        <PropertyRef Name="idServicioCategoProv" />
+      </Principal>
+      <Dependent Role="tblServiciosProveedores">
+        <PropertyRef Name="idServiciosCategoProv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblEmpresasOrganizadores">
+    <Key>
+      <PropertyRef Name="idEmpresaOrganizador" />
+    </Key>
+    <Property Name="idEmpresaOrganizador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreEmpresa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="idEstado" Type="Int32" />
+    <Property Name="idMunicipio" Type="Int32" />
+    <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="paginaWeb" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblEstados" Relationship="dbInvitacionBodaModel.FK__tblEmpres__idEst__63D8CE75" FromRole="tblEmpresasOrganizadores" ToRole="tblEstados" />
+    <NavigationProperty Name="tblMunicipios" Relationship="dbInvitacionBodaModel.FK__tblEmpres__idMun__62E4AA3C" FromRole="tblEmpresasOrganizadores" ToRole="tblMunicipios" />
+    <NavigationProperty Name="tblOrganizadoresBodas" Relationship="dbInvitacionBodaModel.FK__tblOrgani__idEmp__66B53B20" FromRole="tblEmpresasOrganizadores" ToRole="tblOrganizadoresBodas" />
+  </EntityType>
+  <EntityType Name="tblOrganizadoresBodas">
+    <Key>
+      <PropertyRef Name="idOrganizadorBoda" />
+    </Key>
+    <Property Name="idOrganizadorBoda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idEmpresaOrganizador" Type="Int32" />
+    <Property Name="nombreOrganizador" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" />
+    <NavigationProperty Name="tblEmpresasOrganizadores" Relationship="dbInvitacionBodaModel.FK__tblOrgani__idEmp__66B53B20" FromRole="tblOrganizadoresBodas" ToRole="tblEmpresasOrganizadores" />
+    <NavigationProperty Name="tblSeleccionarOrganizadoresBodas" Relationship="dbInvitacionBodaModel.FK__tblSelecc__idOrg__6A85CC04" FromRole="tblOrganizadoresBodas" ToRole="tblSeleccionarOrganizadoresBodas" />
+    <Property Name="idUsuario" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblSeleccionarOrganizadoresBodas">
+    <Key>
+      <PropertyRef Name="IdSeleccionarOrganizadorBoda" />
+    </Key>
+    <Property Name="IdSeleccionarOrganizadorBoda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idNovios" Type="Int32" />
+    <Property Name="idOrganizadorBoda" Type="Int32" />
+    <NavigationProperty Name="tblOrganizadoresBodas" Relationship="dbInvitacionBodaModel.FK__tblSelecc__idOrg__6A85CC04" FromRole="tblSeleccionarOrganizadoresBodas" ToRole="tblOrganizadoresBodas" />
+    <NavigationProperty Name="tblNovios" Relationship="dbInvitacionBodaModel.FK__tblSelecc__idNov__6991A7CB" FromRole="tblSeleccionarOrganizadoresBodas" ToRole="tblNovios" />
+  </EntityType>
+  <Association Name="FK__tblEmpres__idEst__63D8CE75">
+    <End Type="dbInvitacionBodaModel.tblEstados" Role="tblEstados" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblEmpresasOrganizadores" Role="tblEmpresasOrganizadores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEstados">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="tblEmpresasOrganizadores">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmpres__idMun__62E4AA3C">
+    <End Type="dbInvitacionBodaModel.tblMunicipios" Role="tblMunicipios" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblEmpresasOrganizadores" Role="tblEmpresasOrganizadores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMunicipios">
+        <PropertyRef Name="idMunicipio" />
+      </Principal>
+      <Dependent Role="tblEmpresasOrganizadores">
+        <PropertyRef Name="idMunicipio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblOrgani__idEmp__66B53B20">
+    <End Type="dbInvitacionBodaModel.tblEmpresasOrganizadores" Role="tblEmpresasOrganizadores" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblOrganizadoresBodas" Role="tblOrganizadoresBodas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmpresasOrganizadores">
+        <PropertyRef Name="idEmpresaOrganizador" />
+      </Principal>
+      <Dependent Role="tblOrganizadoresBodas">
+        <PropertyRef Name="idEmpresaOrganizador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblSelecc__idOrg__6A85CC04">
+    <End Type="dbInvitacionBodaModel.tblOrganizadoresBodas" Role="tblOrganizadoresBodas" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblSeleccionarOrganizadoresBodas" Role="tblSeleccionarOrganizadoresBodas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblOrganizadoresBodas">
+        <PropertyRef Name="idOrganizadorBoda" />
+      </Principal>
+      <Dependent Role="tblSeleccionarOrganizadoresBodas">
+        <PropertyRef Name="idOrganizadorBoda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblSelecc__idNov__6991A7CB">
+    <End Type="dbInvitacionBodaModel.tblNovios" Role="tblNovios" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblSeleccionarOrganizadoresBodas" Role="tblSeleccionarOrganizadoresBodas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNovios">
+        <PropertyRef Name="idNovios" />
+      </Principal>
+      <Dependent Role="tblSeleccionarOrganizadoresBodas">
+        <PropertyRef Name="idNovios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblItinerarios">
+    <Key>
+      <PropertyRef Name="idItinerario" />
+    </Key>
+    <Property Name="idItinerario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idNovios" Type="Int32" />
+    <Property Name="horaInicio" Type="DateTime" Precision="0" />
+    <Property Name="horaFin" Type="DateTime" Precision="0" />
+    <Property Name="actividad" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="responsables" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblNovios" Relationship="dbInvitacionBodaModel.FK__tblItiner__idNov__6D6238AF" FromRole="tblItinerarios" ToRole="tblNovios" />
+  </EntityType>
+  <Association Name="FK__tblItiner__idNov__6D6238AF">
+    <End Type="dbInvitacionBodaModel.tblNovios" Role="tblNovios" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblItinerarios" Role="tblItinerarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNovios">
+        <PropertyRef Name="idNovios" />
+      </Principal>
+      <Dependent Role="tblItinerarios">
+        <PropertyRef Name="idNovios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblStatusPagos">
+    <Key>
+      <PropertyRef Name="idStatusPago" />
+    </Key>
+    <Property Name="idStatusPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomStatus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblPresupuestos" Relationship="dbInvitacionBodaModel.FK__tblPresup__idSta__16644E42" FromRole="tblStatusPagos" ToRole="tblPresupuestos" />
+  </EntityType>
+  <EntityType Name="tblProductosProveedores">
+    <Key>
+      <PropertyRef Name="idProductoProveedor" />
+    </Key>
+    <Property Name="idProductoProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idServicioProveedor" Type="Int32" />
+    <Property Name="nombreProducto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="precioProducto" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblServiciosProveedores" Relationship="dbInvitacionBodaModel.FK__tblProduc__idSer__1EF99443" FromRole="tblProductosProveedores" ToRole="tblServiciosProveedores" />
+    <NavigationProperty Name="tblPresupuestos" Relationship="dbInvitacionBodaModel.FK__tblPresup__idPro__1FEDB87C" FromRole="tblProductosProveedores" ToRole="tblPresupuestos" />
+  </EntityType>
+  <Association Name="FK__tblProduc__idSer__1EF99443">
+    <End Type="dbInvitacionBodaModel.tblServiciosProveedores" Role="tblServiciosProveedores" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblProductosProveedores" Role="tblProductosProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblServiciosProveedores">
+        <PropertyRef Name="idServicioProveedor" />
+      </Principal>
+      <Dependent Role="tblProductosProveedores">
+        <PropertyRef Name="idServicioProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblPresupuestos">
+    <Key>
+      <PropertyRef Name="idPresupuesto" />
+    </Key>
+    <Property Name="idPresupuesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idNovios" Type="Int32" />
+    <Property Name="idServicioCategoProv" Type="Int32" />
+    <Property Name="costo" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="fechaPago" Type="DateTime" Precision="0" />
+    <Property Name="idStatusPago" Type="Int32" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="observaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="idProductoProveedor" Type="Int32" />
+    <NavigationProperty Name="tblNovios" Relationship="dbInvitacionBodaModel.FK__tblPresup__idNov__147C05D0" FromRole="tblPresupuestos" ToRole="tblNovios" />
+    <NavigationProperty Name="tblProductosProveedores" Relationship="dbInvitacionBodaModel.FK__tblPresup__idPro__1FEDB87C" FromRole="tblPresupuestos" ToRole="tblProductosProveedores" />
+    <NavigationProperty Name="tblServiciosProveedores" Relationship="dbInvitacionBodaModel.FK__tblPresup__idSer__15702A09" FromRole="tblPresupuestos" ToRole="tblServiciosProveedores" />
+    <NavigationProperty Name="tblServiciosCategoriasProvedores" Relationship="dbInvitacionBodaModel.FK__tblPresup__idSer__22CA2527" FromRole="tblPresupuestos" ToRole="tblServiciosCategoriasProvedores" />
+    <NavigationProperty Name="tblStatusPagos" Relationship="dbInvitacionBodaModel.FK__tblPresup__idSta__16644E42" FromRole="tblPresupuestos" ToRole="tblStatusPagos" />
+  </EntityType>
+  <Association Name="FK__tblPresup__idNov__147C05D0">
+    <End Type="dbInvitacionBodaModel.tblNovios" Role="tblNovios" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblPresupuestos" Role="tblPresupuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblNovios">
+        <PropertyRef Name="idNovios" />
+      </Principal>
+      <Dependent Role="tblPresupuestos">
+        <PropertyRef Name="idNovios" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblPresup__idPro__1FEDB87C">
+    <End Type="dbInvitacionBodaModel.tblProductosProveedores" Role="tblProductosProveedores" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblPresupuestos" Role="tblPresupuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProductosProveedores">
+        <PropertyRef Name="idProductoProveedor" />
+      </Principal>
+      <Dependent Role="tblPresupuestos">
+        <PropertyRef Name="idProductoProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblPresup__idSer__15702A09">
+    <End Type="dbInvitacionBodaModel.tblServiciosProveedores" Role="tblServiciosProveedores" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblPresupuestos" Role="tblPresupuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblServiciosProveedores">
+        <PropertyRef Name="idServicioProveedor" />
+      </Principal>
+      <Dependent Role="tblPresupuestos">
+        <PropertyRef Name="idServicioCategoProv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblPresup__idSer__22CA2527">
+    <End Type="dbInvitacionBodaModel.tblServiciosCategoriasProvedores" Role="tblServiciosCategoriasProvedores" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblPresupuestos" Role="tblPresupuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblServiciosCategoriasProvedores">
+        <PropertyRef Name="idServicioCategoProv" />
+      </Principal>
+      <Dependent Role="tblPresupuestos">
+        <PropertyRef Name="idServicioCategoProv" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblPresup__idSta__16644E42">
+    <End Type="dbInvitacionBodaModel.tblStatusPagos" Role="tblStatusPagos" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblPresupuestos" Role="tblPresupuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStatusPagos">
+        <PropertyRef Name="idStatusPago" />
+      </Principal>
+      <Dependent Role="tblPresupuestos">
+        <PropertyRef Name="idStatusPago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblProveedores">
+    <Key>
+      <PropertyRef Name="idProveedor" />
+    </Key>
+    <Property Name="idProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomNegocio" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="idCategoriaProveedor" Type="Int32" />
+    <Property Name="sitioWeb" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="codigoPostal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="pais" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idEstado" Type="Int32" />
+    <Property Name="idMunicipio" Type="Int32" />
+    <Property Name="precioInicial" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="tblCategoriasProveedores" Relationship="dbInvitacionBodaModel.FK__tblProvee__idCat__2022C2A6" FromRole="tblProveedores" ToRole="tblCategoriasProveedores" />
+    <NavigationProperty Name="tblEstados" Relationship="dbInvitacionBodaModel.FK__tblProvee__idEst__2116E6DF" FromRole="tblProveedores" ToRole="tblEstados" />
+    <NavigationProperty Name="tblMensajesProveedores" Relationship="dbInvitacionBodaModel.FK__tblMensaj__idPro__4C0144E4" FromRole="tblProveedores" ToRole="tblMensajesProveedores" />
+    <NavigationProperty Name="tblMunicipios" Relationship="dbInvitacionBodaModel.FK__tblProvee__idMun__23BE4960" FromRole="tblProveedores" ToRole="tblMunicipios" />
+    <NavigationProperty Name="tblProveedoresMunicipios" Relationship="dbInvitacionBodaModel.FK__tblProvee__idPro__2D7CBDC4" FromRole="tblProveedores" ToRole="tblProveedoresMunicipios" />
+    <NavigationProperty Name="tblProveedoresDieteticas" Relationship="dbInvitacionBodaModel.FK__tblProvee__idPro__3429BB53" FromRole="tblProveedores" ToRole="tblProveedoresDieteticas" />
+    <NavigationProperty Name="tblRedesProveedores" Relationship="dbInvitacionBodaModel.FK__tblRedesP__idPro__39E294A9" FromRole="tblProveedores" ToRole="tblRedesProveedores" />
+    <NavigationProperty Name="tblRespuestasProveedores" Relationship="dbInvitacionBodaModel.FK__tblRespue__idPro__4924D839" FromRole="tblProveedores" ToRole="tblRespuestasProveedores" />
+    <NavigationProperty Name="tblSeleccionarOfertas" Relationship="dbInvitacionBodaModel.FK__tblSelecc__idPro__3F9B6DFF" FromRole="tblProveedores" ToRole="tblSeleccionarOfertas" />
+    <NavigationProperty Name="tblServiciosProveedores" Relationship="dbInvitacionBodaModel.FK__tblServic__idPro__26CFC035" FromRole="tblProveedores" ToRole="tblServiciosProveedores" />
+    <Property Name="usuarioID" Type="Int32" />
+    <NavigationProperty Name="tblUsuarios" Relationship="dbInvitacionBodaModel.FK_tblProveedores_tblUsuarios" FromRole="tblProveedores" ToRole="tblUsuarios" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__tblProvee__idCat__2022C2A6">
+    <End Type="dbInvitacionBodaModel.tblCategoriasProveedores" Role="tblCategoriasProveedores" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblProveedores" Role="tblProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblCategoriasProveedores">
+        <PropertyRef Name="idCategoriaProveedor" />
+      </Principal>
+      <Dependent Role="tblProveedores">
+        <PropertyRef Name="idCategoriaProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProvee__idEst__2116E6DF">
+    <End Type="dbInvitacionBodaModel.tblEstados" Role="tblEstados" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblProveedores" Role="tblProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEstados">
+        <PropertyRef Name="idEstado" />
+      </Principal>
+      <Dependent Role="tblProveedores">
+        <PropertyRef Name="idEstado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblMensaj__idPro__4C0144E4">
+    <End Type="dbInvitacionBodaModel.tblProveedores" Role="tblProveedores" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblMensajesProveedores" Role="tblMensajesProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProveedores">
+        <PropertyRef Name="idProveedor" />
+      </Principal>
+      <Dependent Role="tblMensajesProveedores">
+        <PropertyRef Name="idProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProvee__idMun__23BE4960">
+    <End Type="dbInvitacionBodaModel.tblMunicipios" Role="tblMunicipios" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblProveedores" Role="tblProveedores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMunicipios">
+        <PropertyRef Name="idMunicipio" />
+      </Principal>
+      <Dependent Role="tblProveedores">
+        <PropertyRef Name="idMunicipio" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1028,125 +1344,47 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__tblRedesP__idRed__38EE7070">
-    <End Type="dbInvitacionBodaModel.tblRedesSociales" Role="tblRedesSociales" Multiplicity="0..1" />
-    <End Type="dbInvitacionBodaModel.tblRedesProveedores" Role="tblRedesProveedores" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblRedesSociales">
-        <PropertyRef Name="idRedSocial" />
-      </Principal>
-      <Dependent Role="tblRedesProveedores">
-        <PropertyRef Name="idRedSocial" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__tblServic__idSer__27C3E46E">
-    <End Type="dbInvitacionBodaModel.tblServiciosCategoriasProvedores" Role="tblServiciosCategoriasProvedores" Multiplicity="0..1" />
-    <End Type="dbInvitacionBodaModel.tblServiciosProveedores" Role="tblServiciosProveedores" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblServiciosCategoriasProvedores">
-        <PropertyRef Name="idServicioCategoProv" />
-      </Principal>
-      <Dependent Role="tblServiciosProveedores">
-        <PropertyRef Name="idServiciosCategoProv" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="tblEmpresasOrganizadores">
+  <EntityType Name="tblTipoUsuarios">
     <Key>
-      <PropertyRef Name="idEmpresaOrganizador" />
+      <PropertyRef Name="tipoUsuarioID" />
     </Key>
-    <Property Name="idEmpresaOrganizador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="nombreEmpresa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="idEstado" Type="Int32" />
-    <Property Name="idMunicipio" Type="Int32" />
-    <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="paginaWeb" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="tblEstados" Relationship="dbInvitacionBodaModel.FK__tblEmpres__idEst__63D8CE75" FromRole="tblEmpresasOrganizadores" ToRole="tblEstados" />
-    <NavigationProperty Name="tblMunicipios" Relationship="dbInvitacionBodaModel.FK__tblEmpres__idMun__62E4AA3C" FromRole="tblEmpresasOrganizadores" ToRole="tblMunicipios" />
-    <NavigationProperty Name="tblOrganizadoresBodas" Relationship="dbInvitacionBodaModel.FK__tblOrgani__idEmp__66B53B20" FromRole="tblEmpresasOrganizadores" ToRole="tblOrganizadoresBodas" />
+    <Property Name="tipoUsuarioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreTipoUsuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblUsuarios" Relationship="dbInvitacionBodaModel.FK__tblUsuari__tipoU__297722B6" FromRole="tblTipoUsuarios" ToRole="tblUsuarios" />
   </EntityType>
-  <EntityType Name="tblOrganizadoresBodas">
+  <EntityType Name="tblUsuarios">
     <Key>
-      <PropertyRef Name="idOrganizadorBoda" />
+      <PropertyRef Name="usuarioID" />
     </Key>
-    <Property Name="idOrganizadorBoda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="idEmpresaOrganizador" Type="Int32" />
-    <Property Name="nombreOrganizador" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Name="tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="activo" Type="Boolean" />
-    <NavigationProperty Name="tblEmpresasOrganizadores" Relationship="dbInvitacionBodaModel.FK__tblOrgani__idEmp__66B53B20" FromRole="tblOrganizadoresBodas" ToRole="tblEmpresasOrganizadores" />
-    <NavigationProperty Name="tblSeleccionarOrganizadoresBodas" Relationship="dbInvitacionBodaModel.FK__tblSelecc__idOrg__6A85CC04" FromRole="tblOrganizadoresBodas" ToRole="tblSeleccionarOrganizadoresBodas" />
+    <Property Name="usuarioID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="tipoUsuarioID" Type="Int32" />
+    <NavigationProperty Name="tblProveedores" Relationship="dbInvitacionBodaModel.FK_tblProveedores_tblUsuarios" FromRole="tblUsuarios" ToRole="tblProveedores" />
+    <NavigationProperty Name="tblTipoUsuarios" Relationship="dbInvitacionBodaModel.FK__tblUsuari__tipoU__297722B6" FromRole="tblUsuarios" ToRole="tblTipoUsuarios" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="tblSeleccionarOrganizadoresBodas">
-    <Key>
-      <PropertyRef Name="IdSeleccionarOrganizadorBoda" />
-    </Key>
-    <Property Name="IdSeleccionarOrganizadorBoda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="idNovios" Type="Int32" />
-    <Property Name="idOrganizadorBoda" Type="Int32" />
-    <NavigationProperty Name="tblOrganizadoresBodas" Relationship="dbInvitacionBodaModel.FK__tblSelecc__idOrg__6A85CC04" FromRole="tblSeleccionarOrganizadoresBodas" ToRole="tblOrganizadoresBodas" />
-    <NavigationProperty Name="tblNovios" Relationship="dbInvitacionBodaModel.FK__tblSelecc__idNov__6991A7CB" FromRole="tblSeleccionarOrganizadoresBodas" ToRole="tblNovios" />
-  </EntityType>
-  <Association Name="FK__tblEmpres__idEst__63D8CE75">
-    <End Type="dbInvitacionBodaModel.tblEstados" Role="tblEstados" Multiplicity="0..1" />
-    <End Type="dbInvitacionBodaModel.tblEmpresasOrganizadores" Role="tblEmpresasOrganizadores" Multiplicity="*" />
+  <Association Name="FK_tblProveedores_tblUsuarios">
+    <End Type="dbInvitacionBodaModel.tblUsuarios" Role="tblUsuarios" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblProveedores" Role="tblProveedores" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tblEstados">
-        <PropertyRef Name="idEstado" />
+      <Principal Role="tblUsuarios">
+        <PropertyRef Name="usuarioID" />
       </Principal>
-      <Dependent Role="tblEmpresasOrganizadores">
-        <PropertyRef Name="idEstado" />
+      <Dependent Role="tblProveedores">
+        <PropertyRef Name="usuarioID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__tblEmpres__idMun__62E4AA3C">
-    <End Type="dbInvitacionBodaModel.tblMunicipios" Role="tblMunicipios" Multiplicity="0..1" />
-    <End Type="dbInvitacionBodaModel.tblEmpresasOrganizadores" Role="tblEmpresasOrganizadores" Multiplicity="*" />
+  <Association Name="FK__tblUsuari__tipoU__297722B6">
+    <End Type="dbInvitacionBodaModel.tblTipoUsuarios" Role="tblTipoUsuarios" Multiplicity="0..1" />
+    <End Type="dbInvitacionBodaModel.tblUsuarios" Role="tblUsuarios" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tblMunicipios">
-        <PropertyRef Name="idMunicipio" />
+      <Principal Role="tblTipoUsuarios">
+        <PropertyRef Name="tipoUsuarioID" />
       </Principal>
-      <Dependent Role="tblEmpresasOrganizadores">
-        <PropertyRef Name="idMunicipio" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__tblOrgani__idEmp__66B53B20">
-    <End Type="dbInvitacionBodaModel.tblEmpresasOrganizadores" Role="tblEmpresasOrganizadores" Multiplicity="0..1" />
-    <End Type="dbInvitacionBodaModel.tblOrganizadoresBodas" Role="tblOrganizadoresBodas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblEmpresasOrganizadores">
-        <PropertyRef Name="idEmpresaOrganizador" />
-      </Principal>
-      <Dependent Role="tblOrganizadoresBodas">
-        <PropertyRef Name="idEmpresaOrganizador" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__tblSelecc__idOrg__6A85CC04">
-    <End Type="dbInvitacionBodaModel.tblOrganizadoresBodas" Role="tblOrganizadoresBodas" Multiplicity="0..1" />
-    <End Type="dbInvitacionBodaModel.tblSeleccionarOrganizadoresBodas" Role="tblSeleccionarOrganizadoresBodas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblOrganizadoresBodas">
-        <PropertyRef Name="idOrganizadorBoda" />
-      </Principal>
-      <Dependent Role="tblSeleccionarOrganizadoresBodas">
-        <PropertyRef Name="idOrganizadorBoda" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__tblSelecc__idNov__6991A7CB">
-    <End Type="dbInvitacionBodaModel.tblNovios" Role="tblNovios" Multiplicity="0..1" />
-    <End Type="dbInvitacionBodaModel.tblSeleccionarOrganizadoresBodas" Role="tblSeleccionarOrganizadoresBodas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblNovios">
-        <PropertyRef Name="idNovios" />
-      </Principal>
-      <Dependent Role="tblSeleccionarOrganizadoresBodas">
-        <PropertyRef Name="idNovios" />
+      <Dependent Role="tblUsuarios">
+        <PropertyRef Name="tipoUsuarioID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

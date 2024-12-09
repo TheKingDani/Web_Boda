@@ -1,0 +1,96 @@
+﻿@model IAB_MVC_V1.Models.tblPresupuestos
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tblPresupuestos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.costo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaPago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaPago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observaciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observaciones)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblNovios.nombreNovia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblNovios.nombreNovia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblProductosProveedores.nombreProducto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblProductosProveedores.nombreProducto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblServiciosProveedores.idServicioProveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblServiciosProveedores.idServicioProveedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblServiciosCategoriasProvedores.serviciosProveedores)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblServiciosCategoriasProvedores.serviciosProveedores)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblStatusPagos.nomStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblStatusPagos.nomStatus)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
