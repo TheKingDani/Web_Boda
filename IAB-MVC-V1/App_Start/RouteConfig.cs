@@ -13,6 +13,13 @@ namespace IAB_MVC_V1
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Ruta para la búsqueda de lugares
+            routes.MapRoute(
+                name: "BanquetesBoda",
+                url: "BanquetesBoda",
+                defaults: new { controller = "Banquetes", action = "BanquetesBoda" }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

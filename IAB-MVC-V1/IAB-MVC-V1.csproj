@@ -141,6 +141,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BanquetesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\tblAcompanantesController.cs" />
     <Compile Include="Controllers\tblBebidasController.cs" />
@@ -1023,6 +1024,7 @@
     <Content Include="Views\tblTipoUsuarios\Details.cshtml" />
     <Content Include="Views\tblTipoUsuarios\Edit.cshtml" />
     <Content Include="Views\tblTipoUsuarios\Index.cshtml" />
+    <Content Include="Views\Banquetes\BanquetesBoda.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
