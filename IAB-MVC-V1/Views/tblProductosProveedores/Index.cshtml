@@ -4,24 +4,24 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Productos de Proveedores</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear nuevo Producto de Proveedores", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombreProducto)
+            Nombre del Producto
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.precioProducto)
+            Precio del Producto
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.descripcion)
+            Descripción
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tblServiciosProveedores.idServicioProveedor)
+            Servicio
         </th>
         <th></th>
     </tr>
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.tblServiciosProveedores.idServicioProveedor)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idProductoProveedor }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idProductoProveedor }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idProductoProveedor })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idProductoProveedor }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idProductoProveedor }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idProductoProveedor })
         </td>
     </tr>
 }

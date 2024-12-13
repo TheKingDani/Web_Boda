@@ -4,18 +4,18 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Municipios</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo Municipio", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombreMunicipio)
+            Nombre del Municipio
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tblEstados.nombreEstado)
+           Nombre del Estado
         </th>
         <th></th>
     </tr>
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.tblEstados.nombreEstado)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idMunicipio }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idMunicipio }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idMunicipio })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idMunicipio }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idMunicipio }) |
+            @Html.ActionLink("Elimar", "Delete", new { id=item.idMunicipio })
         </td>
     </tr>
 }

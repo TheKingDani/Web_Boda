@@ -8,7 +8,7 @@
 }
 <div class="content" style="margin-left: 0;">
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Regresar a la Lista", "Index")
     </div>
 
 
@@ -23,8 +23,8 @@
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="form-group">
-                @Html.LabelFor(model => model.idRedSocial, "RedSocial", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
+                    <span>Red Social</span>
                     @Html.DropDownList("idRedSocial", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.idRedSocial, "", new { @class = "text-danger" })
                 </div>

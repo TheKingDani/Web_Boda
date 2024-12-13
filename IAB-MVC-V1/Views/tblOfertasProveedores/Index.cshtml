@@ -6,18 +6,18 @@
 
 
 
-<h2>Index</h2>
+<h2>Ofertas Proveedores</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nueva Oferta", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.oferta)
+            Oferta
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.estatus)
+            Estatus
         </th>
         <th></th>
     </tr>
@@ -31,9 +31,9 @@
             @Html.DisplayFor(modelItem => item.estatus)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idOfertaProveedor }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idOfertaProveedor }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idOfertaProveedor })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idOfertaProveedor }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idOfertaProveedor }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idOfertaProveedor })
         </td>
     </tr>
 }
