@@ -4,18 +4,18 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Servicios por Categoria</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo Servicio ", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.serviciosProveedores)
+            Servicio
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tblCategoriasProveedores.nombreCategoria)
+            Nombre de la Categoria
         </th>
         <th></th>
     </tr>
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.tblCategoriasProveedores.nombreCategoria)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idServicioCategoProv }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idServicioCategoProv }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idServicioCategoProv })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idServicioCategoProv }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idServicioCategoProv }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idServicioCategoProv })
         </td>
     </tr>
 }

@@ -37,7 +37,7 @@
 
         <div class="col-lg-12">
             <div class="form-group">
-                @Html.LabelFor(model => model.Mensaje, "Message", htmlAttributes: new { @class = "label-title" })
+                <span>Mensaje</span>
                 <div>
                     @Html.TextAreaFor(model => model.Mensaje, new { @class = "form-control auto-resize", placeholder = "Escribe tu mensaje(máximo 500 caracteres)" })
                     @Html.ValidationMessageFor(model => model.Mensaje, "", new { @class = "text-danger" })
@@ -56,7 +56,7 @@
     }
 
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Regresar a la Lista", "Index")
     </div>
 </div>
 

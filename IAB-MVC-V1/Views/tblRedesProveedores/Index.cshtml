@@ -4,21 +4,21 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Redes Sociales Proveedores</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nueva Red Social del Proveedor", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.link)
+            Link
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tblProveedores.nomNegocio)
+           Nombre del Negocio
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tblRedesSociales.redSocial)
+            Red Social
         </th>
         <th></th>
     </tr>
@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.tblRedesSociales.redSocial)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idRedProveedor }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idRedProveedor }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idRedProveedor })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idRedProveedor }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idRedProveedor }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idRedProveedor })
         </td>
     </tr>
 }

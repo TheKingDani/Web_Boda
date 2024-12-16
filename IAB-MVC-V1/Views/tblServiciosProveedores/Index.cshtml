@@ -4,18 +4,18 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Servicios Proveedores</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo Servicio", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.tblProveedores.nomNegocio)
+            Nombre del Negocio
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tblServiciosCategoriasProvedores.serviciosProveedores)
+            Servicio
         </th>
         <th></th>
     </tr>
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.tblServiciosCategoriasProvedores.serviciosProveedores)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idServicioProveedor }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idServicioProveedor }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idServicioProveedor })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idServicioProveedor }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idServicioProveedor }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idServicioProveedor })
         </td>
     </tr>
 }
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="listing-info">
-                        <h3 class="title"><a href="listing-details.html">Wedding Venue Title Name</a></h3>
+                        <h3 class="title"><a href="listing-details.html">Nombre del título del lugar de la boda</a></h3>
                         <p class="location"><i class="fa fa-map-marker"></i> Ahmedabad, Gujarat.</p>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <div class="listing-info">
-                        <h3 class="title"><a href="listing-details.html">Wedding Venue Title Name</a></h3>
+                        <h3 class="title"><a href="listing-details.html">Nombre del título del lugar de la boda</a></h3>
                         <p class="location"><i class="fa fa-map-marker"></i> Ahmedabad, Gujarat.</p>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                     <div class="listing-info">
-                        <h3 class="title"><a href="listing-details.html">Wedding Venue Title Name</a></h3>
+                        <h3 class="title"><a href="listing-details.html">Nombre del título del lugar de la boda</a></h3>
                         <p class="location"><i class="fa fa-map-marker"></i> Ahmedabad, Gujarat.</p>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                         </div>
                     </div>
                     <div class="listing-info">
-                        <h3 class="title"><a href="listing-details.html">Wedding Venue Title Name</a></h3>
+                        <h3 class="title"><a href="listing-details.html">Nombre del título del lugar de la boda</a></h3>
                         <p class="location"><i class="fa fa-map-marker"></i> Ahmedabad, Gujarat.</p>
                     </div>
                 </div>
@@ -149,7 +149,7 @@
                         </div>
                     </div>
                     <div class="listing-info">
-                        <h3 class="title"><a href="listing-details.html">Wedding Venue Title Name</a></h3>
+                        <h3 class="title"><a href="listing-details.html">Nombre del título del lugar de la boda</a></h3>
                         <p class="location"><i class="fa fa-map-marker"></i> Ahmedabad, Gujarat.</p>
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                         </div>
                     </div>
                     <div class="listing-info">
-                        <h3 class="title"><a href="listing-details.html">Wedding Venue Title Name</a></h3>
+                        <h3 class="title"><a href="listing-details.html">Nombre del título del lugar de la boda</a></h3>
                         <p class="location"><i class="fa fa-map-marker"></i> Ahmedabad, Gujarat.</p>
                     </div>
                 </div>
@@ -178,5 +178,5 @@
         </div>
     </div>
     <div class="category-bottom">
-        <a href="listing-details.html" class="btn radius-sm">Browse more venues</a>
+        <a href="listing-details.html" class="btn radius-sm">Explorar más lugares</a>
     </div>

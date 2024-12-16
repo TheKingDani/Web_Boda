@@ -4,18 +4,18 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Seleccionar Organizadores de Bodas</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Seleccionar un Nuevo Organizador", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.tblOrganizadoresBodas.nombreOrganizador)
+            Nombre del Organizador
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tblNovios.nombreNovia)
+            Nombre de la Novia)
         </th>
         <th></th>
     </tr>
@@ -29,9 +29,9 @@
             @Html.DisplayFor(modelItem => item.tblNovios.nombreNovia)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdSeleccionarOrganizadorBoda }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdSeleccionarOrganizadorBoda }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdSeleccionarOrganizadorBoda })
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdSeleccionarOrganizadorBoda }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.IdSeleccionarOrganizadorBoda }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdSeleccionarOrganizadorBoda })
         </td>
     </tr>
 }

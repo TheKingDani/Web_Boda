@@ -4,39 +4,39 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Presupuesto</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo Presupuesto", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.costo)
+            Costo
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fechaPago)
+            Fecha de Pago
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.descripcion)
+            Descripción
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.observaciones)
+            Observaciones
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tblNovios.nombreNovia)
+           Nombre de la Novia
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tblProductosProveedores.nombreProducto)
+           Nombre del Producto
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tblServiciosProveedores.idServicioProveedor)
+           ID Servicio del Proveedor
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tblServiciosCategoriasProvedores.serviciosProveedores)
+           Servicio del Proveedor
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tblStatusPagos.nomStatus)
+           Estatus del Pago
         </th>
         <th></th>
     </tr>
@@ -71,9 +71,9 @@
             @Html.DisplayFor(modelItem => item.tblStatusPagos.nomStatus)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idPresupuesto }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idPresupuesto }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idPresupuesto })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idPresupuesto }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idPresupuesto }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idPresupuesto })
         </td>
     </tr>
 }
