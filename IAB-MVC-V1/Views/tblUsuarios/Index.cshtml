@@ -1,0 +1,51 @@
+﻿@model IEnumerable<IAB_MVC_V1.Models.tblUsuarios>
+
+@{
+    ViewBag.Title = "Agregar Usuarios";
+}
+
+<h2>Agrega Nuevos Usuarios</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo Usuario", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblTipoUsuarios.nombreTipoUsuario)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblTipoUsuarios.nombreTipoUsuario)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.usuarioID }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.usuarioID }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.usuarioID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -191,7 +191,7 @@
                                         </div>
                                         <div class="featured-info">
                                             <h5 class="title"><a href="wedding-venues-search.html">Banquetes de boda</a></h5>
-                                            <a href="@Url.Action("BanquetesBoda", "Banquetes")" class="btn gradient btn-sm">Búsqueda</a>
+                                           <<a href="@Url.Action("BanquetesBoda", "Banquetes")" class="btn gradient btn-sm">Búsqueda</a>
                                         </div>
                                     </div>
                                 </div>
@@ -833,7 +833,8 @@
                             </div>
                         </div>
                         <div class="modal-footer text-center">
-                            <button type="button" class="btn gradient" data-toggle="tooltip" data-placement="top" onclick="GoToStep('ProfileStep9')" title="¡Felicitaciones! Incluso sus nombres quedan geniales juntos.">Confirmar</button>
+                            <button type="button" class="btn gradient" id="confirmButton" data-toggle="tooltip" data-placement="top" 
+                                    onclick="GoToStep('ProfileStep9')" title="¡Felicitaciones! Incluso sus nombres quedan geniales juntos.">Confirmar</button>
                         </div>
                     </form>
                     <div class="modal-content start-here" id="ProfileStep9">
@@ -1082,6 +1083,8 @@
 
 
     </script>
+
+   
 </body>
 </html>
 

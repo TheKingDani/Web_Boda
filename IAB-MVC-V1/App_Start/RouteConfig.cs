@@ -13,12 +13,27 @@ namespace IAB_MVC_V1
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            // Ruta para la búsqueda de lugares
+            
+            //Ruta para la búsqueda de lugares
             routes.MapRoute(
                 name: "BanquetesBoda",
                 url: "BanquetesBoda",
                 defaults: new { controller = "Banquetes", action = "BanquetesBoda" }
             );
+
+            //Ruta para login
+            routes.MapRoute(
+            name: "Login",
+            url: "Login",
+            defaults: new { controller = "Login", action = "LoginUser" }
+           );
+
+            //Ruta Inicio Principal
+            routes.MapRoute(
+                name:"DashboardInicio",
+                url: "Inicio",
+                defaults: new { controller="Dashboardinicio", action="Inicio"}
+                );
 
             routes.MapRoute(
                 name: "Default",

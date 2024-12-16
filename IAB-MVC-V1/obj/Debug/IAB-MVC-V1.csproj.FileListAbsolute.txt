@@ -786,8 +786,8 @@ C:\Users\iris\Documents\GitHub\Web_Boda\IAB-MVC-V1\bin\es\System.Web.WebPages.Ra
 C:\Users\iris\Documents\GitHub\Web_Boda\IAB-MVC-V1\bin\es\System.Net.Http.Formatting.resources.dll
 C:\Users\iris\Documents\GitHub\Web_Boda\IAB-MVC-V1\bin\es\System.Web.Http.resources.dll
 C:\Users\iris\Documents\GitHub\Web_Boda\IAB-MVC-V1\bin\es\System.Web.Http.WebHost.resources.dll
-C:\Users\iris\Documents\GitHub\Web_Boda\IAB-MVC-V1\obj\Debug\IAB-MVC-V1.csproj.AssemblyReference.cache
 C:\Users\iris\Documents\GitHub\Web_Boda\IAB-MVC-V1\obj\Debug\IAB-MVC-V1.csproj.CoreCompileInputs.cache
 C:\Users\iris\Documents\GitHub\Web_Boda\IAB-MVC-V1\obj\Debug\IAB-MVC-V1.csproj.CopyComplete
 C:\Users\iris\Documents\GitHub\Web_Boda\IAB-MVC-V1\obj\Debug\IAB-MVC-V1.dll
 C:\Users\iris\Documents\GitHub\Web_Boda\IAB-MVC-V1\obj\Debug\IAB-MVC-V1.pdb
+C:\Users\iris\Documents\GitHub\Web_Boda\IAB-MVC-V1\obj\Debug\IAB-MVC-V1.csproj.AssemblyReference.cache
