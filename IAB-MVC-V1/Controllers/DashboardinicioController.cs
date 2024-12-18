@@ -11,6 +11,7 @@ namespace IAB_MVC_V1.Controllers
         // GET: Dashboardinicio
         public ActionResult Inicio()
         {
+            ViewBag.BodyClass = "inicio-page";
             ViewBag.Message = "Bienvenido al Dashboard de Incio";
             return View();
         }

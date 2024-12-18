@@ -30,16 +30,16 @@ namespace IAB_MVC_V1
 
             //Ruta Inicio Principal
             routes.MapRoute(
-                name:"DashboardInicio",
-                url: "Inicio",
-                defaults: new { controller="Dashboardinicio", action="Inicio"}
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Dashboardinicio", action = "Inicio", id = UrlParameter.Optional }
                 );
 
-            routes.MapRoute(
+            /*routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            );*/
         }
     }
 }
