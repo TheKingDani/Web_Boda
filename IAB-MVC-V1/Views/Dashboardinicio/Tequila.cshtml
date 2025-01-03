@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Lugar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .place-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .place-info {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+            .place-info h1 {
+                margin: 0;
+                font-size: 2rem;
+                color: #333;
+            }
+
+            .place-info p {
+                margin: 10px 0;
+                color: #555;
+                margin-top: 10px;
+            }
+
+        .carousel-inner {
+            position: relative;
+        }
+
+        .carousel img {
+            width: 50%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+            .carousel-item.active {
+                position: relative;
+                opacity: 1;
+            }
+
+        .rating {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+            .rating i {
+                font-size: 1.5rem;
+                color: #ffd700;
+                cursor: pointer;
+                transition: color 0.3s ease;
+            }
+
+                .rating i:hover,
+                .rating i.selected {
+                    color: #ffc107;
+                }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tequila Rancho</h1>
+        <p>Un hermoso lugar donde puedes disfrutar de paisajes únicos, excelente comida y experiencias inolvidables.</p>
+
+        <h2>Galería de fotos</h2>
+        <div id="photoCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="~/Content/images/zopopan1.jpeg" class="d-block w-100" alt="Foto 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/Content/images/zopopan2.jpg" class="d-block w-100" alt="Foto 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/Content/images/zopopan3.jpeg" class="d-block w-100" alt="Foto 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/Content/images/zopopan4.jpg" class="d-block w-100" alt="Foto 4">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <h2>Calificar este lugar</h2>
+        <div class="rating" id="rating">
+            <i class="fas fa-star" data-value="1"></i>
+            <i class="fas fa-star" data-value="2"></i>
+            <i class="fas fa-star" data-value="3"></i>
+            <i class="fas fa-star" data-value="4"></i>
+            <i class="fas fa-star" data-value="5"></i>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Terrazas</h1>
+        <p>Un hermoso lugar donde puedes disfrutar de paisajes únicos, excelente comida y experiencias inolvidables.</p>
+
+        <h2>Galería de fotos</h2>
+        <div id="photoCarouse2" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="~/Content/images/zopopan1.jpeg" class="d-block w-100" alt="Foto 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/Content/images/zopopan2.jpg" class="d-block w-100" alt="Foto 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/Content/images/zopopan3.jpeg" class="d-block w-100" alt="Foto 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/Content/images/zopopan4.jpg" class="d-block w-100" alt="Foto 4">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#photoCarouse2" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#photoCarouse2" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <h2>Calificar este lugar</h2>
+        <div class="rating" id="rating">
+            <i class="fas fa-star" data-value="1"></i>
+            <i class="fas fa-star" data-value="2"></i>
+            <i class="fas fa-star" data-value="3"></i>
+            <i class="fas fa-star" data-value="4"></i>
+            <i class="fas fa-star" data-value="5"></i>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const stars = document.querySelectorAll('.rating i');
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                stars.forEach(s => s.classList.remove('selected'));
+                star.classList.add('selected');
+                const ratingValue = star.getAttribute('data-value');
+                alert(`Gracias por calificar con ${ratingValue} estrella(s)!`);
+            });
+        });
+    </script>
+</body>
+</html>

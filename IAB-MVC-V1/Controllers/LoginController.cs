@@ -43,6 +43,10 @@ namespace IAB_MVC_V1.Controllers
                 return View("Login", model);
             }
 
+            // Establece la sesión del usuario
+            Session["TipoUsuario"] = usuario.tipoUsuarioID; 
+            Session["EmailUsuario"] = usuario.email;
+
             // Redirección según el tipo de usuario
             switch (usuario.tipoUsuarioID)
             {
@@ -60,8 +64,8 @@ namespace IAB_MVC_V1.Controllers
                         case "Home":
                             return RedirectToAction("Index", "Home");
                         case "Novios":
-                            return RedirectToAction("Index","tblBioNovios");
-                            default:
+                            return RedirectToAction("Index", "tblBioNovios");
+                        default:
                             return RedirectToAction("Index", "Home");
                     }
 
@@ -71,7 +75,14 @@ namespace IAB_MVC_V1.Controllers
                 default: // Acceso denegado
                     return RedirectToAction("AccesoNegado", "Error");
             }
-
         }
+        
     }
-}
+    }
+
+
+
+        
+
+    
+    
