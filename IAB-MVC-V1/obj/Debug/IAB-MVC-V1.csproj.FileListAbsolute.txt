@@ -896,3 +896,10 @@ C:\Users\iris\Documents\GitHub\2\IAB-MVC-V1\obj\Debug\IAB-MVC-V1.csproj.CoreComp
 C:\Users\iris\Documents\GitHub\2\IAB-MVC-V1\obj\Debug\IAB-MVC-V1.csproj.CopyComplete
 C:\Users\iris\Documents\GitHub\2\IAB-MVC-V1\obj\Debug\IAB-MVC-V1.dll
 C:\Users\iris\Documents\GitHub\2\IAB-MVC-V1\obj\Debug\IAB-MVC-V1.pdb
+C:\Users\Apocalypse\Documents\IAB-MVC-V1\IAB-MVC-V1\IAB-MVC-V1\bin\Microsoft.Owin.dll
+C:\Users\Apocalypse\Documents\IAB-MVC-V1\IAB-MVC-V1\IAB-MVC-V1\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Apocalypse\Documents\IAB-MVC-V1\IAB-MVC-V1\IAB-MVC-V1\bin\Microsoft.Owin.Security.dll
+C:\Users\Apocalypse\Documents\IAB-MVC-V1\IAB-MVC-V1\IAB-MVC-V1\bin\Owin.dll
+C:\Users\Apocalypse\Documents\IAB-MVC-V1\IAB-MVC-V1\IAB-MVC-V1\bin\Microsoft.Owin.xml
+C:\Users\Apocalypse\Documents\IAB-MVC-V1\IAB-MVC-V1\IAB-MVC-V1\bin\Microsoft.Owin.Security.xml
+C:\Users\Apocalypse\Documents\IAB-MVC-V1\IAB-MVC-V1\IAB-MVC-V1\bin\Microsoft.Owin.Security.Cookies.xml

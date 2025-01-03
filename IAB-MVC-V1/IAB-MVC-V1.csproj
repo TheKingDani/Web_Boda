@@ -156,6 +156,7 @@
     <Compile Include="Controllers\BanquetesController.cs" />
     <Compile Include="Controllers\DashboardinicioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IActionResult.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\tblAcompanantesController.cs" />
     <Compile Include="Controllers\tblBebidasController.cs" />
@@ -601,6 +602,10 @@
     <Content Include="Content\images\wedding-suppliers\pic7.jpg" />
     <Content Include="Content\images\wedding-suppliers\pic8.jpg" />
     <Content Include="Content\images\wedding-suppliers\pic9.jpg" />
+    <Content Include="Content\images\zopopan1.jpeg" />
+    <Content Include="Content\images\zopopan2.jpg" />
+    <Content Include="Content\images\zopopan3.jpeg" />
+    <Content Include="Content\images\zopopan4.jpg" />
     <Content Include="Content\js\combining.js" />
     <Content Include="Content\js\custom.js" />
     <Content Include="Content\js\custom.min.js" />
@@ -1059,6 +1064,35 @@
     <Content Include="Views\tblUsuarios\Edit.cshtml" />
     <Content Include="Views\tblUsuarios\Index.cshtml" />
     <Content Include="Views\Dashboardinicio\Inicio.cshtml" />
+    <Content Include="Views\Dashboardinicio\Zopopan.cshtml" />
+    <Content Include="Views\Dashboardinicio\Tonala.cshtml" />
+    <Content Include="Views\Dashboardinicio\Tlaquepaque.cshtml" />
+    <Content Include="Views\Dashboardinicio\Tequila.cshtml" />
+    <Content Include="Views\Dashboardinicio\Guadalajara.cshtml" />
+    <Content Include="Views\Dashboardinicio\Tlajomulco.cshtml" />
+    <Content Include="Views\Dashboardinicio\Fotografos.cshtml" />
+    <Content Include="Views\Dashboardinicio\Invitaciones.cshtml" />
+    <Content Include="Views\Dashboardinicio\Musica.cshtml" />
+    <Content Include="Views\Dashboardinicio\MesadeRegalos.cshtml" />
+    <Content Include="Views\Dashboardinicio\PastelDeBodas.cshtml" />
+    <Content Include="Views\Dashboardinicio\RentaDeSillas.cshtml" />
+    <Content Include="Views\Dashboardinicio\RecuerdosDeBodas.cshtml" />
+    <Content Include="Views\Dashboardinicio\VideoBodas.cshtml" />
+    <Content Include="Views\Dashboardinicio\CarpaBodas.cshtml" />
+    <Content Include="Views\Dashboardinicio\MesaDulces.cshtml" />
+    <Content Include="Views\Dashboardinicio\LunaMiel.cshtml" />
+    <Content Include="Views\Dashboardinicio\Banquete.cshtml" />
+    <Content Include="Views\Dashboardinicio\VestidoNovia.cshtml" />
+    <Content Include="Views\Dashboardinicio\CompletosNovias.cshtml" />
+    <Content Include="Views\Dashboardinicio\Joyerias.cshtml" />
+    <Content Include="Views\Dashboardinicio\SalonesBelleza.cshtml" />
+    <Content Include="Views\Dashboardinicio\VestidosFiestas.cshtml" />
+    <Content Include="Views\Dashboardinicio\ConceptoPlanificacion.cshtml" />
+    <Content Include="Views\Dashboardinicio\CeremoniaBoda.cshtml" />
+    <Content Include="Views\Dashboardinicio\RecepcionBoda.cshtml" />
+    <Content Include="Views\Dashboardinicio\ServicioBoda.cshtml" />
+    <Content Include="Views\Dashboardinicio\ModaBoda.cshtml" />
+    <Content Include="Views\Dashboardinicio\EventosFiestas.cshtml" />
     <None Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
